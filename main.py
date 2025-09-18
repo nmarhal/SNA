@@ -1,8 +1,6 @@
-# This is a sample Python script.
+import pandas as pd
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
+import model.computeMetrics as computeMetrics
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
