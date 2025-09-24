@@ -68,11 +68,9 @@ Sokka,Kuei,12
 Aang,Jet,12
 Ty Lee,Mai,12
 Chong,Sokka,12
-Li,Lo,12
 Sokka,Piandao,12
 Katara,Hama,11
 Mai,Ty Lee,11
-Lo,Li,11
 Fong,Aang,11
 Piandao,Sokka,11
 Toph,Iroh,11
@@ -133,7 +131,6 @@ Teo,Mechanist,6
 Azula,Chan,6
 Sokka,Zhang leader,6
 Azula,Ozai,6
-Azula,Li,6
 Sokka,Joo Dee,6
 Long Feng,Azula,6
 Kuei,Long Feng,6
@@ -144,7 +141,6 @@ Wu,Aang,6
 Iroh,Jet,6
 Iroh,Jee,6
 Aang,Mother Superior,6
-Li,Li,6
 Aang,Yue,6
 Long Feng,Sokka,6
 Mai,Azula,6
@@ -171,7 +167,6 @@ Due,Tho,5
 Earthbender captain,Iroh,5
 Chit Sang,Zuko,5
 Lee,Zuko,5
-Lo,Lo,5
 Katara,Shyu,5
 Tyro,Katara,5
 Mother Superior,Aang,5
@@ -290,14 +285,10 @@ Iroh,Young Zuko,3
 Jee,Iroh,3
 Jee,Zuko,3
 Aang,Music teacher,3
-Aang,Oh,3
 Aang,Pirate captain,3
 Aang,Senlin Village leader,3
 Young Zuko,Iroh,3
-Azula,Lo,3
 Azula,Shuzumu,3
-Li,Azula,3
-Lo,Azula,3
 Long Feng,Katara,3
 Long Feng,Kuei,3
 Sokka,Iroh,3
@@ -519,7 +510,6 @@ Aang,Kanna,2
 Haru,Teo,2
 Haru,Haru's mother,2
 Zuko,Ruon-Jian,2
-Zuko,Oh,2
 Aang,General How,2
 Aang,Baboon spirit,1
 Aang,Gan Jin man,1
@@ -560,7 +550,6 @@ Old Sweepy,Katara,1
 Pong,Katara,1
 Poi,Wu,1
 Pirate captain,Sokka,1
-Pirate captain,Oh,1
 Pirate captain,Iroh,1
 Pipsqueak,The Duke,1
 Pipsqueak,Aang,1
@@ -593,10 +582,6 @@ Senlin Village leader,Katara,1
 Sela,Zuko,1
 Sela,Gansu,1
 Scary prisoner,Aang,1
-Oh,Sokka,1
-Oh,Katara,1
-Oh,Iroh,1
-Oh,Aang,1
 Music teacher,Shoji,1
 Sokka,Actress Katara,1
 Michi,Ukano,1
@@ -615,11 +600,8 @@ Blue dragon,Zuko,1
 Blue dragon,Red dragon,1
 Long Feng,Jet,1
 Long Feng,Dai Li agent,1
-Lo,Ty Lee,1
 Lin Yee,Chey,1
 Lily,Sokka,1
-Li,Zhao,1
-Li,Mai,1
 Lee,Gansu,1
 Azula,Ukano,1
 Azula,Suki,1
@@ -652,12 +634,10 @@ Sokka,Tong,1
 Sokka,Tho,1
 Sokka,Than,1
 Sokka,Ping,1
-Sokka,Oh,1
 Sokka,Moku,1
 Sokka,Meng,1
 Sokka,Man with Red Shoes,1
 Dai Li agent,Long Feng,1
-Dai Li agent,How,1
 Chong,Lily,1
 Kuei,Azula,1
 Fire Navy officer,Hakoda,1
@@ -721,7 +701,6 @@ General How,Katara,1
 Gansu,Zuko,1
 Gansu,Earth Kingdom soldier,1
 Gan Jin tribesman,Canyon guide,1
-Katara,Oh,1
 Katara,Moku,1
 Katara,Malu,1
 Katara,Lao,1
@@ -822,7 +801,6 @@ Aang,Fire Nation man,1
 Aang,Hama,1
 Zhao,Shyu,1
 Zhao,Pirate captain,1
-Zhao,Li,1
 Zhao,Katara,1
 Zhang leader,Canyon guide,1
 Zei,Wan Shi Tong,1
