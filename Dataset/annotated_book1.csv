@@ -1,0 +1,685 @@
+Source,Target,weight,book,Household
+Addam-Marbrand,Jaime-Lannister,3,1,Marbrand
+Addam-Marbrand,Tywin-Lannister,6,1,Marbrand
+Aegon-I-Targaryen,Daenerys-Targaryen,5,1,Targaryen
+Aegon-I-Targaryen,Eddard-Stark,4,1,Targaryen
+Aemon-Targaryen-(Maester-Aemon),Alliser-Thorne,4,1,Night's Watch
+Aemon-Targaryen-(Maester-Aemon),Bowen-Marsh,4,1,Night's Watch
+Aemon-Targaryen-(Maester-Aemon),Chett,9,1,Night's Watch
+Aemon-Targaryen-(Maester-Aemon),Clydas,5,1,Night's Watch
+Aemon-Targaryen-(Maester-Aemon),Jeor-Mormont,13,1,Night's Watch
+Aemon-Targaryen-(Maester-Aemon),Jon-Snow,34,1,Night's Watch
+Aemon-Targaryen-(Maester-Aemon),Samwell-Tarly,5,1,Night's Watch
+Aerys-II-Targaryen,Brandon-Stark,4,1,Targaryen
+Aerys-II-Targaryen,Eddard-Stark,10,1,Targaryen
+Aerys-II-Targaryen,Gerold-Hightower,3,1,Targaryen
+Aerys-II-Targaryen,Jaime-Lannister,5,1,Targaryen
+Aerys-II-Targaryen,Jon-Arryn,3,1,Targaryen
+Aerys-II-Targaryen,Robert-Baratheon,12,1,Targaryen
+Aggo,Daenerys-Targaryen,11,1,Dothraki khalasar
+Aggo,Drogo,6,1,Dothraki khalasar
+Aggo,Jhogo,4,1,Dothraki khalasar
+Aggo,Jorah-Mormont,5,1,Dothraki khalasar
+Aggo,Quaro,3,1,Dothraki khalasar
+Aggo,Rakharo,7,1,Dothraki khalasar
+Albett,Halder,3,1,Night's Watch
+Albett,Jon-Snow,5,1,Night's Watch
+Albett,Rast,3,1,Night's Watch
+Alliser-Thorne,Bowen-Marsh,3,1,Night's Watch
+Alliser-Thorne,Grenn,3,1,Night's Watch
+Alliser-Thorne,Halder,4,1,Night's Watch
+Alliser-Thorne,Jeor-Mormont,10,1,Night's Watch
+Alliser-Thorne,Jon-Snow,32,1,Night's Watch
+Alliser-Thorne,Pypar,4,1,Night's Watch
+Alliser-Thorne,Rast,5,1,Night's Watch
+Alliser-Thorne,Samwell-Tarly,8,1,Night's Watch
+Alliser-Thorne,Tyrion-Lannister,7,1,Night's Watch
+Alyn,Eddard-Stark,11,1,Stark
+Alyn,Harwin,6,1,Stark
+Alyn,Jory-Cassel,8,1,Stark
+Alyn,Robert-Baratheon,4,1,Stark
+Alyn,Tomard,3,1,Stark
+Arthur-Dayne,Gerold-Hightower,4,1,Targaryen
+Arya-Stark,Benjen-Stark,3,1,Stark
+Arya-Stark,Bran-Stark,14,1,Stark
+Arya-Stark,Catelyn-Stark,5,1,Stark
+Arya-Stark,Cersei-Lannister,12,1,Stark
+Arya-Stark,Desmond,3,1,Stark
+Arya-Stark,Eddard-Stark,30,1,Stark
+Arya-Stark,Ilyn-Payne,5,1,Stark
+Arya-Stark,Jeyne-Poole,10,1,Stark
+Arya-Stark,Joffrey-Baratheon,39,1,Stark
+Arya-Stark,Jon-Snow,37,1,Stark
+Arya-Stark,Jory-Cassel,12,1,Stark
+Arya-Stark,Meryn-Trant,4,1,Stark
+Arya-Stark,Mordane,39,1,Stark
+Arya-Stark,Mycah,18,1,Stark
+Arya-Stark,Myrcella-Baratheon,13,1,Stark
+Arya-Stark,Petyr-Baelish,3,1,Stark
+Arya-Stark,Rickon-Stark,7,1,Stark
+Arya-Stark,Robb-Stark,15,1,Stark
+Arya-Stark,Robert-Baratheon,8,1,Stark
+Arya-Stark,Rodrik-Cassel,3,1,Stark
+Arya-Stark,Sandor-Clegane,7,1,Stark
+Arya-Stark,Sansa-Stark,104,1,Stark
+Arya-Stark,Syrio-Forel,20,1,Stark
+Arya-Stark,Tomard,6,1,Stark
+Arya-Stark,Tommen-Baratheon,5,1,Stark
+Arya-Stark,Vayon-Poole,4,1,Stark
+Arya-Stark,Yoren,4,1,Stark
+Arys-Oakheart,Cersei-Lannister,3,1,Royal Kingsguard
+Balon-Greyjoy,Eddard-Stark,3,1,Greyjoy
+Balon-Greyjoy,Robert-Baratheon,4,1,Greyjoy
+Balon-Swann,Renly-Baratheon,3,1,Swann
+Balon-Swann,Sandor-Clegane,3,1,Swann
+Barristan-Selmy,Boros-Blount,3,1,Royal Kingsguard
+Barristan-Selmy,Cersei-Lannister,12,1,Royal Kingsguard
+Barristan-Selmy,Eddard-Stark,28,1,Royal Kingsguard
+Barristan-Selmy,Jaime-Lannister,4,1,Royal Kingsguard
+Barristan-Selmy,Joffrey-Baratheon,6,1,Royal Kingsguard
+Barristan-Selmy,Jon-Arryn,4,1,Royal Kingsguard
+Barristan-Selmy,Meryn-Trant,3,1,Royal Kingsguard
+Barristan-Selmy,Petyr-Baelish,7,1,Royal Kingsguard
+Barristan-Selmy,Pycelle,8,1,Royal Kingsguard
+Barristan-Selmy,Renly-Baratheon,13,1,Royal Kingsguard
+Barristan-Selmy,Robert-Baratheon,40,1,Royal Kingsguard
+Barristan-Selmy,Sandor-Clegane,3,1,Royal Kingsguard
+Barristan-Selmy,Sansa-Stark,3,1,Royal Kingsguard
+Barristan-Selmy,Varys,9,1,Royal Kingsguard
+Benjen-Stark,Bran-Stark,6,1,Night's Watch
+Benjen-Stark,Cersei-Lannister,3,1,Night's Watch
+Benjen-Stark,Jaremy-Rykker,3,1,Night's Watch
+Benjen-Stark,Jeor-Mormont,9,1,Night's Watch
+Benjen-Stark,Jon-Snow,41,1,Night's Watch
+Benjen-Stark,Luwin,7,1,Night's Watch
+Benjen-Stark,Mance-Rayder,3,1,Night's Watch
+Benjen-Stark,Robb-Stark,7,1,Night's Watch
+Benjen-Stark,Robert-Baratheon,3,1,Night's Watch
+Benjen-Stark,Theon-Greyjoy,4,1,Night's Watch
+Benjen-Stark,Tyrion-Lannister,8,1,Night's Watch
+Benjen-Stark,Waymar-Royce,3,1,Night's Watch
+Benjen-Stark,Yoren,4,1,Night's Watch
+Beric-Dondarrion,Eddard-Stark,3,1,Dondarrion
+Beric-Dondarrion,Gregor-Clegane,6,1,Dondarrion
+Beric-Dondarrion,Loras-Tyrell,5,1,Dondarrion
+Beric-Dondarrion,Robert-Baratheon,5,1,Dondarrion
+Beric-Dondarrion,Sansa-Stark,4,1,Dondarrion
+Beric-Dondarrion,Thoros-of-Myr,5,1,Dondarrion
+Boros-Blount,Cersei-Lannister,9,1,Royal Kingsguard
+Boros-Blount,Joffrey-Baratheon,3,1,Royal Kingsguard
+Boros-Blount,Meryn-Trant,5,1,Royal Kingsguard
+Boros-Blount,Sansa-Stark,6,1,Royal Kingsguard
+Bowen-Marsh,Jeor-Mormont,8,1,Night's Watch
+Bowen-Marsh,Jon-Snow,10,1,Night's Watch
+Bowen-Marsh,Samwell-Tarly,3,1,Night's Watch
+Bran-Stark,Catelyn-Stark,18,1,Stark
+Bran-Stark,Cersei-Lannister,6,1,Stark
+Bran-Stark,Eddard-Stark,19,1,Stark
+Bran-Stark,Hali,3,1,Stark
+Bran-Stark,Hallis-Mollen,3,1,Stark
+Bran-Stark,Hodor,29,1,Stark
+Bran-Stark,Hullen,3,1,Stark
+Bran-Stark,Jeor-Mormont,4,1,Stark
+Bran-Stark,Joffrey-Baratheon,3,1,Stark
+Bran-Stark,Jon-Arryn,7,1,Stark
+Bran-Stark,Jon-Snow,56,1,Stark
+Bran-Stark,Jory-Cassel,11,1,Stark
+Bran-Stark,Joseth,4,1,Stark
+Bran-Stark,Luwin,65,1,Stark
+Bran-Stark,Nan,17,1,Stark
+Bran-Stark,Osha,12,1,Stark
+Bran-Stark,Petyr-Baelish,3,1,Stark
+Bran-Stark,Renly-Baratheon,3,1,Stark
+Bran-Stark,Rickard-Karstark,4,1,Stark
+Bran-Stark,Rickard-Stark,4,1,Stark
+Bran-Stark,Rickon-Stark,32,1,Stark
+Bran-Stark,Robb-Stark,112,1,Stark
+Bran-Stark,Robert-Baratheon,11,1,Stark
+Bran-Stark,Rodrik-Cassel,6,1,Stark
+Bran-Stark,Sansa-Stark,10,1,Stark
+Bran-Stark,Stiv,4,1,Stark
+Bran-Stark,Theon-Greyjoy,23,1,Stark
+Bran-Stark,Tommen-Baratheon,5,1,Stark
+Bran-Stark,Tyrion-Lannister,31,1,Stark
+Bran-Stark,Yoren,3,1,Stark
+Brandon-Stark,Eddard-Stark,11,1,Stark
+Brandon-Stark,Lyanna-Stark,4,1,Stark
+Brandon-Stark,Petyr-Baelish,14,1,Stark
+Brandon-Stark,Rickard-Stark,3,1,Stark
+Brandon-Stark,Robert-Baratheon,5,1,Stark
+Bronn,Catelyn-Stark,6,1,Lannister
+Bronn,Chiggen,8,1,Lannister
+Bronn,Marillion,4,1,Lannister
+Bronn,Rodrik-Cassel,4,1,Lannister
+Bronn,Shae,3,1,Lannister
+Bronn,Shagga,3,1,Lannister
+Bronn,Tyrion-Lannister,61,1,Lannister
+Bronn,Tywin-Lannister,4,1,Lannister
+Bronn,Vardis-Egen,11,1,Lannister
+Bronn,Willis-Wode,5,1,Lannister
+Brynden-Tully,Catelyn-Stark,16,1,Tully
+Brynden-Tully,Edmure-Tully,3,1,Tully
+Brynden-Tully,Hoster-Tully,5,1,Tully
+Brynden-Tully,Jaime-Lannister,7,1,Tully
+Brynden-Tully,Lysa-Arryn,10,1,Tully
+Brynden-Tully,Nestor-Royce,3,1,Tully
+Brynden-Tully,Robb-Stark,9,1,Tully
+Brynden-Tully,Theon-Greyjoy,6,1,Tully
+Brynden-Tully,Tyrion-Lannister,4,1,Tully
+Brynden-Tully,Tywin-Lannister,3,1,Tully
+Brynden-Tully,Walder-Frey,3,1,Tully
+Catelyn-Stark,Cersei-Lannister,12,1,Stark
+Catelyn-Stark,Colemon,3,1,Stark
+Catelyn-Stark,Donnel-Waynwood,3,1,Stark
+Catelyn-Stark,Eddard-Stark,64,1,Stark
+Catelyn-Stark,Edmure-Tully,7,1,Stark
+Catelyn-Stark,Eon-Hunter,3,1,Stark
+Catelyn-Stark,Hallis-Mollen,10,1,Stark
+Catelyn-Stark,Hoster-Tully,6,1,Stark
+Catelyn-Stark,Jaime-Lannister,9,1,Stark
+Catelyn-Stark,Joffrey-Baratheon,4,1,Stark
+Catelyn-Stark,Jon-Arryn,11,1,Stark
+Catelyn-Stark,Jon-Snow,14,1,Stark
+Catelyn-Stark,Jon-Umber-(Greatjon),4,1,Stark
+Catelyn-Stark,Luwin,14,1,Stark
+Catelyn-Stark,Lysa-Arryn,33,1,Stark
+Catelyn-Stark,Marillion,6,1,Stark
+Catelyn-Stark,Masha-Heddle,5,1,Stark
+Catelyn-Stark,Moreo-Tumitis,3,1,Stark
+Catelyn-Stark,Mya-Stone,9,1,Stark
+Catelyn-Stark,Mychel-Redfort,3,1,Stark
+Catelyn-Stark,Nestor-Royce,3,1,Stark
+Catelyn-Stark,Petyr-Baelish,22,1,Stark
+Catelyn-Stark,Rickard-Karstark,6,1,Stark
+Catelyn-Stark,Rickon-Stark,3,1,Stark
+Catelyn-Stark,Robb-Stark,49,1,Stark
+Catelyn-Stark,Robert-Arryn,3,1,Stark
+Catelyn-Stark,Robert-Baratheon,22,1,Stark
+Catelyn-Stark,Rodrik-Cassel,25,1,Stark
+Catelyn-Stark,Sansa-Stark,9,1,Stark
+Catelyn-Stark,Stevron-Frey,5,1,Stark
+Catelyn-Stark,Theon-Greyjoy,9,1,Stark
+Catelyn-Stark,Tyrion-Lannister,49,1,Stark
+Catelyn-Stark,Tytos-Blackwood,4,1,Stark
+Catelyn-Stark,Tywin-Lannister,7,1,Stark
+Catelyn-Stark,Vardis-Egen,5,1,Stark
+Catelyn-Stark,Varys,10,1,Stark
+Catelyn-Stark,Walder-Frey,13,1,Stark
+Catelyn-Stark,Wendel-Manderly,3,1,Stark
+Catelyn-Stark,Willis-Wode,5,1,Stark
+Cayn,Eddard-Stark,7,1,Stark
+Cayn,Renly-Baratheon,3,1,Stark
+Cayn,Tomard,6,1,Stark
+Cersei-Lannister,Eddard-Stark,69,1,Lannister
+Cersei-Lannister,Ilyn-Payne,4,1,Lannister
+Cersei-Lannister,Jaime-Lannister,16,1,Lannister
+Cersei-Lannister,Janos-Slynt,4,1,Lannister
+Cersei-Lannister,Joffrey-Baratheon,42,1,Lannister
+Cersei-Lannister,Jon-Arryn,7,1,Lannister
+Cersei-Lannister,Jon-Snow,4,1,Lannister
+Cersei-Lannister,Jory-Cassel,5,1,Lannister
+Cersei-Lannister,Meryn-Trant,4,1,Lannister
+Cersei-Lannister,Mordane,3,1,Lannister
+Cersei-Lannister,Myrcella-Baratheon,7,1,Lannister
+Cersei-Lannister,Petyr-Baelish,13,1,Lannister
+Cersei-Lannister,Pycelle,9,1,Lannister
+Cersei-Lannister,Renly-Baratheon,5,1,Lannister
+Cersei-Lannister,Robert-Baratheon,72,1,Lannister
+Cersei-Lannister,Sandor-Clegane,5,1,Lannister
+Cersei-Lannister,Sansa-Stark,29,1,Lannister
+Cersei-Lannister,Stannis-Baratheon,5,1,Lannister
+Cersei-Lannister,Tommen-Baratheon,4,1,Lannister
+Cersei-Lannister,Tyrion-Lannister,27,1,Lannister
+Cersei-Lannister,Tywin-Lannister,10,1,Lannister
+Cersei-Lannister,Varys,19,1,Lannister
+Cersei-Lannister,Vayon-Poole,4,1,Lannister
+Chella,Tyrion-Lannister,5,1,Vale hill tribes
+Chett,Jon-Snow,4,1,Night's Watch
+Chett,Samwell-Tarly,6,1,Night's Watch
+Chiggen,Tyrion-Lannister,5,1,Lannister
+Chiggen,Willis-Wode,3,1,Lannister
+Clement-Piper,Karyl-Vance,4,1,Piper
+Cohollo,Daenerys-Targaryen,7,1,Dothraki khalasar
+Cohollo,Drogo,9,1,Dothraki khalasar
+Cohollo,Haggo,7,1,Dothraki khalasar
+Cohollo,Qotho,6,1,Dothraki khalasar
+Colemon,Vardis-Egen,4,1,Arryn
+Conn,Coratt,5,1,Unknown
+Conn,Shagga,9,1,Unknown
+Conn,Tyrion-Lannister,6,1,Unknown
+Daenerys-Targaryen,Doreah,15,1,Targaryen
+Daenerys-Targaryen,Drogo,101,1,Targaryen
+Daenerys-Targaryen,Eddard-Stark,5,1,Targaryen
+Daenerys-Targaryen,Eroeh,5,1,Targaryen
+Daenerys-Targaryen,Haggo,12,1,Targaryen
+Daenerys-Targaryen,Illyrio-Mopatis,24,1,Targaryen
+Daenerys-Targaryen,Irri,25,1,Targaryen
+Daenerys-Targaryen,Jhiqui,26,1,Targaryen
+Daenerys-Targaryen,Jhogo,17,1,Targaryen
+Daenerys-Targaryen,Jorah-Mormont,75,1,Targaryen
+Daenerys-Targaryen,Mirri-Maz-Duur,31,1,Targaryen
+Daenerys-Targaryen,Qotho,18,1,Targaryen
+Daenerys-Targaryen,Quaro,5,1,Targaryen
+Daenerys-Targaryen,Rakharo,4,1,Targaryen
+Daenerys-Targaryen,Rhaegar-Targaryen,4,1,Targaryen
+Daenerys-Targaryen,Robert-Baratheon,11,1,Targaryen
+Daenerys-Targaryen,Varys,5,1,Targaryen
+Daenerys-Targaryen,Viserys-Targaryen,37,1,Targaryen
+Danwell-Frey,Hosteen-Frey,3,1,Frey
+Danwell-Frey,Jared-Frey,3,1,Frey
+Danwell-Frey,Walder-Frey,3,1,Frey
+Dareon,Jon-Snow,6,1,Night's Watch
+Daryn-Hornwood,Eddard-Stark,3,1,Hornwood
+Daryn-Hornwood,Torrhen-Karstark,3,1,Hornwood
+Desmond,Eddard-Stark,4,1,Stark
+Dolf,Shagga,7,1,Vale hill tribes
+Donal-Noye,Jon-Snow,7,1,Night's Watch
+Doreah,Drogo,5,1,Targaryen
+Doreah,Irri,14,1,Targaryen
+Doreah,Jhiqui,11,1,Targaryen
+Doreah,Jorah-Mormont,3,1,Targaryen
+Doreah,Viserys-Targaryen,3,1,Targaryen
+Drogo,Haggo,9,1,Dothraki khalasar
+Drogo,Illyrio-Mopatis,16,1,Dothraki khalasar
+Drogo,Irri,9,1,Dothraki khalasar
+Drogo,Jhiqui,5,1,Dothraki khalasar
+Drogo,Jhogo,7,1,Dothraki khalasar
+Drogo,Jommo,3,1,Dothraki khalasar
+Drogo,Jorah-Mormont,16,1,Dothraki khalasar
+Drogo,Mirri-Maz-Duur,12,1,Dothraki khalasar
+Drogo,Ogo,11,1,Dothraki khalasar
+Drogo,Qotho,13,1,Dothraki khalasar
+Drogo,Quaro,3,1,Dothraki khalasar
+Drogo,Rakharo,4,1,Dothraki khalasar
+Drogo,Rhaego,5,1,Dothraki khalasar
+Drogo,Robert-Baratheon,3,1,Dothraki khalasar
+Drogo,Viserys-Targaryen,19,1,Dothraki khalasar
+Dywen,Jon-Snow,4,1,Night's Watch
+Eddard-Stark,Edmure-Tully,3,1,Stark
+Eddard-Stark,Galbart-Glover,4,1,Stark
+Eddard-Stark,Gendry,3,1,Stark
+Eddard-Stark,Gerold-Hightower,3,1,Stark
+Eddard-Stark,Gregor-Clegane,10,1,Stark
+Eddard-Stark,Harwin,5,1,Stark
+Eddard-Stark,High-Septon-(fat_one),4,1,Stark
+Eddard-Stark,Howland-Reed,3,1,Stark
+Eddard-Stark,Ilyn-Payne,6,1,Stark
+Eddard-Stark,Jacks,4,1,Stark
+Eddard-Stark,Jaime-Lannister,27,1,Stark
+Eddard-Stark,Janos-Slynt,4,1,Stark
+Eddard-Stark,Joffrey-Baratheon,26,1,Stark
+Eddard-Stark,Jon-Arryn,47,1,Stark
+Eddard-Stark,Jon-Snow,38,1,Stark
+Eddard-Stark,Jory-Cassel,32,1,Stark
+Eddard-Stark,Joss,5,1,Stark
+Eddard-Stark,Loras-Tyrell,12,1,Stark
+Eddard-Stark,Luwin,16,1,Stark
+Eddard-Stark,Lyanna-Stark,19,1,Stark
+Eddard-Stark,Lysa-Arryn,12,1,Stark
+Eddard-Stark,Marq-Piper,3,1,Stark
+Eddard-Stark,Mordane,11,1,Stark
+Eddard-Stark,Mycah,3,1,Stark
+Eddard-Stark,Petyr-Baelish,81,1,Stark
+Eddard-Stark,Porther,4,1,Stark
+Eddard-Stark,Pycelle,33,1,Stark
+Eddard-Stark,Raymun-Darry,4,1,Stark
+Eddard-Stark,Renly-Baratheon,33,1,Stark
+Eddard-Stark,Rhaegar-Targaryen,10,1,Stark
+Eddard-Stark,Rickard-Karstark,4,1,Stark
+Eddard-Stark,Rickon-Stark,4,1,Stark
+Eddard-Stark,Robb-Stark,16,1,Stark
+Eddard-Stark,Robert-Baratheon,291,1,Stark
+Eddard-Stark,Rodrik-Cassel,7,1,Stark
+Eddard-Stark,Sandor-Clegane,10,1,Stark
+Eddard-Stark,Sansa-Stark,34,1,Stark
+Eddard-Stark,Stannis-Baratheon,18,1,Stark
+Eddard-Stark,Syrio-Forel,6,1,Stark
+Eddard-Stark,Theon-Greyjoy,5,1,Stark
+Eddard-Stark,Tobho-Mott,7,1,Stark
+Eddard-Stark,Tomard,15,1,Stark
+Eddard-Stark,Torrhen-Karstark,5,1,Stark
+Eddard-Stark,Tregar,4,1,Stark
+Eddard-Stark,Tyrion-Lannister,21,1,Stark
+Eddard-Stark,Tywin-Lannister,18,1,Stark
+Eddard-Stark,Varly,4,1,Stark
+Eddard-Stark,Varys,61,1,Stark
+Eddard-Stark,Vayon-Poole,12,1,Stark
+Eddard-Stark,Wyl-(guard),3,1,Stark
+Eddard-Stark,Wylla,3,1,Stark
+Edmure-Tully,Hoster-Tully,7,1,Tully
+Edmure-Tully,Jaime-Lannister,4,1,Tully
+Edmure-Tully,Karyl-Vance,4,1,Tully
+Edmure-Tully,Lysa-Arryn,5,1,Tully
+Edmure-Tully,Marq-Piper,3,1,Tully
+Edmure-Tully,Petyr-Baelish,4,1,Tully
+Edmure-Tully,Robb-Stark,5,1,Tully
+Edmure-Tully,Tytos-Blackwood,3,1,Tully
+Eon-Hunter,Lysa-Arryn,3,1,Hunter
+Eon-Hunter,Vardis-Egen,3,1,Hunter
+Fogo,Ogo,4,1,Dothraki khalasar
+Galbart-Glover,Jaime-Lannister,3,1,Glover
+Galbart-Glover,Jon-Umber-(Greatjon),4,1,Glover
+Galbart-Glover,Rickard-Karstark,4,1,Glover
+Galbart-Glover,Robb-Stark,5,1,Glover
+Galbart-Glover,Roose-Bolton,3,1,Glover
+Gared,Jeor-Mormont,4,1,Night's Watch
+Gared,Waymar-Royce,13,1,Night's Watch
+Gared,Will-(prologue),12,1,Night's Watch
+Gerold-Hightower,Oswell-Whent,3,1,Targaryen
+Gerold-Hightower,Robert-Baratheon,4,1,Targaryen
+Gregor-Clegane,Jaime-Lannister,3,1,Clegane
+Gregor-Clegane,Loras-Tyrell,10,1,Clegane
+Gregor-Clegane,Marq-Piper,6,1,Clegane
+Gregor-Clegane,Petyr-Baelish,3,1,Clegane
+Gregor-Clegane,Pycelle,3,1,Clegane
+Gregor-Clegane,Robert-Baratheon,4,1,Clegane
+Gregor-Clegane,Sandor-Clegane,11,1,Clegane
+Gregor-Clegane,Sansa-Stark,5,1,Clegane
+Gregor-Clegane,Tyrion-Lannister,7,1,Clegane
+Gregor-Clegane,Tywin-Lannister,6,1,Clegane
+Grenn,Halder,6,1,Night's Watch
+Grenn,Jeor-Mormont,3,1,Night's Watch
+Grenn,Jon-Snow,31,1,Night's Watch
+Grenn,Pypar,27,1,Night's Watch
+Grenn,Samwell-Tarly,8,1,Night's Watch
+Grenn,Todder,7,1,Night's Watch
+Gunthor-son-of-Gurn,Tyrion-Lannister,7,1,Vale hill tribes
+Haggo,Mirri-Maz-Duur,3,1,Dothraki khalasar
+Haggo,Qotho,11,1,Dothraki khalasar
+Haggo,Rakharo,3,1,Dothraki khalasar
+Halder,Jon-Snow,23,1,Night's Watch
+Halder,Pypar,8,1,Night's Watch
+Halder,Rast,3,1,Night's Watch
+Halder,Samwell-Tarly,6,1,Night's Watch
+Halder,Todder,3,1,Night's Watch
+Hallis-Mollen,Luwin,4,1,Stark
+Hallis-Mollen,Robb-Stark,13,1,Stark
+Hallis-Mollen,Theon-Greyjoy,7,1,Stark
+Harwin,Hullen,3,1,Stark
+Harwin,Jory-Cassel,4,1,Stark
+Harys-Swyft,Jaime-Lannister,3,1,Swyft
+Heward,Jory-Cassel,5,1,Stark
+Heward,Wyl-(guard),3,1,Stark
+High-Septon-(fat_one),Joffrey-Baratheon,4,1,Royal court
+Hobb,Jon-Snow,5,1,Night's Watch
+Hodor,Luwin,10,1,Stark
+Hodor,Nan,8,1,Stark
+Hodor,Robb-Stark,5,1,Stark
+Hosteen-Frey,Jared-Frey,3,1,Frey
+Hoster-Tully,Lysa-Arryn,3,1,Tully
+Hoster-Tully,Robert-Baratheon,3,1,Tully
+Hugh,Jon-Arryn,3,1,Arryn
+Hullen,Jory-Cassel,5,1,Stark
+Hullen,Luwin,3,1,Stark
+Hullen,Robb-Stark,3,1,Stark
+Hullen,Rodrik-Cassel,3,1,Stark
+Illyrio-Mopatis,Irri,3,1,Targaryen
+Illyrio-Mopatis,Jorah-Mormont,7,1,Targaryen
+Illyrio-Mopatis,Robert-Baratheon,6,1,Targaryen
+Illyrio-Mopatis,Viserys-Targaryen,14,1,Targaryen
+Ilyn-Payne,Jeyne-Poole,3,1,King's Landing
+Ilyn-Payne,Joffrey-Baratheon,4,1,King's Landing
+Ilyn-Payne,Loras-Tyrell,3,1,King's Landing
+Ilyn-Payne,Robert-Baratheon,4,1,King's Landing
+Ilyn-Payne,Sansa-Stark,9,1,King's Landing
+Ilyn-Payne,Varys,5,1,King's Landing
+Irri,Jhiqui,14,1,Dothraki khalasar
+Irri,Jhogo,7,1,Dothraki khalasar
+Irri,Jorah-Mormont,4,1,Dothraki khalasar
+Irri,Viserys-Targaryen,5,1,Dothraki khalasar
+Jafer-Flowers,Jaremy-Rykker,3,1,Night's Watch
+Jaime-Lannister,Joffrey-Baratheon,12,1,Lannister
+Jaime-Lannister,Jon-Arryn,5,1,Lannister
+Jaime-Lannister,Jory-Cassel,4,1,Lannister
+Jaime-Lannister,Kevan-Lannister,4,1,Lannister
+Jaime-Lannister,Loras-Tyrell,3,1,Lannister
+Jaime-Lannister,Lysa-Arryn,6,1,Lannister
+Jaime-Lannister,Petyr-Baelish,7,1,Lannister
+Jaime-Lannister,Renly-Baratheon,4,1,Lannister
+Jaime-Lannister,Rickard-Karstark,3,1,Lannister
+Jaime-Lannister,Robb-Stark,9,1,Lannister
+Jaime-Lannister,Robert-Baratheon,24,1,Lannister
+Jaime-Lannister,Rodrik-Cassel,3,1,Lannister
+Jaime-Lannister,Sandor-Clegane,12,1,Lannister
+Jaime-Lannister,Sansa-Stark,3,1,Lannister
+Jaime-Lannister,Tyrion-Lannister,36,1,Lannister
+Jaime-Lannister,Tywin-Lannister,16,1,Lannister
+Jaime-Lannister,Varys,3,1,Lannister
+Jaime-Lannister,Wyl-(guard),3,1,Lannister
+Janos-Slynt,Joffrey-Baratheon,4,1,King's Landing
+Janos-Slynt,Petyr-Baelish,3,1,King's Landing
+Janos-Slynt,Pycelle,3,1,King's Landing
+Janos-Slynt,Robert-Baratheon,4,1,King's Landing
+Janos-Slynt,Sansa-Stark,3,1,King's Landing
+Jaremy-Rykker,Jeor-Mormont,11,1,Night's Watch
+Jaremy-Rykker,Jon-Snow,7,1,Night's Watch
+Jeor-Mormont,Jon-Snow,81,1,Night's Watch
+Jeor-Mormont,Robert-Baratheon,4,1,Night's Watch
+Jeor-Mormont,Samwell-Tarly,8,1,Night's Watch
+Jeor-Mormont,Tyrion-Lannister,23,1,Night's Watch
+Jeor-Mormont,Yoren,3,1,Night's Watch
+Jeyne-Poole,Loras-Tyrell,4,1,Stark
+Jeyne-Poole,Mordane,7,1,Stark
+Jeyne-Poole,Robert-Baratheon,3,1,Stark
+Jeyne-Poole,Sansa-Stark,27,1,Stark
+Jhiqui,Jorah-Mormont,4,1,Dothraki khalasar
+Jhogo,Jorah-Mormont,5,1,Dothraki khalasar
+Jhogo,Mirri-Maz-Duur,3,1,Dothraki khalasar
+Joffrey-Baratheon,Jon-Snow,10,1,Lannister
+Joffrey-Baratheon,Loras-Tyrell,3,1,Lannister
+Joffrey-Baratheon,Meryn-Trant,3,1,Lannister
+Joffrey-Baratheon,Mordane,9,1,Lannister
+Joffrey-Baratheon,Mycah,14,1,Lannister
+Joffrey-Baratheon,Myrcella-Baratheon,5,1,Lannister
+Joffrey-Baratheon,Petyr-Baelish,11,1,Lannister
+Joffrey-Baratheon,Pycelle,4,1,Lannister
+Joffrey-Baratheon,Renly-Baratheon,9,1,Lannister
+Joffrey-Baratheon,Robb-Stark,19,1,Lannister
+Joffrey-Baratheon,Robert-Baratheon,30,1,Lannister
+Joffrey-Baratheon,Rodrik-Cassel,9,1,Lannister
+Joffrey-Baratheon,Sandor-Clegane,24,1,Lannister
+Joffrey-Baratheon,Sansa-Stark,87,1,Lannister
+Joffrey-Baratheon,Stannis-Baratheon,7,1,Lannister
+Joffrey-Baratheon,Tommen-Baratheon,8,1,Lannister
+Joffrey-Baratheon,Tyrion-Lannister,13,1,Lannister
+Joffrey-Baratheon,Tywin-Lannister,3,1,Lannister
+Joffrey-Baratheon,Varys,7,1,Lannister
+Jommo,Ogo,3,1,Dothraki khalasar
+Jon-Arryn,Lysa-Arryn,12,1,Arryn
+Jon-Arryn,Petyr-Baelish,4,1,Arryn
+Jon-Arryn,Pycelle,11,1,Arryn
+Jon-Arryn,Robert-Baratheon,32,1,Arryn
+Jon-Arryn,Stannis-Baratheon,13,1,Arryn
+Jon-Arryn,Tyrion-Lannister,5,1,Arryn
+Jon-Arryn,Varys,5,1,Arryn
+Jon-Snow,Jory-Cassel,3,1,Night's Watch
+Jon-Snow,Luwin,10,1,Night's Watch
+Jon-Snow,Matthar,3,1,Night's Watch
+Jon-Snow,Mordane,4,1,Night's Watch
+Jon-Snow,Othor,5,1,Night's Watch
+Jon-Snow,Pypar,45,1,Night's Watch
+Jon-Snow,Rast,8,1,Night's Watch
+Jon-Snow,Rickon-Stark,11,1,Night's Watch
+Jon-Snow,Robb-Stark,53,1,Night's Watch
+Jon-Snow,Robert-Baratheon,18,1,Night's Watch
+Jon-Snow,Rodrik-Cassel,3,1,Night's Watch
+Jon-Snow,Samwell-Tarly,81,1,Night's Watch
+Jon-Snow,Sansa-Stark,8,1,Night's Watch
+Jon-Snow,Theon-Greyjoy,8,1,Night's Watch
+Jon-Snow,Todder,13,1,Night's Watch
+Jon-Snow,Tyrion-Lannister,56,1,Night's Watch
+Jon-Snow,Yoren,6,1,Night's Watch
+Jon-Umber-(Greatjon),Maege-Mormont,5,1,Umber
+Jon-Umber-(Greatjon),Rickard-Karstark,7,1,Umber
+Jon-Umber-(Greatjon),Robb-Stark,8,1,Umber
+Jon-Umber-(Greatjon),Roose-Bolton,3,1,Umber
+Jon-Umber-(Greatjon),Theon-Greyjoy,5,1,Umber
+Jon-Umber-(Greatjon),Tywin-Lannister,3,1,Umber
+Jonos-Bracken,Tytos-Blackwood,3,1,Bracken
+Jorah-Mormont,Mirri-Maz-Duur,5,1,Targaryen
+Jorah-Mormont,Qotho,7,1,Targaryen
+Jorah-Mormont,Rhaegar-Targaryen,5,1,Targaryen
+Jorah-Mormont,Robert-Baratheon,3,1,Targaryen
+Jorah-Mormont,Viserys-Targaryen,15,1,Targaryen
+Jory-Cassel,Mordane,3,1,Stark
+Jory-Cassel,Petyr-Baelish,8,1,Stark
+Jory-Cassel,Robb-Stark,9,1,Stark
+Jory-Cassel,Robert-Baratheon,7,1,Stark
+Jory-Cassel,Rodrik-Cassel,5,1,Stark
+Jory-Cassel,Sansa-Stark,9,1,Stark
+Jory-Cassel,Stannis-Baratheon,3,1,Stark
+Jory-Cassel,Theon-Greyjoy,3,1,Stark
+Jory-Cassel,Tomard,5,1,Stark
+Jory-Cassel,Vayon-Poole,5,1,Stark
+Jory-Cassel,Wyl-(guard),6,1,Stark
+Joseth,Luwin,3,1,Stark
+Jyck,Morrec,5,1,Lannister
+Jyck,Tyrion-Lannister,6,1,Lannister
+Karyl-Vance,Marq-Piper,3,1,Vance
+Kevan-Lannister,Tyrion-Lannister,15,1,Lannister
+Kevan-Lannister,Tywin-Lannister,9,1,Lannister
+Kurleket,Tyrion-Lannister,5,1,Bracken
+Lancel-Lannister,Robert-Baratheon,3,1,Lannister
+Leo-Lefford,Tyrion-Lannister,4,1,Lefford
+Loras-Tyrell,Mace-Tyrell,3,1,Tyrell
+Loras-Tyrell,Petyr-Baelish,5,1,Tyrell
+Loras-Tyrell,Renly-Baratheon,5,1,Tyrell
+Loras-Tyrell,Robert-Baratheon,4,1,Tyrell
+Loras-Tyrell,Rodrik-Cassel,3,1,Tyrell
+Loras-Tyrell,Sandor-Clegane,4,1,Tyrell
+Loras-Tyrell,Sansa-Stark,14,1,Tyrell
+Luwin,Nan,4,1,Stark
+Luwin,Osha,16,1,Stark
+Luwin,Rickard-Karstark,3,1,Stark
+Luwin,Rickon-Stark,9,1,Stark
+Luwin,Robb-Stark,20,1,Stark
+Luwin,Rodrik-Cassel,3,1,Stark
+Luwin,Theon-Greyjoy,10,1,Stark
+Luwin,Tommen-Baratheon,3,1,Stark
+Luwin,Tyrion-Lannister,10,1,Stark
+Lyanna-Stark,Robert-Baratheon,9,1,Stark
+Lyanna-Stark,Sansa-Stark,4,1,Stark
+Lyn-Corbray,Lysa-Arryn,3,1,Corbray
+Lysa-Arryn,Petyr-Baelish,4,1,Arryn
+Lysa-Arryn,Robert-Arryn,8,1,Arryn
+Lysa-Arryn,Robert-Baratheon,5,1,Arryn
+Lysa-Arryn,Stannis-Baratheon,4,1,Arryn
+Lysa-Arryn,Tyrion-Lannister,25,1,Arryn
+Lysa-Arryn,Vardis-Egen,5,1,Arryn
+Mace-Tyrell,Paxter-Redwyne,3,1,Tyrell
+Maege-Mormont,Rickard-Karstark,3,1,Mormont
+Maegor-I-Targaryen,Sansa-Stark,4,1,Targaryen
+Marillion,Rodrik-Cassel,5,1,Vale/Arryn household (period at the Eyrie)
+Marillion,Tyrion-Lannister,10,1,Vale/Arryn household (period at the Eyrie)
+Marillion,Willis-Wode,4,1,Vale/Arryn household (period at the Eyrie)
+Marq-Piper,Tywin-Lannister,3,1,Piper
+Meryn-Trant,Robert-Baratheon,3,1,Royal Kingsguard
+Meryn-Trant,Sandor-Clegane,4,1,Royal Kingsguard
+Meryn-Trant,Sansa-Stark,5,1,Royal Kingsguard
+Meryn-Trant,Syrio-Forel,5,1,Royal Kingsguard
+Mirri-Maz-Duur,Qotho,9,1,Lhazareen
+Mord,Tyrion-Lannister,20,1,Arryn
+Mordane,Myrcella-Baratheon,12,1,Stark
+Mordane,Petyr-Baelish,3,1,Stark
+Mordane,Robert-Baratheon,7,1,Stark
+Mordane,Sansa-Stark,43,1,Stark
+Morrec,Tyrion-Lannister,5,1,Lannister
+Mycah,Sandor-Clegane,5,1,Smallfolk
+Mycah,Sansa-Stark,10,1,Smallfolk
+Myrcella-Baratheon,Robert-Baratheon,3,1,King's Landing
+Myrcella-Baratheon,Sansa-Stark,8,1,King's Landing
+Myrcella-Baratheon,Tommen-Baratheon,6,1,King's Landing
+Nan,Robb-Stark,4,1,Stark
+Osha,Robb-Stark,3,1,Stark
+Petyr-Baelish,Pycelle,14,1,King's Landing
+Petyr-Baelish,Renly-Baratheon,12,1,King's Landing
+Petyr-Baelish,Robert-Baratheon,30,1,King's Landing
+Petyr-Baelish,Rodrik-Cassel,7,1,King's Landing
+Petyr-Baelish,Sandor-Clegane,3,1,King's Landing
+Petyr-Baelish,Sansa-Stark,8,1,King's Landing
+Petyr-Baelish,Tomard,4,1,King's Landing
+Petyr-Baelish,Tyrion-Lannister,11,1,King's Landing
+Petyr-Baelish,Varys,29,1,King's Landing
+Pycelle,Renly-Baratheon,7,1,King's Landing
+Pycelle,Robert-Baratheon,26,1,King's Landing
+Pycelle,Sansa-Stark,8,1,King's Landing
+Pycelle,Stannis-Baratheon,3,1,King's Landing
+Pycelle,Tywin-Lannister,4,1,King's Landing
+Pycelle,Varys,17,1,King's Landing
+Pypar,Rast,4,1,Night's Watch
+Pypar,Samwell-Tarly,11,1,Night's Watch
+Pypar,Todder,8,1,Night's Watch
+Qotho,Quaro,4,1,Dothraki khalasar
+Quaro,Rakharo,6,1,Dothraki khalasar
+Randyll-Tarly,Samwell-Tarly,5,1,Tarly
+Rast,Samwell-Tarly,3,1,Night's Watch
+Raymun-Darry,Robert-Baratheon,8,1,Darry
+Renly-Baratheon,Robb-Stark,3,1,Baratheon
+Renly-Baratheon,Robert-Baratheon,42,1,Baratheon
+Renly-Baratheon,Sandor-Clegane,7,1,Baratheon
+Renly-Baratheon,Sansa-Stark,5,1,Baratheon
+Renly-Baratheon,Stannis-Baratheon,19,1,Baratheon
+Renly-Baratheon,Tyrion-Lannister,4,1,Baratheon
+Renly-Baratheon,Varys,9,1,Baratheon
+Rhaegar-Targaryen,Robert-Baratheon,22,1,Targaryen
+Rhaegar-Targaryen,Sansa-Stark,3,1,Targaryen
+Rhaegar-Targaryen,Tywin-Lannister,4,1,Targaryen
+Rhaegar-Targaryen,Viserys-Targaryen,5,1,Targaryen
+Rickard-Karstark,Robb-Stark,9,1,Karstark
+Rickard-Karstark,Roose-Bolton,3,1,Karstark
+Rickon-Stark,Robb-Stark,20,1,Stark
+Rickon-Stark,Sansa-Stark,8,1,Stark
+Rickon-Stark,Tyrion-Lannister,4,1,Stark
+Robb-Stark,Robert-Baratheon,6,1,Stark
+Robb-Stark,Rodrik-Cassel,15,1,Stark
+Robb-Stark,Roose-Bolton,6,1,Stark
+Robb-Stark,Samwell-Tarly,4,1,Stark
+Robb-Stark,Sansa-Stark,13,1,Stark
+Robb-Stark,Stiv,3,1,Stark
+Robb-Stark,Theon-Greyjoy,37,1,Stark
+Robb-Stark,Torrhen-Karstark,3,1,Stark
+Robb-Stark,Tyrion-Lannister,11,1,Stark
+Robb-Stark,Tywin-Lannister,9,1,Stark
+Robb-Stark,Walder-Frey,7,1,Stark
+Robb-Stark,Wendel-Manderly,3,1,Stark
+Robb-Stark,Yoren,3,1,Stark
+Robert-Arryn,Tyrion-Lannister,9,1,House Arryn
+Robert-Baratheon,Sandor-Clegane,9,1,King's Landing
+Robert-Baratheon,Sansa-Stark,26,1,King's Landing
+Robert-Baratheon,Stannis-Baratheon,21,1,King's Landing
+Robert-Baratheon,Tommen-Baratheon,3,1,King's Landing
+Robert-Baratheon,Tyrion-Lannister,18,1,King's Landing
+Robert-Baratheon,Tywin-Lannister,13,1,King's Landing
+Robert-Baratheon,Varys,36,1,King's Landing
+Robert-Baratheon,Vayon-Poole,3,1,King's Landing
+Robert-Baratheon,Viserys-Targaryen,7,1,King's Landing
+Rodrik-Cassel,Theon-Greyjoy,6,1,Stark
+Rodrik-Cassel,Tyrion-Lannister,10,1,Stark
+Rodrik-Cassel,Willis-Wode,7,1,Stark
+Roose-Bolton,Tywin-Lannister,4,1,Bolton
+Sandor-Clegane,Sansa-Stark,23,1,Clegane
+Sandor-Clegane,Tyrion-Lannister,5,1,Clegane
+Sansa-Stark,Stannis-Baratheon,3,1,Stark
+Sansa-Stark,Tomard,3,1,Stark
+Sansa-Stark,Tyrion-Lannister,3,1,Stark
+Sansa-Stark,Varys,4,1,Stark
+Shae,Tyrion-Lannister,12,1,Lannister
+Shagga,Timett,4,1,Vale hill tribes
+Shagga,Tyrion-Lannister,17,1,Vale hill tribes
+Shagga,Ulf-son-of-Umar,4,1,Vale hill tribes
+Stannis-Baratheon,Tywin-Lannister,4,1,Baratheon
+Stannis-Baratheon,Varys,5,1,Baratheon
+Stevron-Frey,Walder-Frey,3,1,Frey
+Theon-Greyjoy,Tyrion-Lannister,3,1,Greyjoy
+Theon-Greyjoy,Tywin-Lannister,3,1,Greyjoy
+Theon-Greyjoy,Walder-Frey,4,1,Greyjoy
+Timett,Tyrion-Lannister,3,1,Vale hill tribes
+Tommen-Baratheon,Tyrion-Lannister,3,1,Lannister
+Tyrion-Lannister,Tywin-Lannister,40,1,Lannister
+Tyrion-Lannister,Vardis-Egen,9,1,Lannister
+Tyrion-Lannister,Varys,3,1,Lannister
+Tyrion-Lannister,Willis-Wode,4,1,Lannister
+Tyrion-Lannister,Yoren,10,1,Lannister
+Tywin-Lannister,Varys,4,1,Lannister
+Tywin-Lannister,Walder-Frey,8,1,Lannister
+Waymar-Royce,Will-(prologue),18,1,Night's Watch
