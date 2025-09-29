@@ -297,7 +297,7 @@ def x_mentions_y():
         x = double_character_names_map[character] if character in double_character_names_map else [character]
         # get the character(s) mentioned in the line
         for character_name in name_map.keys():
-            if character_name in line:
+            if " " + character_name + " " in line:
                 for i in x:
                     x_mentions_y.append([i, name_map[character_name]])
     return pd.DataFrame(x_mentions_y, columns=["x", "y"])
@@ -317,18 +317,15 @@ def weigh_rows(data):
     return weighted
 
 def main():
-    # data = x_speaks_before_y()
-    # data.to_csv("model/data/x_speaks_to_y.csv", index=False)
-    #
-    # data = x_mentions_y()
-    # data.to_csv("model/data/x_mentions_y.csv", index=False)
-    data = get_x_speaks_to_y()
+    data = x_speaks_before_y()
     data = cleanup_edges(data)
-    data.to_csv("model/data/x_speaks_to_y.csv", index=False)
+    weighted = weigh_rows(data)
+    weighted.to_csv("model/data/x_speaks_to_y.csv", index=False)
 
-    data = (get_x_mentions_y())
+    data = x_mentions_y()
     data = cleanup_edges(data)
-    data.to_csv("model/data/x_mentions_y.csv", index=False)
+    weighted = weigh_rows(data)
+    weighted.to_csv("model/data/x_mentions_y.csv", index=False)
     return
 
 if __name__ == "__main__":
