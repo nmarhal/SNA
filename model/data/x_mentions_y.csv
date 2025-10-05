@@ -1,539 +1,609 @@
 x,y,weight
-Aang,Aang,106
-Katara,Aang,77
-Sokka,Aang,71
-Sokka,Sokka,67
-Aang,Katara,56
-Sokka,Katara,54
-Aang,Appa,50
-Katara,Sokka,48
-Aang,Sokka,47
-Zuko,Zuko,38
-Katara,Katara,36
-Iroh,Zuko,31
-Sokka,Appa,30
-Aang,Momo,27
-Iroh,Iroh,24
-Zuko,Iroh,23
-Zuko,Aang,21
-Toph,Toph,20
-Sokka,Momo,17
-Toph,Sokka,16
-Aang,Zuko,16
-Sokka,Zuko,16
-Toph,Aang,15
-Katara,Appa,14
-Katara,Jet,13
-Aang,Roku,13
-Aang,Toph,13
-Zhao,Zhao,12
-Sokka,Toph,12
-Toph,Katara,12
-Katara,Toph,12
-Sokka,Suki,12
-Sokka,Kyoshi,10
-Katara,Zuko,10
-Katara,Momo,10
-Azula,Zuko,9
+Katara,Aang,223
+Aang,Aang,194
+Sokka,Aang,160
+Aang,Katara,109
+Sokka,Katara,82
+Katara,Sokka,79
+Zuko,Aang,74
+Aang,Appa,72
+Iroh,Zuko,70
+Sokka,Sokka,62
+Aang,Sokka,62
+Zuko,Iroh,55
+Sokka,Appa,41
+Toph,Aang,36
+Zuko,Zuko,36
+Katara,Katara,31
+Toph,Sokka,25
+Aang,Momo,25
+Azula,Zuko,24
+Roku,Aang,23
+Aang,Zuko,23
+Katara,Toph,23
+Aang,Ozai,22
+Katara,Appa,22
+Sokka,Suki,22
+Zhao,Aang,21
+Aang,Toph,21
+Toph,Katara,20
+Iroh,Aang,18
+Katara,Zuko,18
+Iroh,Iroh,17
+Toph,Toph,17
+Katara,Jet,16
+Sokka,Toph,15
+Suki,Sokka,14
+Zuko,Sokka,14
+Sokka,Zuko,14
+Piandao,Sokka,13
+Shyu,Aang,13
+Aang,Than,12
+Zhao,Zuko,12
+Sokka,Momo,12
+Katara,Haru,11
+Zuko,Katara,11
+Bumi,Aang,11
+Pathik,Aang,11
+Ty Lee,Azula,11
+Aang,Bumi,11
+Fong,Aang,10
+Sokka,Ozai,10
+Jet,Aang,10
+Tong,Aang,10
+Zuko,Mai,10
+Yue,Sokka,9
+Mai,Zuko,9
+Zuko,Zhao,9
+Hama,Katara,9
+Azula,Iroh,9
+Zuko,Azula,9
+Ozai,Zuko,8
+Azula,Aang,8
+Zhao,Zhao,8
+Kuei,Aang,8
+Suki,Aang,8
+Hakoda,Sokka,8
+Roku,Roku,8
+Mechanist,Sokka,8
+Katara,Momo,7
 Sozin,Roku,7
-Piandao,Sokka,7
-Azula,Azula,7
-Suki,Sokka,7
 Azula,Mai,7
-Mechanist,Sokka,7
-Zuko,Azula,6
-Zuko,Zhao,6
-Roku,Roku,6
-Azula,Lee,6
-Piandao,Piandao,6
-Zhao,Zuko,6
-Zhang leader,Jin,6
-Suki,Suki,6
-Suki,Kyoshi,6
-Aang,Bumi,6
-Hakoda,Sokka,6
-Zuko,Sokka,6
-Zuko,Katara,6
-Azula,Ty Lee,6
-Ty Lee,Azula,6
-Jet,Aang,5
-Katara,Kyoshi,5
-Bumi,Aang,5
-Bumi,Bumi,5
-Ty Lee,Lee,5
-Aang,The Boulder,5
-Calm man,Aunt Wu,5
-Aang,Jeong Jeong,5
+Aang,Roku,7
+Sokka,Kyoshi,7
+Jet,Sokka,7
+Hakoda,Aang,7
+Sokka,Yue,7
+Zhao,Iroh,7
+Koh,Aang,7
+Bato,Aang,7
+Hakoda,Katara,6
+Zuko,Appa,6
+Kanna,Katara,6
+Aang,Jeong Jeong,6
+Long Feng,Aang,6
+Jet,Katara,6
+Gyatso,Aang,6
+Pakku,Katara,6
+Sokka,Than,6
+Azula,Azula,6
+Haru,Katara,6
+Ursa,Zuko,6
+Sokka,Kuei,6
+Kay-fon,Aang,6
+Meng,Aang,5
+Sokka,Wu,5
 Toph,Zuko,5
-Ty Lee,Ty Lee,5
-Zei,Zei,5
-Calm man,Wu,5
-Aang,Avatar Roku,4
-Zuko,Lee,4
-Zuko,Appa,4
-Zhao,Iroh,4
-Aang,Jin,4
-Sokka,Wu,4
-Azula,Iroh,4
-Sokka,Aunt Wu,4
-Sun Warrior chief,Zuko,4
-Toph,The Boulder,4
-Toph,Appa,4
-Actress Katara,Katara,4
-Aang,Ozai,4
-Ozai,Zuko,4
-Iroh,Zhao,4
-Gyatso,Aang,4
-Hakoda,Aang,4
-June,June,4
-Hama,Hama,4
+Great Fire Sage,Aang,5
+Sun Warrior chief,Aang,5
+Toph,Ozai,5
+Smellerbee,Jet,5
+Jet,Jet,5
+Toph,Appa,5
+Roku,Sozin,5
+The Boulder,The Boulder,5
+Azula,Ty Lee,5
+Actress Aang,Aang,5
+Katara,Than,5
+Zhang leader,Jin,4
+Ty Lee,Zuko,4
+Tashi,Aang,4
+Tyro,Katara,4
+Actor Sokka,Sokka,4
+Zei,Wan Shi Tong,4
+Mechanist,Aang,4
 Iroh,Azula,4
-Jet,Smellerbee,4
-Jet,Sokka,4
-Katara,Haru,4
-Pakku,Katara,4
-Chan,Chan,4
-Roku,Aang,4
-Roku,Sozin,4
-Shyu,Roku,4
 Mai,Mai,4
-Yue,Yue,4
-Aang,Wu,3
-Aang,Aunt Wu,3
-Zei,Sokka,3
-Aang,Zhao,3
-Yue,Sokka,3
-Young Zuko,Azula,3
-Xin Fu,The Boulder,3
-Ty Lee,Zuko,3
-Yue,Appa,3
-Sokka,Yue,3
-Actress Aang,Aang,3
-Actress Katara,Actress Katara,3
-The Boulder,The Boulder,3
+Xin Fu,Toph,4
+Jet,Smellerbee,4
+Jet,Zuko,4
+Sozin,Aang,4
+Wu,Aang,4
+Long Feng,Kuei,4
+Bato,Sokka,4
+Ozai,Ozai,4
+Chong,Sokka,4
+Zhao,Ozai,4
+Oyaji,Aang,4
+Iroh,Ozai,4
+Calm man,Wu,4
+Ozai,Aang,4
+Yue,Aang,4
+Young Zuko,Azula,4
+Oyaji,Kyoshi,4
+Teo,Aang,4
+Aang,Jet,4
+King Bumi,Aang,4
+Sokka,Jet,4
+Jet,Appa,3
+Katara,Hama,3
+Joo Dee,Aang,3
+Katara,Hakoda,3
+Suki,Suki,3
+Suki,Kyoshi,3
+Iroh,Than,3
+Ursa,Azula,3
+Katara,Kyoshi,3
+Toph,The Boulder,3
+Ty Lee,Ty Lee,3
+Katara,Jeong Jeong,3
+Katara,Kuei,3
+Iroh,Zhao,3
+Kenji,Aang,3
+Hama,Hama,3
 Toph,Jet,3
-Bato,Katara,3
-Bato,Sokka,3
-Sokka,Bumi,3
-Sokka,Iroh,3
-Sokka,Jet,3
-Sokka,Lee,3
-Arnook,Pakku,3
-Sokka,Long Feng,3
-Sokka,Ty Lee,3
+June,Iroh,3
+Aang,Bato,3
+Zuko,Lee,3
+Yue,Appa,3
+Bumi,Bumi,3
+Aang,Wu,3
+Baboon spirit,Baboon spirit,3
+Pipsqueak,Aang,3
+Azula,Ozai,3
+Actor Iroh,Zuko,3
+Zuko,Ozai,3
+Roku,Ozai,3
+Actor Zuko,Iroh,3
+Sokka,Hama,3
+Avatar Roku,Aang,3
 Arnook,Yue,3
-Sozin,Sozin,3
-Shyu,Avatar Roku,3
-Pakku,Sokka,3
-Pathik,Appa,3
-Shyu,Sokka,3
-Shyu,Shyu,3
-Kuei,Kyoshi,3
+Arnook,Aang,3
+Actress Katara,Aang,3
+Mother Superior,Aang,3
+Chan,Chan,3
+Yangchen,Aang,3
+Wan Shi Tong,Sokka,3
+Mai,Azula,3
 Long Feng,Long Feng,3
-Koh,Koh,3
-Fong,Katara,3
-Oyaji,Kyoshi,3
-Ozai,Ozai,3
-Mechanist,Aang,3
-Pakku,Pakku,3
-Jet,Katara,3
-Jet,Jet,3
-Hakoda,Katara,3
-Hakoda,Hakoda,3
-Zuko,Momo,3
+Mai,Iroh,3
+Aang,Long Feng,3
+Xu,Katara,3
+Xin Fu,The Boulder,3
+Dock,Dock,3
 Aang,Kyoshi,3
-Aang,Iroh,3
-Aang,Gyatso,3
-Zei,Aang,2
-Yung,King Bumi,2
-Yung,Bumi,2
-Hama,Katara,2
-Hakoda,Momo,2
-Yue,Aang,2
-Yon Rha,Yon Rha,2
-Yangchen,Aang,2
-Xu,Sokka,2
-Xin Fu,The Hippo,2
-Wu,Wu,2
-Wu,Aang,2
-Warden Poon,Iroh,2
-Wan Shi Tong,Wan Shi Tong,2
-Wan Shi Tong,Tong,2
-Ursa,Zuko,2
-Ursa,Iroh,2
-Iroh,Jee,2
-Iroh,Appa,2
-Iroh,Aang,2
-Iio,Appa,2
-Hide,On Ji,2
-Tyro,Katara,2
-Toph,Suki,2
-Toph,Momo,2
-Actress Katara,Aang,2
-Actress Aang,Sokka,2
-Actress Aang,Actor Sokka,2
-Actor Zuko,Iroh,2
-Toph,Iroh,2
-Toph,Azula,2
-Tong,Aang,2
-Sun Warrior chief,Sun Warrior chief,2
-Sun Warrior chief,Aang,2
-Sokka,Zei,2
-Fung,Yu,2
-Jet,Iroh,2
-Jet,Appa,2
-Jee,Zuko,2
-Iroh,Tycho,2
-Sokka,The Boulder,2
-Sokka,Princess Yue,2
-Sokka,Mai,2
-Sokka,Joo Dee,2
-Sokka,Jin,2
+Meng,Meng,3
+Roku,Gyatso,2
 Sokka,Hakoda,2
-Sokka,Chit Sang,2
-Sokka,Azula,2
-Bato,Aang,2
-Azula,Long Feng,2
-Azula,Kyoshi,2
-Jin,Iroh,2
-Jet,Zuko,2
-Jet,The Duke,2
-Jet,Longshot,2
-Gyatso,Gyatso,2
-Pipsqueak,The Duke,2
-Pathik,Pathik,2
-Chong,Chong,2
-Canyon guide,The Boulder,2
-Bumi,The Boulder,2
-Bumi,Sokka,2
-Bumi,Piandao,2
-Bumi,Katara,2
-Pathik,Aang,2
-Pakku,Zuko,2
-Pakku,Aang,2
-Katara,Hama,2
-Katara,Aunt Wu,2
-Joo Dee,Joo Dee,2
-Oyaji,Suki,2
-Meng,Meng,2
-Mai,Zuko,2
-Fung,Iroh,2
-Fong,Aang,2
-Due,Huu,2
-Lao,Yu,2
-Kyoshi,Kyoshi,2
-Kya,Kya,2
-Kuei,Sokka,2
-Koh,Aang,2
-Katara,Wu,2
-Katara,Roku,2
+Sokka,Iroh,2
+Sokka,Bato,2
+Katara,Ozai,2
+Katara,Azula,2
+Shinu,Zhao,2
+Katara,Bumi,2
+Katara,Bato,2
+Sokka,Bumi,2
+Sokka,Dock,2
+Sokka,Hahn,2
+Ruon-Jian,Zuko,2
+Scary prisoner,Aang,2
+Katara,Iroh,2
+Sela,Lee,2
+Quon,Pao,2
+Shyu,Sokka,2
+Senlin Village leader,Aang,2
 Katara,Pakku,2
-Aang,Suki,2
-Aang,Sozin,2
-Aang,On Ji,2
-Aang,Meng,2
-Zei,Wan Shi Tong,2
+Lao,Aang,2
+Qin,Aang,2
+Oyaji,Suki,2
+Lao,Toph,2
+Kyoshi,Aang,2
+Lin Yee,Chey,2
+Long Feng,Sokka,2
+Kuei,Sokka,2
+Kuei,Kyoshi,2
+Kuei,Katara,2
+Meng,Katara,2
+Sokka,Zhao,2
+Tho,Due,2
+Ming,Iroh,2
+Mung,Katara,2
+On Ji,Aang,2
+Ozai,Azula,2
+Katara,Pipsqueak,2
+Pakku,Aang,2
+Katara,Wu,2
+Pasang,Aang,2
+Pathik,Appa,2
+Sokka,Long Feng,2
+Aang,Gyatso,2
+Katara,The Boulder,2
+Pirate captain,Aang,2
+Storyteller,Sokka,2
+Pirate captain,Zuko,2
+Sokka,Joo Dee,2
+Poppy,Toph,2
+Teo,Katara,2
+Sun Warrior chief,Zuko,2
+Aang,Hakoda,2
+June,June,2
+Azula,Chan,2
+Zei,Zei,2
+Warden Poon,Iroh,2
+Zhang leader,Aang,2
+Gan Jin tribesman,Sokka,2
+Azula,Kuei,2
+Zhang leader,Canyon guide,2
+Wan Shi Tong,Wan Shi Tong,2
+General How,Aang,2
+General How,Katara,2
+Wu,Wu,2
+General Sung,Aang,2
+Arnook,Sokka,2
+Actress Katara,Katara,2
+Ursa,Iroh,2
+Hahn,Sokka,2
+Actress Azula,Aang,2
+Hakoda,Bato,2
+Haru's mother,Haru,2
+Wu,Katara,2
 Zei,Toph,2
-Zei,Tong,2
-Zuko,Mai,2
-Aang,Long Feng,2
-Aang,Koh,2
-Aang,Joo Dee,2
-Aang,Jet,2
-Aang,Blue Spirit,2
-Aang,Azula,1
-Aang,Hakoda,1
-Aang,Ham Ghao,1
-Aang,King Bumi,1
-Aang,Longshot,1
+Hide,Aang,2
+Chong,Aang,2
+Bumi,Sokka,2
+Canyon guide,Aang,2
+Chan,Azula,2
+Yung,Bumi,2
+Yu,Aang,2
+Young Zuko,Zuko,2
+Chey,Chey,2
+Blue dragon,Zuko,2
+Yon Rha,Yon Rha,2
+Zei,Sokka,2
+Chong,Song,2
+Dock,Katara,2
+Yagoda,Kanna,2
+Bato,Katara,2
+Zei,Aang,2
+Xu,Dock,2
+Zei,Appa,2
+Xin Fu,Xin Fu,2
+Ty Lee,Mai,2
+Yue,Yue,2
+Toph,Momo,2
+Aang,On Ji,2
+Aang,Pakku,2
+Jeong Jeong,Zhao,2
+Jin,Iroh,2
+Aang,Canyon guide,2
+Toph,Iroh,2
+Aang,Jin,2
+Jin,Zuko,2
+Aang,Wan Shi Tong,2
+Jeong Jeong,Aang,2
+Jee,Iroh,2
+Jee,Aang,2
+Jet,Longshot,2
+Iroh,Mongke,2
+Iroh,Ming,2
+Jet,Lee,2
+Actor Ozai,Aang,2
+Actor Sokka,Aang,2
+June,Aang,2
+Ty Lee,Aang,2
+Zuko,Toph,2
+Iroh,Appa,2
+Actor Zuko,Aang,2
+Iroh,Kuei,2
+Joo Dee,Kuei,2
+Zuko,Suki,1
+Zuko,Than,1
+Sokka,Pong,1
+Sokka,Chong,1
+Aang,Dock,1
+Yung,Katara,1
+Sokka,Pipsqueak,1
+Yung,Aang,1
+Sokka,Shyu,1
+Sokka,Piandao,1
+Sokka,Pakku,1
+Zuko,Sozin,1
+Sokka,Due,1
+Sokka,Hide,1
+Sokka,Moku,1
+Zuko,Shyu,1
+Sokka,Fung,1
+Zhao,Shinu,1
+Sokka,Huu,1
+Zhao,Than,1
+Zhao,Jeong Jeong,1
+Yue,Zuko,1
+Zhao,Appa,1
+Zhang leader,Zhang leader,1
+Sokka,Jin,1
+Zuko,Chit Sang,1
+Zhang leader,Sokka,1
+Zuko,Jet,1
+Zuko,Jin,1
 Zuko,June,1
-Zuko,Kyoshi,1
-Zuko,Mechanist,1
-Actor Toph,Toph,1
-Actor Toph,Suki,1
-Actor Toph,Sokka,1
-Actor Toph,Katara,1
-Actor Toph,Aang,1
-Actor Sokka,Sokka,1
-Headmaster,Katara,1
-Headmaster,Hide,1
-Headmaster,Aang,1
-Haru's mother,Ozai,1
-Haru's mother,Haru,1
-Haru,Momo,1
-Haru,Katara,1
-Ham Ghao,Ham Ghao,1
-Hakoda,Haru,1
-Zuko,Toph,1
-Lao,Toph,1
-Kya,Yon Rha,1
-Kwan,Sozin,1
-Kuruk,Kuruk,1
-Kuruk,Koh,1
-Kuei,Long Feng,1
-Kuei,Katara,1
-Kuei,Aang,1
-Kenji,Kenji,1
-Kenji,Aang,1
-Kay-fon,Aang,1
-Katara,Zhao,1
-Katara,Yu,1
-Katara,Yon Rha,1
-Katara,Xin Fu,1
-Katara,Sozin,1
-Dock,Dock,1
+Sokka,Gyatso,1
+Zhao,Sokka,1
+Zei,Than,1
+Sokka,General How,1
+Sokka,Oyaji,1
+Zei,Katara,1
+Sokka,Jeong Jeong,1
+Song,Aang,1
+Yu,Xin Fu,1
+Yu,Toph,1
+Unnamed Fire Nation boy,Appa,1
+Ukano,Bumi,1
+Ty Lee,Than,1
+Ty Lee,Sokka,1
+Ty Lee,Kyoshi,1
+Toph,Zei,1
+Sun Warrior chief,Ham Ghao,1
+Sun Warrior chief,Iroh,1
+Toph,Than,1
+Toph,Suki,1
+Toph,Kyoshi,1
+Toph,Kuei,1
+Than,Ying,1
+Toph,June,1
+The Boulder,The Hippo,1
+Aang,Hama,1
+The Boulder,Toph,1
+The Duke,Appa,1
+Toph,Azula,1
+The Duke,Jet,1
+The Duke,Momo,1
+The Duke,Pipsqueak,1
+The Duke,The Duke,1
+Tong,Sokka,1
+Ticket lady,Toph,1
+Ticket lady,Momo,1
+Tho,Momo,1
+Suki,Ozai,1
+Suki,Momo,1
+Suki,Katara,1
+Song,Than,1
+Sokka,Tho,1
+Sokka,Ty Lee,1
+Young Zuko,Lu Ten,1
+Young Zuko,Iroh,1
+Sokka,Xu,1
+Sokka,Zei,1
+Yon Rha,Katara,1
+Ying,Aang,1
+The Duke,Toph,1
+Xu,Sokka,1
+Song,Song,1
+Xu,Aang,1
+Southern Raiders commander,Yon Rha,1
+Suki,Appa,1
+Xin Fu,The Hippo,1
+Xin Fu,Aang,1
+Southern Water Tribe girl,Aang,1
+Warden Poon,Ming,1
+Sozin,Ozai,1
+Sozin,Sozin,1
+Sozin,Ta Min,1
+Storyteller,Aang,1
+Storyteller,Momo,1
+Wan Shi Tong,Aang,1
+Ursa,Ozai,1
+Ursa,Lu Ten,1
+Aang,Joo Dee,1
+Lu Ten,Iroh,1
+Smellerbee,Sokka,1
+Due,Dock,1
+Fung,Iroh,1
+Fong,Ozai,1
+Fong,Katara,1
+Fire Navy officer,Chan,1
+Fire Nation man,Appa,1
+Earthbender captain,Zuko,1
+Earthbender captain,Than,1
+Earthbender captain,Iroh,1
+Due,Tho,1
+Due,Huu,1
+Due,Aang,1
+Canyon guide,Jin,1
+Dock,Xu,1
 Dock,Aang,1
 Ding,Sokka,1
-Chong,Sokka,1
-Chong,Moku,1
-Long Feng,Kyoshi,1
-Long Feng,Katara,1
-Long Feng,Joo Dee,1
-Long Feng,Jet,1
-Long Feng,Azula,1
-Long Feng,Appa,1
-Long Feng,Aang,1
-Lin Yee,Jeong Jeong,1
-Lin Yee,Chey,1
-Lieutenant Jee,Iroh,1
-Lao,Xin Fu,1
-Mechanist,Katara,1
-Mechanist,Huu,1
-Malu,Katara,1
-Mai,Ty Lee,1
-Mai,Lee,1
-Mai,Kyoshi,1
-Mai,Iroh,1
-Mai,Azula,1
-Long Feng,Sokka,1
-Fire Navy officer,Chan,1
-Earthbender captain,Zuko,1
-Earthbender captain,The Boulder,1
-Due,Sokka,1
-Due,Katara,1
-Due,Aang,1
-Dock,Katara,1
-June,Iroh,1
-Joo Dee,Aang,1
-Jin,Zuko,1
-Ozai,Aang,1
-Oyaji,Oyaji,1
-Oyaji,Aang,1
-Old Sweepy,Old Sweepy,1
-Mung,Jet,1
+Chong,Chong,1
+Chit Sang,Zuko,1
+Chit Sang,Suki,1
+Chey,Jeong Jeong,1
+Chey,Aang,1
+Chan,Zuko,1
+Canyon guide,The Boulder,1
+Fung,Xin Fu,1
+Fung,Zuko,1
+Gan Jin tribesman,Aang,1
+Gansu,Sela,1
+Iio,Appa,1
+Huu,Katara,1
+Huu,Huu,1
+Huu,Aang,1
+Hide,On Ji,1
+Hide,Headmaster,1
+Headmaster,Hide,1
+Headmaster,Aang,1
+Haru's mother,Tax collector,1
+Haru's mother,Ozai,1
+Haru,Aang,1
+Hakoda,Than,1
+Hakoda,Hakoda,1
+Hakoda,Azulon,1
+Hahn,Hahn,1
+Great Fire Sage,Zhao,1
+Great Fire Sage,Momo,1
+Gow,Than,1
+Ghashiun,Ghashiun,1
+Ghashiun,Aang,1
+General How,Appa,1
+Canyon guide,Than,1
+Cabbage merchant,Than,1
+Smellerbee,Longshot,1
+Aang,The Boulder,1
+Actor Zuko,Ozai,1
+Actor Zuko,Azula,1
+Actor Toph,Toph,1
+Actor Toph,Aang,1
+Actor Sokka,Yue,1
+Actor Jet,Jet,1
+Actor Jet,Aang,1
+Actor Iroh,Aang,1
+Aang,Zhao,1
+Aang,Yue,1
+Aang,Teo,1
+Bumi,Than,1
+Aang,Sozin,1
+Aang,Shyu,1
+Aang,Pong,1
+Aang,Pipsqueak,1
+Aang,Piandao,1
+Aang,Moku,1
+Aang,Meng,1
+Aang,Longshot,1
+Aang,Lily,1
+Aang,Kuei,1
+Actor Zuko,Zuko,1
+Actress Aang,Jet,1
+Actress Azula,Hide,1
+Actress Katara,Jet,1
+Bumi,Piandao,1
+Bumi,Katara,1
+Bujing,Than,1
+Brainwasher,Joo Dee,1
+Blue Spirit,Aang,1
+Bato,Chan,1
+Bato,Bato,1
+Azulon,Ozai,1
+Azulon,Iroh,1
+Azula,Than,1
+Azula,Shuzumu,1
+Azula,Long Feng,1
+Azula,Lee,1
+Azula,Kyoshi,1
+Azula,Katara,1
+Azula,Bumi,1
+Azula,Appa,1
+Arnook,Pakku,1
+Actress Yue,Sokka,1
+Actress Katara,Zuko,1
+Actress Katara,Sokka,1
+Iroh,Hide,1
+Iroh,Lieutenant Jee,1
+Iroh,Lu Ten,1
 Mung,Aang,1
-Mother Superior,Aang,1
-Mongke,Mongke,1
-Momo,Momo,1
-Momo,Aang,1
-Meng,Katara,1
-Meng,Aang,1
-Mechanist,Toph,1
-Pakku,Fong,1
-Pakku,Appa,1
+Pao,Jet,1
+Pao,Iroh,1
+Pakku,Yagoda,1
+Pakku,Sokka,1
+Pakku,Kanna,1
 Ozai,Sozin,1
 Ozai,Lu Ten,1
 Ozai,Iroh,1
-Ozai,Azula,1
-Katara,Iroh,1
-Katara,Hakoda,1
-Katara,Gyatso,1
-Katara,Bumi,1
-Katara,Azula,1
-Katara,Avatar Roku,1
-Kanna,Sokka,1
-Kanna,Katara,1
-Kanna,Kanna,1
-June,Sokka,1
-Qin,Aang,1
-Pirate captain,Momo,1
-Pirate captain,Aang,1
-Pipsqueak,Aang,1
-Pathik,Katara,1
-Chit Sang,Zuko,1
-Chey,Jeong Jeong,1
-Chan,Zuko,1
-Chan,Ruon-Jian,1
-Canyon guide,Jin,1
-Canyon guide,Aang,1
-Bumi,Jeong Jeong,1
-Pasang,Aang,1
-Pakku,Yagoda,1
-Pakku,Momo,1
-Pakku,Iroh,1
-General How,Appa,1
-Shyu,Sozin,1
-Shyu,Katara,1
-Shinu,Zhao,1
-Shinu,Ozai,1
-Senlin Village leader,Aang,1
-Sela,Zuko,1
-Sela,Lee,1
-Sela,Gansu,1
-Scary prisoner,Aang,1
-Ruon-Jian,Zuko,1
-Ruon-Jian,Ruon-Jian,1
-Roku,Ozai,1
-Roku,Jet,1
-Quon,Pao,1
-Qin Lee,Qin,1
-Bato,Chan,1
-Bato,Bato,1
-Azulon,Iroh,1
-Azula,Sozin,1
-Azula,Shuzumu,1
-Smellerbee,Jet,1
-Jin,Jin,1
-Jet,Pipsqueak,1
-Jet,Lee,1
-Hakoda,Bato,1
-Hakoda,Appa,1
-Hahn,Yue,1
-Great Fire Sage,Shyu,1
-Great Fire Sage,Roku,1
-Great Fire Sage,Avatar Roku,1
-Ghashiun,Ghashiun,1
-Actress Katara,Zuko,1
-Sokka,Pipsqueak,1
-Sokka,Piandao,1
-Sokka,Ozai,1
-Sokka,Oyaji,1
-Sokka,Meng,1
-Sokka,Kuei,1
-Sokka,King Bumi,1
-Sokka,Jeong Jeong,1
-Sokka,Haru,1
-Sokka,Hama,1
-Sokka,Fung,1
-Sokka,Due,1
-Smellerbee,Sokka,1
-Smellerbee,Smellerbee,1
-Smellerbee,Pipsqueak,1
+On Ji,On Ji,1
+Old Sweepy,Old Sweepy,1
+Mongke,Ozai,1
 Iroh,Pao,1
-Sokka,Wan Shi Tong,1
-Sokka,Tong,1
-Sokka,Teo,1
-Sokka,Smellerbee,1
-Sokka,Shyu,1
-Azula,Katara,1
-Azula,Chan,1
-Avatar Roku,Sozin,1
-Avatar Roku,Roku,1
-Avatar Roku,Aang,1
-Arnook,Sokka,1
-Arnook,Princess Yue,1
-Arnook,Hahn,1
-Arnook,Arnook,1
-Arnook,Aang,1
-Suki,Appa,1
-Storyteller,Sokka,1
-Storyteller,Momo,1
-Sozin,Aang,1
-Southern Water Tribe girl,Katara,1
-Sokka,Xu,1
-Gan Jin tribesman,Sokka,1
-Gan Jin tribesman,Katara,1
-Gan Jin tribesman,Aang,1
-Fung,Xin Fu,1
-Jeong Jeong,Zhao,1
-Jee,Lieutenant Jee,1
-Jee,Jee,1
-Iroh,Toph,1
-Iroh,Sozin,1
-Iroh,Song,1
-Actress Aang,Actress Aang,1
-Actor Zuko,Zuko,1
-Actor Zuko,Azula,1
-Actor Zuko,Actress Azula,1
-Toph,Ding,1
-Tho,Momo,1
-Tho,Due,1
-The Duke,Pipsqueak,1
-The Duke,Momo,1
-The Boulder,The Hippo,1
-Than,Ying,1
-Teo,Katara,1
-Sun Warrior chief,Iroh,1
-Suki,Ty Lee,1
-Suki,Ozai,1
-Suki,Lee,1
-Huu,Huu,1
-Hide,Headmaster,1
-Headmaster,Sokka,1
-Ursa,Azulon,1
-Ursa,Azula,1
-Ty Lee,Kyoshi,1
-Toph,Xin Fu,1
-Toph,Long Feng,1
-Toph,Kyoshi,1
-Toph,June,1
-Actress Katara,Actor Zuko,1
-Actress Azula,Zuko,1
-Actress Aang,Toph,1
-Actress Aang,Momo,1
-Actress Aang,Katara,1
-Actress Aang,Actress Katara,1
-Xu,Dock,1
-Xin Fu,Xin Fu,1
-Xin Fu,Toph,1
-Wu,Katara,1
-Wu,Aunt Wu,1
-Wan Shi Tong,Sokka,1
-Ursa,Mai,1
-Ursa,Lu Ten,1
-Iroh,Ozai,1
-Iroh,Mongke,1
-Iroh,Lieutenant Jee,1
-Iroh,Katara,1
-Iroh,Jet,1
-Iroh,Blue Spirit,1
-Huu,Sokka,1
-Huu,Katara,1
-Zuko,The Duke,1
-Zuko,Teo,1
-Zuko,Suki,1
-Zuko,Sozin,1
-Actor Sokka,Aang,1
-Actor Ozai,Aang,1
-Actor Jet,Jet,1
-Actor Jet,Actress Aang,1
-Actor Jet,Aang,1
-Actor Iroh,Zuko,1
-Yue,Arnook,1
-Young Zuko,Zuko,1
-Young Zuko,Ursa,1
-Young Zuko,Lu Ten,1
-Yon Rha,Katara,1
-Xu,Xu,1
-Zuko,Ozai,1
-Aang,Bato,1
-Zuko,Warden Poon,1
-Zuko,Ursa,1
-Zuko,Jin,1
-Zuko,Jet,1
-Zuko,Jeong Jeong,1
-Zuko,Haru,1
-Zhao,Sokka,1
-Yung,Yung,1
-Yung,Katara,1
-Yung,Aang,1
-Yue,Zuko,1
-Yue,Katara,1
-Actor Zuko,Actor Iroh,1
-Actor Toph,Zuko,1
-Katara,Long Feng,1
-Katara,Kuei,1
-Katara,Kanna,1
+Mongke,Iroh,1
+Momo,Appa,1
+Momo,Aang,1
+Michi,Aang,1
+Mechanist,Toph,1
+Mechanist,Teo,1
+Malu,Katara,1
+Mai,Ty Lee,1
+Mai,Kyoshi,1
+Aang,Koko,1
+Pao,Pao,1
+Pathik,Gyatso,1
+Piandao,Aang,1
+Piandao,Zuko,1
+Smellerbee,Appa,1
+Shuzumu,Appa,1
+Shoji,Hide,1
+Shoji,Aang,1
+Shinu,Ozai,1
+Sha-Mo,Ghashiun,1
+Sela,Zuko,1
+Ruon-Jian,Mai,1
+Roku,Than,1
+Roku,Koh,1
+Roku,Jet,1
+Red dragon,Zuko,1
+Quon,Zuko,1
+Qin,Ty Lee,1
+Qin,Qin,1
+Poppy,Aang,1
+Pong,Aang,1
+Pipsqueak,The Duke,1
+Pipsqueak,Sokka,1
+Pipsqueak,Smellerbee,1
+Pipsqueak,Pipsqueak,1
+Long Feng,Than,1
+Long Feng,Katara,1
+Long Feng,Jet,1
 Katara,June,1
-Katara,Jin,1
-Zhao,Appa,1
-Zhao,Aang,1
-Zhang leader,Aang,1
-Aang,Teo,1
-Aang,Shyu,1
-Aang,Pathik,1
-Aang,Pakku,1
-Aang,Mother Superior,1
-Zei,Katara,1
-Zuko,Senlin Village leader,1
-Zuko,Pakku,1
+Katara,Hide,1
+Katara,General How,1
+Katara,Dock,1
+Kanna,Aang,1
+June,Zuko,1
+Joo Dee replacement,Joo Dee,1
+Joo Dee,Toph,1
+Joo Dee,Sokka,1
+Joo Dee,Joo Dee,1
+Joo Dee,Appa,1
+Jin,Lee,1
+Jet,Iroh,1
+Jet,Hide,1
+Jeong Jeong,Sokka,1
+Jeong Jeong,Roku,1
+Jeong Jeong,Jeong Jeong,1
+Jee,Zuko,1
+Iroh,Yue,1
+Iroh,Tycho,1
+Iroh,Toph,1
+Iroh,Smellerbee,1
+Katara,Huu,1
+Katara,Koko,1
+Aang,Herbalist,1
+Katara,Long Feng,1
+Long Feng,Appa,1
+Lin Yee,Aang,1
+Lieutenant Jee,Iroh,1
+Kyoshi,Kyoshi,1
+Kya,Kya,1
+Kwan,Than,1
+Kwan,Ozai,1
+Kwan,Aang,1
+Kuruk,Aang,1
+Kuei,Long Feng,1
+Koko,Aang,1
+Katara,Zhao,1
+Katara,Ty Lee,1
+Katara,Tong,1
+Katara,The Duke,1
+Katara,Suki,1
+Aang,Iroh,1
+Katara,Roku,1
+Katara,Pong,1
+Katara,Moku,1
+Katara,Meng,1
+Long Feng,Azula,1
