@@ -1,4 +1,6 @@
 import pandas as pd
+import re
+from functools import lru_cache
 
 from read_data import *
 
@@ -217,6 +219,11 @@ alias_map = {
 
     "huu": "Huu",
 
+    "Wu": "Aunt Wu",
+    "Wu": "aunt wu",
+    "Wu": "wu",
+    "Wu": "aunt Wu",
+
     # --- Recurring civilians / iconic side characters ---
     "cabbage merchant": "Cabbage Merchant",
     "cabbage man": "Cabbage Merchant",
@@ -233,6 +240,16 @@ double_character_names_map = {
     "Toph and Sokka": ['Toph', 'Sokka'],
     "Katara and Sokka": ['Katara', 'Sokka']
 }
+
+@lru_cache(maxsize=1024)
+def _pattern_for(name: str) -> re.Pattern:
+    parts = re.split(r'\s+', name.strip())
+    # If you want to allow punctuation between words, use r'\W+' instead of r'\s+'
+    pat = r'(?<!\w)' + r'\s+'.join(map(re.escape, parts)) + r'(?!\w)'
+    return re.compile(pat, re.IGNORECASE)
+
+def has_name(line: str, character_name: str) -> bool:
+    return bool(_pattern_for(character_name).search(line))
 
 def get_unique_characters():
     script = get_script()
@@ -269,6 +286,8 @@ def x_speaks_before_y():
         y = double_character_names_map[previous_character] if previous_character in double_character_names_map else [previous_character]
         for i in x:
             for j in y:
+                i = i.lower()
+                j = j.lower()
                 x_speaks_to_y.append([i, j])
         # We set our current character as previous character for the next loop
         previous_character = character
@@ -283,28 +302,41 @@ def x_mentions_y():
     # we load the script
     script = get_script()
     # we create a dict of all character names to their official names
-    official_character_names = list(get_unique_characters())
+    official_character_names = get_accepted_character_names()
     name_map = alias_map.copy()
     for official_character_name in official_character_names:
+        official_character_name = official_character_name.lower()
         name_map[official_character_name] = official_character_name
+    name_list = sorted(list(name_map.keys()))
+    for i in range(len(name_list)):
+        name_list[i] = name_list[i].lower()
+    name_set = sorted(set(name_list))
     # iterate over all lines in the script
     for index, row in script.iterrows():
         character = row["Character"]
         line = row["script"]
+        match = False
+        line = re.sub(r"\[.*?\]", "", line)
         # get the character(s) that is speaking
         if pd.isna(character): # characterless line
             continue
         x = double_character_names_map[character] if character in double_character_names_map else [character]
         # get the character(s) mentioned in the line
-        for character_name in name_map.keys():
-            if " " + character_name + " " in line:
+        for character_name in name_set:
+            character_name = character_name.lower()
+            if has_name(line=line, character_name=character_name):
                 for i in x:
-                    x_mentions_y.append([i, name_map[character_name]])
+                    i = i.lower()
+                    valid_name = name_map[character_name].lower()
+                    if match:
+                        print(f"{i}: [{character_name}, {valid_name}] {line}")
+                    x_mentions_y.append([i, valid_name])
     return pd.DataFrame(x_mentions_y, columns=["x", "y"])
 
 def cleanup_edges(data):
     characters = get_characters()
     valid = list(characters.get("name"))
+    valid = [x.lower() for x in valid]
     out = data[data["x"].isin(valid) & data["y"].isin(valid)].reset_index(drop=True)
     return out
 
@@ -316,6 +348,10 @@ def weigh_rows(data):
     )
     return weighted
 
+def lower_dataset(data):
+    data = data.applymap(lambda x: x.lower() if isinstance(x, str) else x)
+    return data
+
 def main():
     data = x_speaks_before_y()
     data = cleanup_edges(data)
@@ -326,6 +362,10 @@ def main():
     data = cleanup_edges(data)
     weighted = weigh_rows(data)
     weighted.to_csv("model/data/x_mentions_y.csv", index=False)
+
+    # data = get_characters()
+    # data = lower_dataset(data)
+    # data.to_csv("model/data/characters.csv", index=False)
     return
 
 if __name__ == "__main__":

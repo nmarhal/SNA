@@ -15,3 +15,7 @@ def get_x_speaks_to_y():
 def get_characters():
     data = pd.read_csv("model/data/characters.csv")
     return data
+
+def get_accepted_character_names():
+    data = pd.read_csv("model/data/characters.csv")
+    return list(data["name"])

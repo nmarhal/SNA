@@ -2,14 +2,14 @@ from view.visualize_graphs import *
 from model.read_data import *
 from algorithms.graph_algorithms import *
 
-def main():
+def visualize_graphs():
     characters = get_characters()
 
-    min_weight = 20
-    min_degree = 2
+    min_weight = 10
+    min_degree = 1
     color_by = "origin"
     show_labels = True
-    label_top_k = 10
+    label_top_k = 20
     directed = True
 
     # Visualize and perform analysis on mentions data
@@ -37,6 +37,9 @@ def main():
                           directed=directed)
     analyze_hits(data, "x_speaks_to_y")
     analyze_pagerank(data, " x_speaks_to_y")
+
+def main():
+    return
 
 
 if __name__ == "__main__":
