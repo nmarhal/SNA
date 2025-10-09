@@ -6,6 +6,7 @@ from networkx.classes import number_of_nodes
 from numpy.ma.core import outer
 
 from algorithms.graph_algorithms import build_graph
+from model.entities.centrality_scores import CentralityScores
 
 
 class NetworkStatisticsAnalyzer:
@@ -13,7 +14,7 @@ class NetworkStatisticsAnalyzer:
     number of vertices - done
     number of edges - done
     degree distribution (in-degree and out degree) - done
-    centrality indices
+    centrality indices - done
     clustering coefficient
     network diameter
     density
@@ -46,6 +47,15 @@ class NetworkStatisticsAnalyzer:
         out_degree_for_each_node = [self.graph.out_degree(node) for node in self.graph.nodes()]
         counts = Counter(out_degree_for_each_node)
         return self._get_degree_distribution(counts)
+
+    def get_centrality_scores(self) -> CentralityScores:
+        return CentralityScores(
+            in_degree=nx.in_degree_centrality(self.graph),
+            out_degree=nx.out_degree_centrality(self.graph),
+            eigenvector=nx.eigenvector_centrality(self.graph),
+            closeness=nx.closeness_centrality(self.graph),
+            betweenness=nx.betweenness_centrality(self.graph),
+        )
 
     def _get_degree_distribution(self, counts: Counter[int]) -> dict[int, float]:
         nodes_count = self.get_number_of_vertices()

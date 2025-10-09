@@ -15,11 +15,13 @@ def visualize_graphs():
 
     # Visualize and perform analysis on mentions data
     data = get_x_mentions_y()
+    # todo: visualize analyzer data
     analyzer = NetworkStatisticsAnalyzer(data)
     edges = analyzer.get_number_of_edges()
     vertices = analyzer.get_number_of_vertices()
     in_degree_distribution = analyzer.get_in_degree_distribution()
     out_degree_distribution = analyzer.get_out_degree_distribution()
+    centrality_scores = analyzer.get_centrality_scores()
     visualize_all_layouts(data,
                           characters,
                           color_by=color_by,
