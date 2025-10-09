@@ -1,3 +1,4 @@
+from algorithms.network_statistics import NetworkStatisticsAnalyzer
 from view.visualize_graphs import *
 from model.read_data import *
 from algorithms.graph_algorithms import *
@@ -14,6 +15,11 @@ def visualize_graphs():
 
     # Visualize and perform analysis on mentions data
     data = get_x_mentions_y()
+    analyzer = NetworkStatisticsAnalyzer(data)
+    edges = analyzer.get_number_of_edges()
+    vertices = analyzer.get_number_of_vertices()
+    in_degree_distribution = analyzer.get_in_degree_distribution()
+    out_degree_distribution = analyzer.get_out_degree_distribution()
     visualize_all_layouts(data,
                           characters,
                           color_by=color_by,
@@ -36,7 +42,7 @@ def visualize_graphs():
                           label_top_k=label_top_k,
                           directed=directed)
     analyze_hits(data, "x_speaks_to_y")
-    analyze_pagerank(data, " x_speaks_to_y")
+    analyze_pagerank(data, "x_speaks_to_y")
 
 def main():
     return
