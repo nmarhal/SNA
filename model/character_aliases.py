@@ -218,6 +218,8 @@ alias_map = {
     "cabbage man": "Cabbage Merchant",
     "cabbage guy": "Cabbage Merchant",
     "my cabbages guy": "Cabbage Merchant",
+
+    "aunt wu": "wu",
 }
 
 double_character_names_map = {

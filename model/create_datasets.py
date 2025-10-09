@@ -83,8 +83,8 @@ def x_mentions_y():
     # iterate over all lines in the script
     for index, row in script.iterrows():
         speakers = row["Character"]
-        line = row["script"]
-        line = re.sub(r"\[.*?\]", "", line)
+        full_line = row["script"]
+        line = re.sub(r"\[.*?\]", "", full_line)
         # get the character(s) that is speaking
         if pd.isna(speakers):
             # skipping  line
@@ -129,20 +129,19 @@ def main():
     data = x_speaks_before_y()
     data = cleanup_edges(data)
     weighted = weigh_rows(data)
-    weighted.to_csv("./data/x_speaks_to_y.csv", index=False)
+    # weighted.to_csv("./data/x_speaks_to_y.csv", index=False)
     # uncomment this if my code with ./data does not work
-    # weighted.to_csv("model/data/x_speaks_to_y.csv", index=False)
+    weighted.to_csv("model/data/x_speaks_to_y.csv", index=False)
 
     data, data_with_sentiment = x_mentions_y()
     data = cleanup_edges(data)
     data_with_sentiment = cleanup_edges(data_with_sentiment)
     weighted = weigh_rows(data)
-    weighted.to_csv("./data/x_mentions_y.csv", index=False)
-    data_with_sentiment.to_csv("./data/x_mentions_y_with_sentiment.csv", index=False)
-
+    # weighted.to_csv("./data/x_mentions_y.csv", index=False)
+    # data_with_sentiment.to_csv("./data/x_mentions_y_with_sentiment.csv", index=False)
     # uncomment this if my code with ./data does not work
-    # weighted.to_csv("model/data/x_mentions_y.csv", index=False)
-    # weighted_with_sentiment.to_csv("model/data/x_mentions_y_with_sentiment.csv", index=False)
+    weighted.to_csv("model/data/x_mentions_y.csv", index=False)
+    data_with_sentiment.to_csv("model/data/x_mentions_y_with_sentiment.csv", index=False)
 
     return
 
