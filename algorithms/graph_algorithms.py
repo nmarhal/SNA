@@ -6,12 +6,12 @@ import os
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "model", "data")
 
 
-def build_graph(data: pd.DataFrame, directed: bool = True, use_weights: bool = False) -> nx.Graph:
+def build_graph(data: pd.DataFrame, use_weights: bool = False) -> nx.DiGraph:
     """
     Build a graph from a DataFrame with columns ["x", "y"] or ["x", "y", "weight"].
     If use_weights=True, weights are added to edges.
     """
-    G = nx.DiGraph() if directed else nx.Graph()
+    G = nx.DiGraph()
 
     if use_weights and "weight" in data.columns:
         for _, row in data.iterrows():
@@ -68,22 +68,22 @@ def save_pagerank_results(scores: dict, filename: str):
     df.to_csv(os.path.join(DATA_DIR, filename), index=False)
 
 
-def analyze_hits(data: pd.DataFrame, name: str, directed: bool = True):
+def analyze_hits(data: pd.DataFrame, name: str):
     """
     Build graph and run HITS, saving results to CSV.
     """
-    G = build_graph(data, directed=directed)
+    G = build_graph(data)
     hubs, authorities = run_hits(G)
     save_hits_results(hubs, authorities, f"hits_{name}.csv")
     return hubs, authorities
 
 
-def analyze_pagerank(data: pd.DataFrame, name: str, directed: bool = True, alpha: float = 0.85,
+def analyze_pagerank(data: pd.DataFrame, name: str, alpha: float = 0.85,
                      use_weights: bool = True):
     """
     Build graph and run PageRank, saving results to CSV.
     """
-    G = build_graph(data, directed=directed, use_weights=use_weights)
+    G = build_graph(data, use_weights=use_weights)
     pr_scores = run_pagerank(G, alpha=alpha)
     save_pagerank_results(pr_scores, f"pagerank_{name}.csv")
     return pr_scores
