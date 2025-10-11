@@ -49,15 +49,22 @@ def visualize_graphs():
 def run_cliques_homophily_bridges_analysis():
     data = get_x_mentions_y()
     character_data = get_characters()
+    # cliques:
     n_biggest, all_cliques = analyze_cliques(data, "x_mentions_y")
     print(n_biggest)
     for x in all_cliques:
         if len(x) == n_biggest:
             print(x)
+    # homophily:
     results_gender, results_bending, results_origin = analyze_homophily(data, character_data, "x_mentions_y")
     print(results_gender)
     print(results_bending)
     print(results_origin)
+    # bridges:
+    weak_articulation, strong_articulation, weak_bridges = analyze_bridges(data, reciprocal=True)
+    print(sorted(weak_articulation))
+    print(sorted(strong_articulation))
+    print(weak_bridges)
 
 
 def main():

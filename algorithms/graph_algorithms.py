@@ -9,7 +9,7 @@ import os
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "model", "data")
 
 
-def build_graph(data: pd.DataFrame, use_weights: bool = False) -> nx.Graph:
+def build_graph(data: pd.DataFrame, use_weights: bool = False) -> nx.DiGraph:
     """
     Build a graph from a DataFrame with columns ["x", "y"] or ["x", "y", "weight"].
     If use_weights=True, weights are added to edges.
@@ -69,11 +69,7 @@ def run_cliques(graph: nx.Graph):
             n_biggest = lc
     return n_biggest, all_cliques
 
-def run_homophily(graph: nx.DiGraph, attr: str, use_weight = False, permutations: int = 0):
-    if use_weight:
-        weight = "weight"
-    else:
-        weight = None
+def run_homophily(graph: nx.DiGraph, attr: str, permutations: int = 0):
     n_nodes, n_edges = graph.number_of_nodes(), graph.number_of_edges()
 
     # 1) Assortativity (categorical) on directed graph
@@ -87,7 +83,7 @@ def run_homophily(graph: nx.DiGraph, attr: str, use_weight = False, permutations
     same = 0.0
     total = 0.0
     for u, v, d in graph.edges(data=True):
-        w = d.get(weight, 1.0) if weight else 1.0
+        w = 1.0
         total += w
         if graph.nodes[u][attr] == graph.nodes[v][attr]:
             same += w
@@ -121,6 +117,31 @@ def run_homophily(graph: nx.DiGraph, attr: str, use_weight = False, permutations
         "mixing_matrix": M.tolist(),
         "mixing_matrix_norm": M_norm.tolist(),
     }
+
+def run_bridges(graph: nx.DiGraph, graph_und: nx.Graph):
+    """
+    Compute three bridge-like structures in a directed network.
+
+    Returns
+    weak_articulation : list
+        Nodes whose removal increases the number of connected components when direction is ignored.
+    strong_articulation : list
+        Nodes whose removal increases the number of strongly connected components in the directed graph.
+    weak_bridges : list[tuple]
+        Edges (u, v) that are bridges in the undirected sense: removing the edge increases the number of connected components.
+    """
+    # calculate weak articulation points
+    weak_articulation = list(nx.articulation_points(graph_und))
+    scc = nx.number_strongly_connected_components(graph)
+    strong_articulation = []
+    for v in graph.nodes():
+        new_graph = graph.copy()
+        new_graph.remove_node(v)
+        if nx.number_strongly_connected_components(new_graph) > scc:
+            strong_articulation.append(v)
+    weak_bridges = list(nx.bridges(graph_und))
+    return weak_articulation, strong_articulation, weak_bridges
+
 
 
 def save_hits_results(hubs: dict, authorities: dict, filename: str):
@@ -175,7 +196,12 @@ def analyze_cliques(data: pd.DataFrame, name: str, reciprocal: bool = True):
 
 def analyze_homophily(data: pd.DataFrame, character_data: pd.DataFrame, name: str):
     graph = build_graph_with_attributes(data, character_data)
-    results_gender = run_homophily(graph=graph, attr="gender", use_weight = False, permutations = 100)
-    results_bending = run_homophily(graph=graph, attr="bending", use_weight = False, permutations = 100)
-    results_origin = run_homophily(graph=graph, attr="origin", use_weight = False, permutations = 100)
+    results_gender = run_homophily(graph=graph, attr="gender", permutations = 100)
+    results_bending = run_homophily(graph=graph, attr="bending", permutations = 100)
+    results_origin = run_homophily(graph=graph, attr="origin", permutations = 100)
     return results_gender, results_bending, results_origin
+
+def analyze_bridges(data: pd.DataFrame, reciprocal: bool = True):
+    graph = build_graph(data)
+    graph_und = graph.to_undirected(reciprocal=reciprocal)  # remove directions from graph, keeps only bidirectional edges
+    return run_bridges(graph, graph_und)
