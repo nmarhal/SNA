@@ -17,16 +17,6 @@ def _pattern_for(name: str) -> re.Pattern:
 def has_name(line: str, character_name: str) -> bool:
     return bool(_pattern_for(character_name).search(line))
 
-def get_unique_characters():
-    script = get_script()
-    unique_characters = script.get("Character").dropna().unique()
-    unique_characters = list(unique_characters)
-    for character in unique_characters:
-        if len(character.split(" and ")) > 1:
-            unique_characters.remove(character)
-    unique_characters.remove("Katara and Sokka")
-    return unique_characters
-
 def x_speaks_before_y():
     """
     Simple connection where a character x spoke their line before character y
@@ -71,7 +61,7 @@ def x_mentions_y():
     # we load the script
     script = get_script()
     # we create a dict of all character names to their official names
-    official_character_names = get_accepted_character_names()
+    official_character_names = get_characters()["name"]
     name_map = alias_map.copy()
     for official_character_name in official_character_names:
         official_character_name = official_character_name.lower()

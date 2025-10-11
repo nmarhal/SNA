@@ -46,7 +46,22 @@ def visualize_graphs():
     analyze_hits(data, "x_speaks_to_y")
     analyze_pagerank(data, "x_speaks_to_y")
 
+def run_cliques_homophily_bridges_analysis():
+    data = get_x_mentions_y()
+    character_data = get_characters()
+    n_biggest, all_cliques = analyze_cliques(data, "x_mentions_y")
+    print(n_biggest)
+    for x in all_cliques:
+        if len(x) == n_biggest:
+            print(x)
+    results_gender, results_bending, results_origin = analyze_homophily(data, character_data, "x_mentions_y")
+    print(results_gender)
+    print(results_bending)
+    print(results_origin)
+
+
 def main():
+    run_cliques_homophily_bridges_analysis()
     return
 
 
