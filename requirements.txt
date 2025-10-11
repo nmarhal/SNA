@@ -3,3 +3,6 @@ matplotlib
 pandas
 scipy
 vaderSentiment
+python-louvain
+igraph
+leidenalg

@@ -19,3 +19,7 @@ def get_x_speaks_to_y():
 def get_characters():
     data = pd.read_csv(os.path.join(DATA_DIR, "characters.csv"))
     return data
+
+def get_x_speaks_to_y_sentiment():
+    data = pd.read_csv(os.path.join(DATA_DIR, "x_mentions_y_with_sentiment_and_line.csv"))
+    return data

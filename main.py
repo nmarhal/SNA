@@ -2,6 +2,7 @@ from algorithms.network_statistics import NetworkStatisticsAnalyzer
 from view.visualize_graphs import *
 from model.read_data import *
 from algorithms.graph_algorithms import *
+from view.visualize_sentiment import *
 
 def visualize_graphs():
     characters = get_characters()
@@ -66,9 +67,19 @@ def run_cliques_homophily_bridges_analysis():
     print(sorted(strong_articulation))
     print(weak_bridges)
 
+def visualize_sentiment():
+    data = get_x_speaks_to_y_sentiment()
+    datapoints = plot_sentiment_by_episode(data, "aang", "katara")
+    print(datapoints)
+
+def partition_graph():
+    data = get_x_mentions_y()
+    g_communities, g_labels, l_communities, l_labels, le_communities, le_labels = analyse_partitioning(data)
+    graph = build_undirected_weighted(data)
+    visualize_partition(graph, labels=g_labels, min_comm_size=4, show_labels=True)
 
 def main():
-    run_cliques_homophily_bridges_analysis()
+    partition_graph()
     return
 
 

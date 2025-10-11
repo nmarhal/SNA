@@ -2,6 +2,10 @@ import networkx as nx
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
+from collections import defaultdict, Counter
+import matplotlib.cm as cm
+import matplotlib.colors as mcolors
+import math
 
 def visualize_all_layouts(
     df: pd.DataFrame,
@@ -195,3 +199,145 @@ def visualize_all_layouts(
         plt.tight_layout()
 
     plt.show()
+
+
+def community_positions(
+    G: nx.Graph | nx.DiGraph,
+    labels: dict,                # node -> community_id
+    *,
+    weight_attr: str | None = "weight",
+    seed: int = 42,
+    inter_scale: float = 5.0,    # spacing between communities
+    intra_scale: float = 1.0,    # size of each community “blob”
+):
+    """
+    Compute a 2-level community-aware layout.
+    Returns a dict: node -> (x,y).
+    """
+    # 1) collect communities
+    comm_nodes = defaultdict(list)
+    for n in G.nodes():
+        cid = labels.get(n)
+        comm_nodes[cid].append(n)
+    comm_ids = list(comm_nodes.keys())
+
+    # 2) build community meta-graph (undirected, edges weighted by sum of inter-community strength)
+    CG = nx.Graph()
+    CG.add_nodes_from(comm_ids)
+    for u, v, d in G.edges(data=True):
+        cu, cv = labels.get(u), labels.get(v)
+        if cu is None or cv is None or cu == cv:
+            continue
+        w = d.get(weight_attr, 1.0) if weight_attr else 1.0
+        if CG.has_edge(cu, cv):
+            CG[cu][cv]["weight"] += w
+        else:
+            CG.add_edge(cu, cv, weight=w)
+
+    # 3) place communities in the plane
+    # (if only 1 community, put it at origin)
+    if CG.number_of_nodes() <= 1:
+        posC = {cid: (0.0, 0.0) for cid in comm_ids}
+    else:
+        posC = nx.spring_layout(CG, weight="weight", seed=seed)
+    # scale inter-community spacing
+    for cid in posC:
+        x, y = posC[cid]
+        posC[cid] = (inter_scale * x, inter_scale * y)
+
+    # 4) place nodes inside each community (local spring)
+    pos = {}
+    for cid, nodes in comm_nodes.items():
+        H = G.subgraph(nodes)
+        # local layout uses original edge weights (if present)
+        weight_kw = "weight" if (weight_attr and any("weight" in d for *_, d in H.edges(data=True))) else None
+        if H.number_of_nodes() == 1:
+            local = {nodes[0]: (0.0, 0.0)}
+        else:
+            local = nx.spring_layout(H, weight=weight_kw, seed=seed)
+
+        # normalize local cloud to unit radius, then scale by community size
+        # (bigger communities get a slightly larger radius to reduce overlap)
+        # compute current radius
+        xs, ys = zip(*local.values())
+        cx, cy = sum(xs)/len(xs), sum(ys)/len(ys)
+        rad = max(math.hypot(x-cx, y-cy) for x, y in local.values()) or 1.0
+        # radius grows sublinearly with |nodes|
+        target_r = intra_scale * (0.6 + 0.15 * math.sqrt(len(nodes)))
+
+        for n, (x, y) in local.items():
+            nxr, nyr = (x - cx)/rad * target_r, (y - cy)/rad * target_r
+            ox, oy = posC[cid]
+            pos[n] = (ox + nxr, oy + nyr)
+
+    return pos
+
+def visualize_partition(
+    G: nx.Graph | nx.DiGraph,
+    labels: dict,                     # node -> community_id
+    *,
+    min_comm_size: int = 1,
+    node_size: int = 60,
+    edge_width: float = 1.0,
+    show_labels: bool = False,
+    label_fontsize: int = 8,
+    cmap_name: str = "tab20",
+    seed: int = 42,
+    inter_scale: float = 5.0,
+    intra_scale: float = 1.0,
+):
+    """
+    Plot a community-aware layout:
+      - communities placed via spring layout on the community meta-graph,
+      - nodes placed via local spring within each community “blob”.
+    """
+    # filter to communities meeting size threshold
+    counts = Counter(c for n, c in labels.items() if c is not None)
+    keep = {cid for cid, cnt in counts.items() if cnt >= min_comm_size}
+    nodes_to_plot = [n for n in G.nodes() if labels.get(n) in keep]
+    if not nodes_to_plot:
+        raise ValueError(f"No communities with size >= {min_comm_size}.")
+
+    H = G.subgraph(nodes_to_plot).copy()
+
+    # positions
+    pos = community_positions(H, labels, seed=seed, inter_scale=inter_scale, intra_scale=intra_scale)
+
+    # colors per community
+    comm_ids = sorted(keep, key=lambda x: str(x))
+    cmap = cm.get_cmap(cmap_name, max(len(comm_ids), 3))
+    color_map = {c: mcolors.to_hex(cmap(i)) for i, c in enumerate(comm_ids)}
+    node_colors = [color_map[labels[n]] for n in H.nodes()]
+
+    # legend
+    legend_handles = [
+        Patch(facecolor=color_map[cid], edgecolor="none", label=f"Community {cid} (n={counts[cid]})")
+        for cid in sorted(keep, key=lambda c: (-counts[c], str(c)))
+    ]
+
+    # draw
+    fig, ax = plt.subplots(figsize=(9, 7))
+    directed = isinstance(H, nx.DiGraph)
+    if directed:
+        nx.draw_networkx_edges(
+            H, pos, ax=ax, width=edge_width, alpha=0.6,
+            arrows=True, arrowstyle="-|>", arrowsize=10, connectionstyle="arc3,rad=0.04"
+        )
+    else:
+        nx.draw_networkx_edges(H, pos, ax=ax, width=edge_width, alpha=0.6)
+
+    nx.draw_networkx_nodes(H, pos, ax=ax, node_color=node_colors, node_size=node_size)
+    ax.axis("off")
+    ax.set_title(f"Community-aware layout (≥ {min_comm_size})", fontsize=11)
+
+    if show_labels:
+        nx.draw_networkx_labels(H, pos, font_size=label_fontsize)
+
+    ncols = min(len(legend_handles), 4)
+    ax.legend(handles=legend_handles, loc="lower center", ncol=ncols, frameon=False,
+              fontsize=9, bbox_to_anchor=(0.5, -0.06))
+
+    plt.tight_layout()
+    plt.show()
+    return fig, ax
+

@@ -2,6 +2,11 @@ import random
 import pandas as pd
 import networkx as nx
 from networkx.algorithms import clique, assortativity
+from networkx.algorithms.community import girvan_newman
+from networkx.algorithms.community.quality import modularity
+import community as community_louvain
+import igraph as ig
+import leidenalg as la
 import os
 
 
@@ -34,6 +39,23 @@ def build_graph_with_attributes(data: pd.DataFrame, character_data: pd.DataFrame
     nx.set_node_attributes(directed_graph, attr_map)
     return directed_graph
 
+def build_undirected_weighted(data: pd.DataFrame) -> nx.Graph:
+    """
+   Create an undirected weighted graph summing reciprocal weights.
+   """
+    directed_graph = nx.DiGraph()
+    directed_graph.add_weighted_edges_from(data[["x", "y", "weight"]].itertuples(index=False, name=None))
+
+    undirected_graph = nx.Graph()
+    undirected_graph.add_nodes_from(directed_graph.nodes(data=True))
+    for u, v, d in directed_graph.edges(data=True):
+        w = d.get("weight", 1.0) if "weight" else 1.0
+        if undirected_graph.has_edge(u, v):
+            undirected_graph[u][v]["weight"] += w
+        else:
+            undirected_graph.add_edge(u, v, weight=w)
+    return undirected_graph
+
 def run_hits(graph: nx.DiGraph, max_iter: int = 1000, tol: float = 1e-8):
     """
     Run HITS algorithm on a graph.
@@ -41,7 +63,6 @@ def run_hits(graph: nx.DiGraph, max_iter: int = 1000, tol: float = 1e-8):
     """
     hubs, authorities = nx.hits(graph, max_iter=max_iter, tol=tol, normalized=True)
     return hubs, authorities
-
 
 def run_pagerank(graph: nx.DiGraph, alpha: float = 0.85, max_iter: int = 1000, tol: float = 1e-8,
                  weight: str = "weight"):
@@ -130,7 +151,6 @@ def run_bridges(graph: nx.DiGraph, graph_und: nx.Graph):
     weak_bridges : list[tuple]
         Edges (u, v) that are bridges in the undirected sense: removing the edge increases the number of connected components.
     """
-    # calculate weak articulation points
     weak_articulation = list(nx.articulation_points(graph_und))
     scc = nx.number_strongly_connected_components(graph)
     strong_articulation = []
@@ -142,7 +162,109 @@ def run_bridges(graph: nx.DiGraph, graph_und: nx.Graph):
     weak_bridges = list(nx.bridges(graph_und))
     return weak_articulation, strong_articulation, weak_bridges
 
+def run_partition_girvan(graph: nx.Graph, k: int | None = None):
+    """
+        Girvan–Newman partition algorithm.
+        DG : nx.DiGraph
+            directed graph with weights
+        k : int | None
+            If set, return the partition after k splits.
+            If None, returns the partition with the highest modularity encountered during the sequence.
 
+        communities : list[set]
+            List of node sets (one set per community).
+        labels : dict
+            Mapping node -> community_id
+        """
+    comp_gen = girvan_newman(graph)
+    best = None
+    best_Q = float("-inf")
+    if k is not None:
+        # advance generator to the k-th split (k+1 communities)
+        for i, part in enumerate(comp_gen):
+            if i == k:
+                communities = [set(c) for c in part]
+                labels = {n: idx for idx, c in enumerate(communities) for n in c}
+                return communities, labels
+        # if ended early, fall back to last
+        communities = [set(c) for c in part]
+        labels = {n: idx for idx, c in enumerate(communities) for n in c}
+        return communities, labels
+    else:
+        # scan and pick max modularity level
+        for part in comp_gen:
+            communities = [set(c) for c in part]
+            Q = modularity(graph, communities, weight="weight")
+            if Q > best_Q:
+                best_Q = Q
+                best = communities
+            if len(communities) >= graph.number_of_nodes():
+                break
+        communities = best if best is not None else [set(graph.nodes())]
+        labels = {n: idx for idx, c in enumerate(communities) for n in c}
+        return communities, labels
+
+def run_partition_louvain(graph: nx.Graph, resolution: float = 1.0, random_state: int | None = None,):
+    """
+    Louvain modularity optimization (requires `python-louvain` package).
+
+    Returns
+    -------
+    communities : list[set], labels : dict
+    """
+    part = community_louvain.best_partition(graph, weight="weight",resolution=resolution, random_state=random_state)
+    # build list[set] from labels
+    comm_map = {}
+    for n, cid in part.items():
+        comm_map.setdefault(cid, set()).add(n)
+    # reindex communities 0..C-1
+    remap = {old: i for i, old in enumerate(sorted(comm_map))}
+    labels = {n: remap[cid] for n, cid in part.items()}
+    # reorder communities
+    communities = [set() for _ in range(len(remap))]
+    for n, cid in labels.items():
+        communities[cid].add(n)
+    return communities, labels
+
+def run_partition_leiden(graph: nx.Graph, resolution: float = 1.0, n_iterations: int = -1, random_state: int | None = None,):
+    """
+        Leiden community detection (requires `igraph` and `leidenalg`).
+
+        Notes
+        -----
+        - Converts to an undirected igraph with summed weights for reciprocity.
+        - Uses RBConfigurationVertexPartition (Leiden with resolution parameter).
+        - Set `n_iterations=-1` to let the algorithm run until convergence.
+
+        Returns
+        -------
+        communities : list[set], labels : dict
+        """
+    # Build igraph
+    node_index = {n: i for i, n in enumerate(graph.nodes())}
+    edges = [(node_index[u], node_index[v]) for u, v in graph.edges()]
+    weights = [graph[u][v].get("weight", 1.0) for u, v in graph.edges()]
+    ig_graph = ig.Graph(edges=edges, directed=False)
+    ig_graph.add_vertices(len(graph) - ig_graph.vcount())  # ensure all vertices exist
+    ig_graph.vs["name"] = list(graph.nodes())
+    ig_graph.es["weight"] = weights
+
+    rng = la.RNG(random_state) if random_state is not None else None
+    part = la.find_partition(
+        ig_graph,
+        la.RBConfigurationVertexPartition,
+        weights="weight",
+        resolution_parameter=resolution,
+        n_iterations=n_iterations,
+        seed=rng,
+    )
+    # Convert back
+    communities = [set(ig_graph.vs[idx]["name"] for idx in comm) for comm in part]
+    labels = {}
+    for cid, comm in enumerate(communities):
+        for n in comm:
+            labels[n] = cid
+    return communities, labels
 
 def save_hits_results(hubs: dict, authorities: dict, filename: str):
     """
@@ -205,3 +327,10 @@ def analyze_bridges(data: pd.DataFrame, reciprocal: bool = True):
     graph = build_graph(data)
     graph_und = graph.to_undirected(reciprocal=reciprocal)  # remove directions from graph, keeps only bidirectional edges
     return run_bridges(graph, graph_und)
+
+def analyse_partitioning(data: pd.DataFrame):
+    graph = build_undirected_weighted(data)
+    g_communities, g_labels = run_partition_girvan(graph)
+    l_communities, l_labels = run_partition_louvain(graph)
+    le_communities, le_labels = run_partition_louvain(graph)
+    return g_communities, g_labels, l_communities, l_labels, le_communities, le_labels

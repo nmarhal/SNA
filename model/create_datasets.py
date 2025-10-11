@@ -50,6 +50,24 @@ def x_speaks_before_y():
         previous_character = character
     return pd.DataFrame(x_speaks_to_y, columns=["x", "y"])
 
+def get_valid_names():
+    """
+    :return:
+    name_set : set
+        set of all character names that might appear in the script, including aliases
+    name_map : dict
+        dict that maps all character names in name_set to their official character names
+    """
+    official_character_names = get_characters()["name"]
+    name_map = alias_map.copy()
+    for official_character_name in official_character_names:
+        official_character_name = official_character_name.lower()
+        name_map[official_character_name] = official_character_name
+    name_list = sorted(list(name_map.keys()))
+    for i in range(len(name_list)):
+        name_list[i] = name_list[i].lower()
+    name_set = sorted(set(name_list))
+    return name_set, name_map
 
 def x_mentions_y():
     """
@@ -60,20 +78,13 @@ def x_mentions_y():
     x_mentions_y_with_sentiment = []
     # we load the script
     script = get_script()
-    # we create a dict of all character names to their official names
-    official_character_names = get_characters()["name"]
-    name_map = alias_map.copy()
-    for official_character_name in official_character_names:
-        official_character_name = official_character_name.lower()
-        name_map[official_character_name] = official_character_name
-    name_list = sorted(list(name_map.keys()))
-    for i in range(len(name_list)):
-        name_list[i] = name_list[i].lower()
-    name_set = sorted(set(name_list))
+    # we retrieve all possible names in name_set and a dict to get their official name_map
+    name_set, name_map = get_valid_names()
     # iterate over all lines in the script
     for index, row in script.iterrows():
         speakers = row["Character"]
         full_line = row["script"]
+        episode = row["total_number"]
         line = re.sub(r"\[.*?\]", "", full_line)
         # get the character(s) that is speaking
         if pd.isna(speakers):
@@ -81,18 +92,21 @@ def x_mentions_y():
             continue
         speakers = double_character_names_map[speakers] if speakers in double_character_names_map else [speakers]
         # get the character(s) mentioned in the line
+        addressed_characters_saved = []
         for character_addressed in name_set:
             character_addressed = character_addressed.lower()
             if has_name(line=line, character_name=character_addressed):
                 for speaker in speakers:
                     speaker = speaker.lower()
                     character_addressed = name_map[character_addressed].lower()
-                    sentiment = get_sentiment(line)
-                    record_x_mentions_y_with_sentiment = [speaker, character_addressed, sentiment]
-                    x_mentions_y_with_sentiment.append(record_x_mentions_y_with_sentiment)
+                    if character_addressed in addressed_characters_saved:
+                        continue
+                    sentiment = get_sentiment(full_line)
+                    x_mentions_y_with_sentiment.append([speaker, character_addressed, sentiment["neg"],sentiment["neu"], sentiment["pos"], sentiment["compound"], episode, full_line])
                     x_mentions_y.append([speaker, character_addressed])
+                    addressed_characters_saved.append(character_addressed)
     x_mentions_y_data_frame = pd.DataFrame(x_mentions_y, columns=["x", "y"])
-    x_mentions_y_with_sentiment_data_frame = pd.DataFrame(x_mentions_y_with_sentiment, columns=["x", "y", "sentiment"])
+    x_mentions_y_with_sentiment_data_frame = pd.DataFrame(x_mentions_y_with_sentiment, columns=["x", "y", "neg", "neu", "pos", "compound", "episode", "line"])
     return x_mentions_y_data_frame, x_mentions_y_with_sentiment_data_frame
 
 def cleanup_edges(data):
@@ -116,12 +130,12 @@ def lower_dataset(data):
     return data
 
 def main():
-    data = x_speaks_before_y()
-    data = cleanup_edges(data)
-    weighted = weigh_rows(data)
-    # weighted.to_csv("./data/x_speaks_to_y.csv", index=False)
-    # uncomment this if my code with ./data does not work
-    weighted.to_csv("model/data/x_speaks_to_y.csv", index=False)
+    # data = x_speaks_before_y()
+    # data = cleanup_edges(data)
+    # weighted = weigh_rows(data)
+    # # weighted.to_csv("./data/x_speaks_to_y.csv", index=False)
+    # # uncomment this if my code with ./data does not work
+    # weighted.to_csv("model/data/x_speaks_to_y.csv", index=False)
 
     data, data_with_sentiment = x_mentions_y()
     data = cleanup_edges(data)
@@ -131,7 +145,7 @@ def main():
     # data_with_sentiment.to_csv("./data/x_mentions_y_with_sentiment.csv", index=False)
     # uncomment this if my code with ./data does not work
     weighted.to_csv("model/data/x_mentions_y.csv", index=False)
-    data_with_sentiment.to_csv("model/data/x_mentions_y_with_sentiment.csv", index=False)
+    data_with_sentiment.to_csv("model/data/x_mentions_y_with_sentiment_and_line.csv", index=False)
 
     return
 
