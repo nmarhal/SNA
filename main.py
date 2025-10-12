@@ -13,13 +13,11 @@ def compute_network_statistics():
     density = analyzer.get_density()
     weakly_connected_components_count = analyzer.get_weakly_connected_components_count()
     strongly_connected_components_count = analyzer.get_strongly_connected_components_count()
-    # todo these need to be visualized
 
     # todo bar chart - key=number of in-degrees, value=proportion of vertices with this degree
     in_degree_distribution = analyzer.get_in_degree_distribution()
     # todo bar chart - key=number of out-degrees, value=proportion of vertices with this degree
     out_degree_distribution = analyzer.get_out_degree_distribution()
-    # todo write for each node in the graph (each score) (key=character, value=centrality)
     centrality_scores = analyzer.get_centrality_scores()
     # todo write for each node in the graph (key=character, value=coefficient)
     clustering_coefficient = analyzer.get_clustering_coefficient()
@@ -40,7 +38,7 @@ def compute_network_statistics():
 def visualize_graphs():
     characters = get_characters()
 
-    min_weight = 10
+    min_weight = 3
     min_degree = 1
     color_by = "origin"
     show_labels = True
@@ -49,8 +47,34 @@ def visualize_graphs():
 
     # Visualize and perform analysis on mentions data
     data = get_x_mentions_y()
+    analyzer = NetworkStatisticsAnalyzer(data)
+    betweenness_centrality_label_data = LabelData(
+        label_name="Betweenness Centrality",
+        character_name_to_metric=analyzer.get_centrality_scores().betweenness
+    )
+    in_degree_centrality_label_data = LabelData(
+        label_name="In-Degree Centrality",
+        character_name_to_metric=analyzer.get_centrality_scores().in_degree
+    )
+    out_degree_centrality_label_data = LabelData(
+        label_name="Out-Degree Centrality",
+        character_name_to_metric=analyzer.get_centrality_scores().out_degree
+    )
+    eigenvector_centrality_label_data = LabelData(
+        label_name="Eigenvector Centrality",
+        character_name_to_metric=analyzer.get_centrality_scores().eigenvector
+    )
+    closeness_centrality_label_data = LabelData(
+        label_name="Closeness Centrality",
+        character_name_to_metric=analyzer.get_centrality_scores().closeness
+    )
+    clustering_coefficient_label_data = LabelData(
+        label_name="Clustering Coefficient",
+        character_name_to_metric=analyzer.get_clustering_coefficient()
+    )
     visualize_all_layouts(data,
                           characters,
+                          # label_data=clustering_coefficient_label_data,
                           color_by=color_by,
                           min_weight=min_weight,
                           min_degree=min_degree,

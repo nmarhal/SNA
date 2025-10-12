@@ -1,16 +1,20 @@
-import networkx as nx
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.patches import Patch
+import math
 from collections import defaultdict, Counter
+
 import matplotlib.cm as cm
 import matplotlib.colors as mcolors
-import math
+import matplotlib.pyplot as plt
+import networkx as nx
+import numpy as np
+import pandas as pd
+from matplotlib.patches import Patch
+
+from model.entities.label_data import LabelData
 
 def visualize_all_layouts(
     df: pd.DataFrame,
     characters: pd.DataFrame,
+    label_data: LabelData | None = None,
     color_by: str | None = None,           # 'origin' | 'bending' | 'gender' | None
     *,
     seed: int = 42,
@@ -166,7 +170,17 @@ def visualize_all_layouts(
             label_set = {n for n, _ in sorted(deg.items(), key=lambda kv: kv[1], reverse=True)[:label_top_k]}
         else:
             label_set = set(G.nodes())
-    labels_dict = {n: str(n) for n in label_set}
+    labels_dict = {}
+
+    # if label data is provided, add metric to the label
+    for n in label_set:
+        base_label = str(n)
+        if label_data:
+            character_name_to_metric = label_data.character_name_to_metric
+            formatted_metric = f"{character_name_to_metric[n]:.4f}"
+            labels_dict[n] = f"{base_label}:\n{formatted_metric}"
+        else:
+            labels_dict[n] = base_label
 
     # --------- draw ---------
     n = len(layouts); cols = 3 if n >= 3 else n; rows = (n + cols - 1) // cols
@@ -175,7 +189,11 @@ def visualize_all_layouts(
 
     for i, (lname, layout) in enumerate(layouts.items()):
         pos = layout(G)
-        ax = axes[i]; ax.set_title(lname, fontsize=10)
+        ax = axes[i]
+        if label_data:
+            ax.set_title(label_data.label_name, fontsize=10)
+        else:
+            ax.set_title(lname, fontsize=10)
 
         if directed:
             nx.draw_networkx_edges(G, pos, ax=ax, width=edge_width, alpha=0.6,
