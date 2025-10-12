@@ -1,5 +1,6 @@
 import networkx as nx
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 from collections import defaultdict, Counter
@@ -147,12 +148,12 @@ def visualize_all_layouts(
     # --------- layouts ----------
     weight_kw = ("weight" if ("weight" in d.columns and use_weight_in_layout) else None)
     layouts = {
-        "spring":       lambda g: nx.spring_layout(g, seed=seed, weight=weight_kw),
+        # "spring":       lambda g: nx.spring_layout(g, seed=seed, weight=weight_kw),
         "kamada_kawai": nx.kamada_kawai_layout,
-        "circular":     nx.circular_layout,
-        "shell":        nx.shell_layout,
-        "spectral":     nx.spectral_layout,
-        "random":       lambda g: nx.random_layout(g, seed=seed),
+        # "circular":     nx.circular_layout,
+        # "shell":        nx.shell_layout,
+        # "spectral":     nx.spectral_layout,
+        # "random":       lambda g: nx.random_layout(g, seed=seed),
     }
 
     # which nodes to label?
@@ -168,9 +169,9 @@ def visualize_all_layouts(
     labels_dict = {n: str(n) for n in label_set}
 
     # --------- draw ---------
-    n = len(layouts); cols = 3; rows = (n + cols - 1) // cols
+    n = len(layouts); cols = 3 if n >= 3 else n; rows = (n + cols - 1) // cols
     fig, axes = plt.subplots(rows, cols, figsize=(15, 5 * rows))
-    axes = axes.flatten()
+    axes = axes.flatten() if isinstance(axes, np.ndarray) else [axes]
 
     for i, (lname, layout) in enumerate(layouts.items()):
         pos = layout(G)

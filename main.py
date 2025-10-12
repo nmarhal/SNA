@@ -93,7 +93,8 @@ def partition_graph():
 
 def main():
     compute_network_statistics()
-    partition_graph()
+    # partition_graph()
+    visualize_graphs()
     return
 
 
