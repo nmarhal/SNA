@@ -60,19 +60,6 @@ def visualize_graphs():
     analyze_hits(data, "x_mentions_y")
     analyze_pagerank(data, " x_mentions_y")
 
-    # Visualize and perform analysis on speaks_to data
-    # data = get_x_speaks_to_y()
-    # visualize_all_layouts(data,
-    #                       characters,
-    #                       color_by=color_by,
-    #                       min_weight=min_weight,
-    #                       min_degree=min_degree,
-    #                       show_labels=show_labels,
-    #                       label_top_k=label_top_k,
-    #                       directed=directed)
-    # analyze_hits(data, "x_speaks_to_y")
-    # analyze_pagerank(data, "x_speaks_to_y")
-
 def run_cliques_homophily_bridges_analysis():
     data = get_x_mentions_y()
     character_data = get_characters()
