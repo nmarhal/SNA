@@ -1,27 +1,12 @@
 from collections import Counter
 
-import pandas as pd
 import networkx as nx
-from networkx.classes import number_of_nodes
-from numpy.ma.core import outer
+import pandas as pd
 
 from algorithms.graph_algorithms import build_graph
 from model.entities.centrality_scores import CentralityScores
 
-
 class NetworkStatisticsAnalyzer:
-    """
-    number of vertices - done
-    number of edges - done
-    degree distribution (in-degree and out degree) - done
-    centrality indices - done
-    clustering coefficient
-    network diameter
-    density
-    number of connected components
-    size of the connected components
-    """
-
     def __init__(self, data: pd.DataFrame):
         self.data_frame = data
         self.graph = build_graph(data, use_weights=True)
@@ -56,6 +41,34 @@ class NetworkStatisticsAnalyzer:
             closeness=nx.closeness_centrality(self.graph),
             betweenness=nx.betweenness_centrality(self.graph),
         )
+
+    def get_clustering_coefficient(self):
+        return nx.clustering(self.graph)
+
+    def get_diameters_of_strongly_connected_components(self):
+        strongly_connected_components = nx.strongly_connected_components(self.graph)
+        component_to_diameter = {}
+        for component in strongly_connected_components:
+            if len(component) > 1:
+                connected_subgraph = nx.subgraph(self.graph, component)
+                diameter = nx.diameter(connected_subgraph)
+                component_to_diameter[connected_subgraph] = diameter
+        return component_to_diameter
+
+    def get_density(self):
+        return nx.density(self.graph)
+
+    def get_weakly_connected_components(self):
+        return list(nx.weakly_connected_components(self.graph))
+
+    def get_weakly_connected_components_count(self):
+        return nx.number_weakly_connected_components(self.graph)
+
+    def get_strongly_connected_components(self):
+        return list(nx.strongly_connected_components(self.graph))
+
+    def get_strongly_connected_components_count(self):
+        return nx.number_strongly_connected_components(self.graph)
 
     def _get_degree_distribution(self, counts: Counter[int]) -> dict[int, float]:
         nodes_count = self.get_number_of_vertices()

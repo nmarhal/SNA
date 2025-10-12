@@ -1,8 +1,41 @@
-from algorithms.network_statistics import NetworkStatisticsAnalyzer
-from view.visualize_graphs import *
-from model.read_data import *
 from algorithms.graph_algorithms import *
+from algorithms.network_statistics import NetworkStatisticsAnalyzer
+from model.read_data import *
+from view.visualize_graphs import *
 from view.visualize_sentiment import *
+
+def compute_network_statistics():
+    data = get_x_mentions_y()
+    analyzer = NetworkStatisticsAnalyzer(data)
+    edges = analyzer.get_number_of_edges()
+    vertices = analyzer.get_number_of_vertices()
+    diameters = analyzer.get_diameters_of_strongly_connected_components()
+    density = analyzer.get_density()
+    weakly_connected_components_count = analyzer.get_weakly_connected_components_count()
+    strongly_connected_components_count = analyzer.get_strongly_connected_components_count()
+    # todo these need to be visualized
+
+    # todo bar chart - key=number of in-degrees, value=proportion of vertices with this degree
+    in_degree_distribution = analyzer.get_in_degree_distribution()
+    # todo bar chart - key=number of out-degrees, value=proportion of vertices with this degree
+    out_degree_distribution = analyzer.get_out_degree_distribution()
+    # todo write for each node in the graph (each score) (key=character, value=centrality)
+    centrality_scores = analyzer.get_centrality_scores()
+    # todo write for each node in the graph (key=character, value=coefficient)
+    clustering_coefficient = analyzer.get_clustering_coefficient()
+    weakly_connected_components = analyzer.get_weakly_connected_components()
+    strongly_connected_components = analyzer.get_strongly_connected_components()
+    print(
+        f"""
+        === Network Statistics ===
+        number of edges: {edges}
+        number of vertices: {vertices}
+        diameters: {diameters}
+        density: {density}
+        number of weakly-connected components: {weakly_connected_components_count}
+        number of strongly-connected components: {strongly_connected_components_count}
+        """
+    )
 
 def visualize_graphs():
     characters = get_characters()
@@ -16,13 +49,6 @@ def visualize_graphs():
 
     # Visualize and perform analysis on mentions data
     data = get_x_mentions_y()
-    # todo: visualize analyzer data
-    analyzer = NetworkStatisticsAnalyzer(data)
-    edges = analyzer.get_number_of_edges()
-    vertices = analyzer.get_number_of_vertices()
-    in_degree_distribution = analyzer.get_in_degree_distribution()
-    out_degree_distribution = analyzer.get_out_degree_distribution()
-    centrality_scores = analyzer.get_centrality_scores()
     visualize_all_layouts(data,
                           characters,
                           color_by=color_by,
@@ -35,17 +61,17 @@ def visualize_graphs():
     analyze_pagerank(data, " x_mentions_y")
 
     # Visualize and perform analysis on speaks_to data
-    data = get_x_speaks_to_y()
-    visualize_all_layouts(data,
-                          characters,
-                          color_by=color_by,
-                          min_weight=min_weight,
-                          min_degree=min_degree,
-                          show_labels=show_labels,
-                          label_top_k=label_top_k,
-                          directed=directed)
-    analyze_hits(data, "x_speaks_to_y")
-    analyze_pagerank(data, "x_speaks_to_y")
+    # data = get_x_speaks_to_y()
+    # visualize_all_layouts(data,
+    #                       characters,
+    #                       color_by=color_by,
+    #                       min_weight=min_weight,
+    #                       min_degree=min_degree,
+    #                       show_labels=show_labels,
+    #                       label_top_k=label_top_k,
+    #                       directed=directed)
+    # analyze_hits(data, "x_speaks_to_y")
+    # analyze_pagerank(data, "x_speaks_to_y")
 
 def run_cliques_homophily_bridges_analysis():
     data = get_x_mentions_y()
@@ -79,6 +105,7 @@ def partition_graph():
     visualize_partition(graph, labels=g_labels, min_comm_size=4, show_labels=True)
 
 def main():
+    compute_network_statistics()
     partition_graph()
     return
 
