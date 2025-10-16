@@ -1,4 +1,3 @@
-import pandas as pd
 import re
 from functools import lru_cache
 
@@ -6,6 +5,28 @@ from algorithms.sentiment_analysis import get_sentiment
 from model.character_aliases import alias_map, double_character_names_map
 from read_data import *
 
+# ATLA-episodes-script.csv
+COL_CHARACTER = "Character"
+COL_SCRIPT = "script"
+COL_TOTAL_EPISODE_NUMBER = "total_number"
+COL_BOOK = "Book"
+
+# characters.csv
+COL_NAME = "name"
+COL_GENDER = "gender"
+COL_BENDING = "bending"
+COL_ORIGIN = "origin"
+
+# sentiment
+SENTIMENT_NEG = "neg"
+SENTIMENT_POS = "pos"
+SENTIMENT_NEU = "neu"
+SENTIMENT_COMPOUND = "compound"
+
+# other
+COL_X = "x"
+COL_Y = "y"
+WEIGHT = "weight"
 
 @lru_cache(maxsize=1024)
 def _pattern_for(name: str) -> re.Pattern:
@@ -26,7 +47,7 @@ def x_speaks_before_y():
     previous_character = None
     x_speaks_to_y = []  # we will add edges to this list
     for index, row in script.iterrows():
-        character = row["Character"]
+        character = row[COL_CHARACTER]
         if previous_character is None:  # there is no x, go to next line
             if pd.isna(character):
                 previous_character = None
@@ -48,7 +69,7 @@ def x_speaks_before_y():
                 x_speaks_to_y.append([i, j])
         # We set our current character as previous character for the next loop
         previous_character = character
-    return pd.DataFrame(x_speaks_to_y, columns=["x", "y"])
+    return pd.DataFrame(x_speaks_to_y, columns=[COL_X, COL_Y])
 
 def get_valid_names():
     """
@@ -58,7 +79,7 @@ def get_valid_names():
     name_map : dict
         dict that maps all character names in name_set to their official character names
     """
-    official_character_names = get_characters()["name"]
+    official_character_names = get_characters()[COL_NAME]
     name_map = alias_map.copy()
     for official_character_name in official_character_names:
         official_character_name = official_character_name.lower()
@@ -82,10 +103,10 @@ def x_mentions_y():
     name_set, name_map = get_valid_names()
     # iterate over all lines in the script
     for index, row in script.iterrows():
-        speakers = row["Character"]
-        full_line = row["script"]
-        episode = row["total_number"]
-        line = re.sub(r"\[.*?\]", "", full_line)
+        speakers = row[COL_CHARACTER]
+        full_line = row[COL_SCRIPT]
+        episode = row[COL_TOTAL_EPISODE_NUMBER]
+        line_without_square_brackets = re.sub(r"\[.*?\]", "", full_line)
         # get the character(s) that is speaking
         if pd.isna(speakers):
             # skipping  line
@@ -95,32 +116,49 @@ def x_mentions_y():
         addressed_characters_saved = []
         for character_addressed in name_set:
             character_addressed = character_addressed.lower()
-            if has_name(line=line, character_name=character_addressed):
+            if has_name(line=line_without_square_brackets, character_name=character_addressed):
                 for speaker in speakers:
                     speaker = speaker.lower()
                     character_addressed = name_map[character_addressed].lower()
                     if character_addressed in addressed_characters_saved:
                         continue
                     sentiment = get_sentiment(full_line)
-                    x_mentions_y_with_sentiment.append([speaker, character_addressed, sentiment["neg"],sentiment["neu"], sentiment["pos"], sentiment["compound"], episode, full_line])
+                    x_mentions_y_with_sentiment.append([
+                        speaker,
+                        character_addressed,
+                        sentiment[SENTIMENT_NEG],
+                        sentiment[SENTIMENT_NEU],
+                        sentiment[SENTIMENT_POS],
+                        sentiment[SENTIMENT_COMPOUND],
+                        episode,
+                        full_line
+                    ])
                     x_mentions_y.append([speaker, character_addressed])
                     addressed_characters_saved.append(character_addressed)
-    x_mentions_y_data_frame = pd.DataFrame(x_mentions_y, columns=["x", "y"])
-    x_mentions_y_with_sentiment_data_frame = pd.DataFrame(x_mentions_y_with_sentiment, columns=["x", "y", "neg", "neu", "pos", "compound", "episode", "line"])
+    x_mentions_y_data_frame = pd.DataFrame(x_mentions_y, columns=[COL_X, COL_Y])
+    x_mentions_y_with_sentiment_data_frame = pd.DataFrame(x_mentions_y_with_sentiment, columns=[COL_X, COL_Y, SENTIMENT_NEG, SENTIMENT_NEU, SENTIMENT_POS, SENTIMENT_COMPOUND, COL_TOTAL_EPISODE_NUMBER, COL_SCRIPT])
     return x_mentions_y_data_frame, x_mentions_y_with_sentiment_data_frame
+
+
+def x_mentions_y_per_book():
+    book_data_frames = []
+    script = get_script()
+    name_set, name_map = get_valid_names()
+    for index, row in script.iterrows():
+        speakers = row
 
 def cleanup_edges(data):
     characters = get_characters()
-    valid = list(characters.get("name"))
+    valid = list(characters.get(COL_NAME))
     valid = [x.lower() for x in valid]
-    out = data[data["x"].isin(valid) & data["y"].isin(valid)].reset_index(drop=True)
+    out = data[data[COL_X].isin(valid) & data[COL_Y].isin(valid)].reset_index(drop=True)
     return out
 
 
 def weigh_rows(data):
     weighted = (
-        data.value_counts(["x", "y"])
-        .rename("weight")
+        data.value_counts([COL_X, COL_Y])
+        .rename(WEIGHT)
         .reset_index()
     )
     return weighted
