@@ -48,7 +48,6 @@ def x_speaks_before_y():
         previous_character = character
     return pd.DataFrame(x_speaks_to_y, columns=[COL_X, COL_Y])
 
-
 def x_mentions_y_row_generator():
     """
     x mentions y in a line, uses the official character names as well as many aliases as I could find specified
@@ -79,8 +78,8 @@ def x_mentions_y_row_generator():
                     if character_addressed in addressed_characters_saved:
                         continue
                     addressed_characters_saved.append(character_addressed)
+                    # you can add more parameters to this class if you need
                     yield XMentionsYRowData(speaker, character_addressed, book, episode, full_line)
-
 
 def x_mentions_y():
     x_mentions_y_rows = []
@@ -89,7 +88,6 @@ def x_mentions_y():
         x_mentions_y_rows.append([row.speaker, row.character_addressed])
     x_mentions_y_data_frame = pd.DataFrame(x_mentions_y_rows, columns=[COL_X, COL_Y])
     return x_mentions_y_data_frame
-
 
 def x_mentions_y_with_sentiment():
     x_mentions_y_with_sentiment_rows = []
@@ -111,7 +109,6 @@ def x_mentions_y_with_sentiment():
         columns=SENTIMENT_COLUMNS
     )
     return x_mentions_y_with_sentiment_data_frame
-
 
 def x_mentions_y_per(group_name: str):
     section_data_frames = {}
@@ -138,12 +135,10 @@ def x_mentions_y_per(group_name: str):
     add_current_section_data_frame()
     return section_data_frames
 
-
 def compute_x_mentions_y_weighted_data(data: pd.DataFrame):
     cleaned_up_edges = cleanup_edges(data)
     weighted_rows = weigh_rows(cleaned_up_edges)
     return weighted_rows
-
 
 def main():
     # data = x_speaks_before_y()
@@ -167,7 +162,7 @@ def main():
     data_per_episode = x_mentions_y_per("episode")
     for episode, data_frame in data_per_episode.items():
         weighted_rows = compute_x_mentions_y_weighted_data(data_frame)
-        weighted_rows.to_csv(f"./data/episodes/ep_{episode}_x_mentions_y.csv", index=False)
+        weighted_rows.to_csv(f"./data/episodes/ep_{episode:02d}_x_mentions_y.csv", index=False)
 
     data_per_book = x_mentions_y_per("book")
     for book, data_frame in data_per_book.items():
@@ -175,7 +170,6 @@ def main():
         weighted_rows.to_csv(f"./data/books/book_{book}_x_mentions_y.csv", index=False)
 
     return
-
 
 if __name__ == "__main__":
     main()

@@ -1,3 +1,4 @@
+from algorithms.character_analysis import analyze_each_episode
 from algorithms.graph_algorithms import *
 from algorithms.network_statistics import NetworkStatisticsAnalyzer
 from model.read_data import *
@@ -116,8 +117,9 @@ def partition_graph():
     visualize_partition(graph, labels=g_labels, min_comm_size=4, show_labels=True)
 
 def main():
-    compute_network_statistics()
+    # compute_network_statistics()
     # partition_graph()
+    analyze_each_episode()
     visualize_graphs()
     return
 
