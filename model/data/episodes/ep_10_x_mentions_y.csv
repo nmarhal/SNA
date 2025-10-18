@@ -1,0 +1,29 @@
+x,y,weight
+katara,jet,13
+katara,sokka,10
+jet,sokka,9
+aang,sokka,9
+jet,katara,9
+sokka,jet,8
+jet,aang,6
+katara,aang,4
+sokka,katara,4
+aang,jet,4
+jet,the duke,3
+jet,smellerbee,3
+jet,longshot,2
+jet,pipsqueak,2
+smellerbee,jet,2
+pipsqueak,sokka,1
+sokka,aang,1
+sokka,appa,1
+sokka,zuko,1
+aang,appa,1
+pipsqueak,smellerbee,1
+pipsqueak,jet,1
+katara,appa,1
+jet,jet,1
+aang,the duke,1
+aang,pipsqueak,1
+aang,momo,1
+the duke,jet,1

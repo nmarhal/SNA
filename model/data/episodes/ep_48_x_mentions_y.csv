@@ -1,0 +1,14 @@
+x,y,weight
+hama,katara,6
+katara,sokka,5
+sokka,hama,3
+katara,hama,2
+aang,ding,1
+aang,hama,1
+hama,hama,1
+katara,aang,1
+sokka,aang,1
+sokka,katara,1
+sokka,momo,1
+sokka,toph,1
+toph,ding,1

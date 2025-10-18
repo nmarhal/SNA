@@ -113,14 +113,37 @@ def x_mentions_y_with_sentiment():
     return x_mentions_y_with_sentiment_data_frame
 
 
+def x_mentions_y_per(group_name: str):
+    section_data_frames = {}
+    x_mentions_y_rows = []
+    current_section = 1
+    row_generator = x_mentions_y_row_generator()
 
-def x_mentions_y_per_book():
-    book_data_frames = []
-    script = get_script()
-    name_set, name_map = get_valid_names()
-    for index, row in script.iterrows():
-        speakers = row
-    return book_data_frames
+    def add_current_section_data_frame():
+        section_data_frame = pd.DataFrame(x_mentions_y_rows, columns=[COL_X, COL_Y])
+        section_data_frames[current_section] = section_data_frame
+
+    for row in row_generator:
+        row_section = row[group_name]
+
+        def is_section_changed():
+            return current_section != row_section
+
+        x_mentions_y_rows.append([row.speaker, row.character_addressed])
+        if is_section_changed():
+            add_current_section_data_frame()
+            current_section = row_section
+            x_mentions_y_rows = []
+
+    add_current_section_data_frame()
+    return section_data_frames
+
+
+def compute_x_mentions_y_weighted_data(data: pd.DataFrame):
+    cleaned_up_edges = cleanup_edges(data)
+    weighted_rows = weigh_rows(cleaned_up_edges)
+    return weighted_rows
+
 
 def main():
     # data = x_speaks_before_y()
@@ -130,16 +153,26 @@ def main():
     # # uncomment this if my code with ./data does not work
     # weighted.to_csv("model/data/x_speaks_to_y.csv", index=False)
 
-    data = x_mentions_y()
-    data_with_sentiment = x_mentions_y_with_sentiment()
-    data = cleanup_edges(data)
-    data_with_sentiment = cleanup_edges(data_with_sentiment)
-    weighted = weigh_rows(data)
+    # data = x_mentions_y()
+    # data_with_sentiment = x_mentions_y_with_sentiment()
+    # data = cleanup_edges(data)
+    # data_with_sentiment = cleanup_edges(data_with_sentiment)
+    # weighted = weigh_rows(data)
     # weighted.to_csv("./data/x_mentions_y.csv", index=False)
     # data_with_sentiment.to_csv("./data/x_mentions_y_with_sentiment.csv", index=False)
-    # uncomment this if my code with ./data does not work
-    weighted.to_csv("./data/x_mentions_y.csv", index=False)
-    data_with_sentiment.to_csv("./data/x_mentions_y_with_sentiment_and_line.csv", index=False)
+    # # uncomment this if my code with ./data does not work
+    # weighted.to_csv("./data/x_mentions_y.csv", index=False)
+    # data_with_sentiment.to_csv("./data/x_mentions_y_with_sentiment_and_line.csv", index=False)
+
+    data_per_episode = x_mentions_y_per("episode")
+    for episode, data_frame in data_per_episode.items():
+        weighted_rows = compute_x_mentions_y_weighted_data(data_frame)
+        weighted_rows.to_csv(f"./data/episodes/ep_{episode}_x_mentions_y.csv", index=False)
+
+    data_per_book = x_mentions_y_per("book")
+    for book, data_frame in data_per_book.items():
+        weighted_rows = compute_x_mentions_y_weighted_data(data_frame)
+        weighted_rows.to_csv(f"./data/books/book_{book}_x_mentions_y.csv", index=False)
 
     return
 

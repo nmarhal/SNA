@@ -1,0 +1,27 @@
+x,y,weight
+aang,appa,7
+katara,toph,6
+aang,sokka,3
+toph,katara,3
+katara,appa,3
+sokka,appa,3
+toph,sokka,2
+sokka,toph,2
+sokka,momo,2
+sokka,katara,2
+katara,zuko,2
+azula,aang,2
+aang,zuko,2
+katara,sokka,1
+katara,momo,1
+aang,katara,1
+mai,lee,1
+mai,ty lee,1
+katara,katara,1
+azula,zuko,1
+azula,appa,1
+toph,aang,1
+aang,toph,1
+toph,zuko,1
+zuko,azula,1
+zuko,iroh,1

@@ -1,0 +1,287 @@
+x,y,weight
+katara,aang,56
+aang,appa,53
+sokka,aang,40
+aang,katara,29
+katara,sokka,28
+zuko,iroh,25
+aang,sokka,20
+sokka,appa,19
+katara,toph,17
+aang,aang,17
+iroh,zuko,16
+aang,momo,14
+sokka,katara,14
+aang,toph,13
+aang,bumi,13
+sokka,kuei,12
+sokka,toph,12
+katara,appa,12
+azula,iroh,11
+toph,katara,10
+pathik,aang,10
+azula,zuko,10
+toph,aang,10
+sokka,momo,9
+fong,aang,9
+sokka,suki,9
+ty lee,azula,9
+tong,aang,8
+toph,sokka,8
+azula,aang,8
+ursa,zuko,7
+sokka,sokka,7
+smellerbee,jet,7
+zuko,aang,7
+zuko,azula,7
+sokka,kyoshi,6
+long feng,aang,6
+the boulder,the boulder,5
+long feng,kuei,5
+iroh,aang,5
+zei,wan shi tong,5
+katara,kuei,4
+suki,sokka,4
+iroh,azula,4
+zei,tong,4
+katara,zuko,4
+kuei,aang,4
+sokka,ozai,4
+young zuko,azula,4
+suki,aang,4
+suki,appa,4
+xin fu,toph,4
+katara,momo,4
+xin fu,the boulder,4
+oyaji,kyoshi,4
+aang,jet,4
+lao,toph,4
+long feng,appa,4
+iroh,kuei,3
+jet,katara,3
+katara,katara,3
+katara,kyoshi,3
+katara,jet,3
+joo dee,kuei,3
+katara,bumi,3
+kuei,kyoshi,3
+roku,aang,3
+kuei,long feng,3
+jin,lee,3
+jet,appa,3
+long feng,joo dee,3
+sokka,yue,3
+sokka,long feng,3
+aang,zuko,3
+zuko,lee,3
+sokka,the boulder,3
+ursa,iroh,3
+azula,ozai,3
+aang,long feng,3
+azula,mai,3
+toph,appa,3
+aang,ozai,3
+zei,appa,3
+azula,kuei,3
+chong,sokka,3
+toph,the boulder,3
+toph,toph,3
+xin fu,xin fu,2
+yung,bumi,2
+yu,toph,2
+kuei,sokka,2
+katara,the boulder,2
+zei,zei,2
+katara,suki,2
+ursa,ozai,2
+ursa,azulon,2
+lao,aang,2
+sela,lee,2
+lao,yu,2
+ursa,azula,2
+ty lee,mai,2
+ty lee,aang,2
+long feng,long feng,2
+toph,long feng,2
+ozai,iroh,2
+toph,kuei,2
+tong,kyoshi,2
+poppy,toph,2
+suki,kyoshi,2
+quon,pao,2
+sela,gansu,2
+katara,ozai,2
+long feng,jet,2
+zuko,zuko,2
+jet,longshot,2
+joo dee,sokka,2
+joo dee,katara,2
+joo dee,joo dee,2
+joo dee,aang,2
+jin,iroh,2
+azula,ty lee,2
+blue dragon,ozai,2
+blue dragon,zuko,2
+chong,song,2
+azula,lee,2
+due,tho,2
+fong,ozai,2
+iroh,mongke,2
+gansu,lee,2
+iroh,iroh,2
+iroh,appa,2
+huu,aang,2
+hakoda,sokka,2
+joo dee,toph,2
+jet,lee,2
+aang,azula,2
+aang,kuei,2
+aang,kyoshi,2
+katara,long feng,2
+katara,joo dee,2
+tho,due,1
+the boulder,toph,1
+fong,momo,1
+suki,suki,1
+song,iroh,1
+suki,momo,1
+fong,sokka,1
+aang,general sung,1
+gansu,gow,1
+ticket lady,toph,1
+fong,katara,1
+aang,fong,1
+fong,fong,1
+song,song,1
+azula,kyoshi,1
+flyer distribution man,yu,1
+general how,long feng,1
+general sung,aang,1
+zuko,ursa,1
+zuko,ozai,1
+sokka,pong,1
+sokka,princess yue,1
+sokka,roku,1
+sokka,sozin,1
+song,aang,1
+general how,kuei,1
+general how,fong,1
+general how,appa,1
+sokka,ty lee,1
+gansu,sela,1
+sokka,zuko,1
+fong,appa,1
+toph,iroh,1
+xin fu,the hippo,1
+xin fu,aang,1
+ursa,lu ten,1
+aang,pathik,1
+azula,qin,1
+wan shi tong,tong,1
+wan shi tong,wan shi tong,1
+aang,pong,1
+aang,the boulder,1
+fire nation man,ozai,1
+xin fu,fire nation man,1
+azula,long feng,1
+young zuko,lu ten,1
+young zuko,iroh,1
+azula,appa,1
+ying,aang,1
+azulon,iroh,1
+azulon,ozai,1
+aang,moku,1
+ukano,bumi,1
+ty lee,zuko,1
+ty lee,kyoshi,1
+brainwasher,joo dee,1
+sokka,moku,1
+chong,aang,1
+toph,zuko,1
+chong,chong,1
+chong,lily,1
+aang,joo dee,1
+toph,momo,1
+due,huu,1
+toph,kyoshi,1
+zuko,appa,1
+ghashiun,aang,1
+katara,moku,1
+hakoda,bato,1
+mai,kuei,1
+joo dee,appa,1
+long feng,azula,1
+jin,jin,1
+long feng,kyoshi,1
+jet,smellerbee,1
+mai,azula,1
+mai,iroh,1
+mai,lee,1
+kuei,toph,1
+mai,ty lee,1
+michi,mai,1
+mongke,iroh,1
+mongke,ozai,1
+old sweepy,old sweepy,1
+oyaji,aang,1
+oyaji,suki,1
+kyoshi,kyoshi,1
+joo dee replacement,joo dee,1
+sokka,lee,1
+katara,ying,1
+katara,mai,1
+katara,pakku,1
+katara,lee,1
+katara,koko,1
+katara,tong,1
+katara,ty lee,1
+katara,xin fu,1
+katara,yu,1
+katara,general how,1
+katara,iroh,1
+kenji,aang,1
+katara,hakoda,1
+kuei,general how,1
+kuei,katara,1
+kuei,kuei,1
+katara,gyatso,1
+ozai,lu ten,1
+ozai,sozin,1
+pakku,aang,1
+sokka,azula,1
+iroh,lu ten,1
+sha-mo,ghashiun,1
+shuzumu,ozai,1
+smellerbee,appa,1
+smellerbee,longshot,1
+iroh,blue spirit,1
+sokka,avatar roku,1
+sokka,bumi,1
+pakku,bumi,1
+sokka,chong,1
+sokka,general how,1
+sokka,huu,1
+katara,oyaji,1
+sokka,jet,1
+sokka,joo dee,1
+iio,appa,1
+scary prisoner,aang,1
+iroh,ozai,1
+red dragon,zuko,1
+red dragon,ozai,1
+pakku,fong,1
+pakku,katara,1
+pakku,sokka,1
+pao,due,1
+pao,iroh,1
+jet,jet,1
+pathik,appa,1
+pathik,gyatso,1
+pathik,pathik,1
+pong,aang,1
+pong,pong,1
+poppy,aang,1
+jet,aang,1
+iroh,smellerbee,1
+red dragon,blue dragon,1
+sokka,iroh,1

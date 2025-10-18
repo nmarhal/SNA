@@ -1,0 +1,19 @@
+x,y,weight
+aang,wu,7
+calm man,wu,7
+sokka,wu,5
+aang,sokka,4
+katara,aang,4
+aang,katara,4
+katara,sokka,4
+katara,wu,4
+meng,aang,3
+sokka,aang,2
+meng,wu,2
+meng,meng,2
+meng,katara,1
+aang,aang,1
+katara,meng,1
+iroh,zuko,1
+aang,lily,1
+katara,momo,1

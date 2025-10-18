@@ -1,0 +1,12 @@
+x,y,weight
+katara,aang,4
+katara,sokka,3
+teo,aang,3
+mechanist,teo,2
+aang,teo,1
+katara,teo,1
+mechanist,aang,1
+mechanist,sokka,1
+qin,aang,1
+sokka,aang,1
+sokka,appa,1

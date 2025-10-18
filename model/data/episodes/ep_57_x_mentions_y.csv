@@ -1,0 +1,45 @@
+x,y,weight
+katara,aang,4
+actor zuko,aang,4
+actress aang,aang,3
+aang,aang,2
+actor sokka,aang,2
+toph,iroh,2
+sokka,suki,2
+sokka,sokka,2
+actress azula,aang,2
+actress katara,aang,2
+actor iroh,zuko,2
+actor sokka,toph,1
+sokka,cabbage merchant,1
+blue spirit,zuko,1
+actor jet,jet,1
+katara,sokka,1
+katara,toph,1
+sokka,aang,1
+sokka,azula,1
+sokka,katara,1
+actor sokka,yue,1
+actor iroh,aang,1
+suki,zuko,1
+toph,aang,1
+aang,sokka,1
+zuko,iroh,1
+blue spirit,blue spirit,1
+blue spirit,aang,1
+actress yue,sokka,1
+actress katara,zuko,1
+actress katara,sokka,1
+actress katara,jet,1
+aang,katara,1
+actress azula,zuko,1
+actor jet,kuei,1
+actress aang,momo,1
+actress aang,jet,1
+actor ozai,aang,1
+actor zuko,ozai,1
+actor zuko,iroh,1
+actor zuko,azula,1
+actor ozai,zuko,1
+actor toph,toph,1
+zuko,jet,1

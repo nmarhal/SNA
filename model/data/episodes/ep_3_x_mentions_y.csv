@@ -1,0 +1,27 @@
+x,y,weight
+katara,aang,12
+iroh,zuko,6
+aang,sokka,6
+aang,aang,5
+zuko,aang,5
+zhao,aang,5
+zuko,iroh,4
+sokka,katara,4
+aang,appa,4
+zuko,zhao,4
+aang,momo,3
+aang,katara,3
+zhao,zuko,3
+aang,gyatso,3
+iroh,zhao,2
+aang,roku,2
+sokka,aang,2
+zhao,iroh,2
+zhao,ozai,2
+iroh,aang,1
+gyatso,aang,1
+katara,sokka,1
+sokka,gyatso,1
+sokka,momo,1
+aang,avatar roku,1
+katara,gyatso,1

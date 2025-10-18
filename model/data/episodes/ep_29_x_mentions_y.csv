@@ -1,0 +1,24 @@
+x,y,weight
+katara,aang,5
+sokka,aang,5
+aang,sokka,4
+aang,katara,4
+toph,aang,3
+zuko,iroh,2
+zuko,azula,2
+toph,the boulder,2
+iroh,azula,2
+iroh,zuko,2
+toph,katara,2
+sokka,toph,1
+zuko,aang,1
+toph,sokka,1
+aang,appa,1
+sokka,sokka,1
+katara,toph,1
+katara,katara,1
+iroh,lu ten,1
+iroh,aang,1
+aang,toph,1
+aang,the boulder,1
+katara,sokka,1

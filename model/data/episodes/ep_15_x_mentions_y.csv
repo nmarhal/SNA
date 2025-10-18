@@ -1,0 +1,28 @@
+x,y,weight
+bato,sokka,7
+sokka,aang,6
+bato,aang,5
+sokka,katara,4
+katara,aang,4
+aang,katara,3
+sokka,bato,3
+bato,katara,3
+katara,bato,3
+aang,aang,2
+aang,bato,2
+mother superior,aang,2
+katara,sokka,2
+june,aang,2
+hakoda,sokka,2
+aang,zuko,2
+june,iroh,1
+iroh,june,1
+bato,the hippo,1
+katara,zuko,1
+bato,hakoda,1
+sokka,appa,1
+aang,sokka,1
+aang,momo,1
+sokka,lee,1
+zuko,aang,1
+zuko,iroh,1
