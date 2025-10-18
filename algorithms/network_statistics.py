@@ -34,12 +34,37 @@ class NetworkStatisticsAnalyzer:
         return self._get_degree_distribution(counts)
 
     def get_centrality_scores(self) -> CentralityScores:
+        try:
+            in_degree = nx.in_degree_centrality(self.graph)
+        except Exception:
+            in_degree = {}
+        
+        try:
+            out_degree = nx.out_degree_centrality(self.graph)
+        except Exception:
+            out_degree = {}
+        
+        try:
+            eigenvector = nx.eigenvector_centrality(self.graph)
+        except Exception:
+            eigenvector = {}
+        
+        try:
+            closeness = nx.closeness_centrality(self.graph)
+        except Exception:
+            closeness = {}
+        
+        try:
+            betweenness = nx.betweenness_centrality(self.graph)
+        except Exception:
+            betweenness = {}
+        
         return CentralityScores(
-            in_degree=nx.in_degree_centrality(self.graph),
-            out_degree=nx.out_degree_centrality(self.graph),
-            eigenvector=nx.eigenvector_centrality(self.graph),
-            closeness=nx.closeness_centrality(self.graph),
-            betweenness=nx.betweenness_centrality(self.graph),
+            in_degree=in_degree,
+            out_degree=out_degree,
+            eigenvector=eigenvector,
+            closeness=closeness,
+            betweenness=betweenness,
         )
 
     def get_clustering_coefficient(self):

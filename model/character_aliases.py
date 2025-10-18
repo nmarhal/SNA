@@ -60,6 +60,7 @@ alias_map = {
     "blue spirit": "Zuko",
     "zuzu": "Zuko",
     "fire lord zuko": "Zuko",
+    "young zuko": "Zuko",
 
     "iroh": "Iroh",
     "uncle": "Iroh",

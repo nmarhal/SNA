@@ -14,11 +14,11 @@ def get_x_mentions_y():
     return data
 
 def get_data_frames_from_directory(dir_name: str):
-    books_dir = os.path.join(DATA_DIR, dir_name)
-    book_files = [file for file in os.listdir(books_dir) if file.endswith(".csv")]
+    sections_dir = os.path.join(DATA_DIR, dir_name)
+    section_files = sorted([file for file in os.listdir(sections_dir) if file.endswith(".csv")])
     data_frames = []
-    for file in book_files:
-        data_frame = pd.read_csv(os.path.join(DATA_DIR, file))
+    for file in section_files:
+        data_frame = pd.read_csv(os.path.join(sections_dir, file))
         data_frames.append(data_frame)
     return data_frames
 
