@@ -16,8 +16,9 @@ SENTIMENT_POS = "pos"
 SENTIMENT_NEU = "neu"
 SENTIMENT_COMPOUND = "compound"
 
-# other
+# our own col names
 COL_X = "x"
 COL_Y = "y"
 WEIGHT = "weight"
+COL_EPISODE = "episode"
 

@@ -1,7 +1,19 @@
 from algorithms.sentiment_analysis import *
+from model.entities.x_mentions_y_row_data import XMentionsYRowData
 from model.utils.dataset_utils import *
 from model.utils.utils import *
 from read_data import *
+
+SENTIMENT_COLUMNS = [
+    COL_X,
+    COL_Y,
+    SENTIMENT_NEG,
+    SENTIMENT_NEU,
+    SENTIMENT_POS,
+    SENTIMENT_COMPOUND,
+    COL_TOTAL_EPISODE_NUMBER,
+    COL_SCRIPT
+]
 
 def x_speaks_before_y():
     """
@@ -36,14 +48,12 @@ def x_speaks_before_y():
         previous_character = character
     return pd.DataFrame(x_speaks_to_y, columns=[COL_X, COL_Y])
 
-def x_mentions_y():
+
+def x_mentions_y_row_generator():
     """
-    x mentions y in a line, uses the official character names as well as as many aliases as I could find specified
+    x mentions y in a line, uses the official character names as well as many aliases as I could find specified
     in the alias map
     """
-    x_mentions_y = []
-    x_mentions_y_with_sentiment = []
-    # we load the script
     script = get_script()
     # we retrieve all possible names in name_set and a dict to get their official name_map
     name_set, name_map = get_valid_names()
@@ -51,11 +61,11 @@ def x_mentions_y():
     for index, row in script.iterrows():
         speakers = row[COL_CHARACTER]
         full_line = row[COL_SCRIPT]
+        book = row[COL_BOOK]
         episode = row[COL_TOTAL_EPISODE_NUMBER]
         line_without_square_brackets = get_line_without_square_brackets(full_line)
-        # get the character(s) that is speaking
+        # get the character(s) that is speaking, ignoring the narrator
         if pd.isna(speakers):
-            # skipping  line
             continue
         speakers = double_character_names_map[speakers] if speakers in double_character_names_map else [speakers]
         # get the character(s) mentioned in the line
@@ -68,22 +78,40 @@ def x_mentions_y():
                     character_addressed = name_map[character_addressed].lower()
                     if character_addressed in addressed_characters_saved:
                         continue
-                    sentiment = get_sentiment(full_line)
-                    x_mentions_y_with_sentiment.append([
-                        speaker,
-                        character_addressed,
-                        sentiment[SENTIMENT_NEG],
-                        sentiment[SENTIMENT_NEU],
-                        sentiment[SENTIMENT_POS],
-                        sentiment[SENTIMENT_COMPOUND],
-                        episode,
-                        full_line
-                    ])
-                    x_mentions_y.append([speaker, character_addressed])
                     addressed_characters_saved.append(character_addressed)
-    x_mentions_y_data_frame = pd.DataFrame(x_mentions_y, columns=[COL_X, COL_Y])
-    x_mentions_y_with_sentiment_data_frame = pd.DataFrame(x_mentions_y_with_sentiment, columns=[COL_X, COL_Y, SENTIMENT_NEG, SENTIMENT_NEU, SENTIMENT_POS, SENTIMENT_COMPOUND, COL_TOTAL_EPISODE_NUMBER, COL_SCRIPT])
-    return x_mentions_y_data_frame, x_mentions_y_with_sentiment_data_frame
+                    yield XMentionsYRowData(speaker, character_addressed, book, episode, full_line)
+
+
+def x_mentions_y():
+    x_mentions_y_rows = []
+    row_generator = x_mentions_y_row_generator()
+    for row in row_generator:
+        x_mentions_y_rows.append([row.speaker, row.character_addressed])
+    x_mentions_y_data_frame = pd.DataFrame(x_mentions_y_rows, columns=[COL_X, COL_Y])
+    return x_mentions_y_data_frame
+
+
+def x_mentions_y_with_sentiment():
+    x_mentions_y_with_sentiment_rows = []
+    row_generator = x_mentions_y_row_generator()
+    for row in row_generator:
+        sentiment = get_sentiment(row.full_line)
+        x_mentions_y_with_sentiment_rows.append([
+            row.speaker,
+            row.character_addressed,
+            sentiment[SENTIMENT_NEG],
+            sentiment[SENTIMENT_NEU],
+            sentiment[SENTIMENT_POS],
+            sentiment[SENTIMENT_COMPOUND],
+            row.episode,
+            row.full_line
+        ])
+    x_mentions_y_with_sentiment_data_frame = pd.DataFrame(
+        x_mentions_y_with_sentiment_rows,
+        columns=SENTIMENT_COLUMNS
+    )
+    return x_mentions_y_with_sentiment_data_frame
+
 
 
 def x_mentions_y_per_book():
@@ -92,6 +120,7 @@ def x_mentions_y_per_book():
     name_set, name_map = get_valid_names()
     for index, row in script.iterrows():
         speakers = row
+    return book_data_frames
 
 def main():
     # data = x_speaks_before_y()
@@ -101,15 +130,16 @@ def main():
     # # uncomment this if my code with ./data does not work
     # weighted.to_csv("model/data/x_speaks_to_y.csv", index=False)
 
-    data, data_with_sentiment = x_mentions_y()
+    data = x_mentions_y()
+    data_with_sentiment = x_mentions_y_with_sentiment()
     data = cleanup_edges(data)
     data_with_sentiment = cleanup_edges(data_with_sentiment)
     weighted = weigh_rows(data)
     # weighted.to_csv("./data/x_mentions_y.csv", index=False)
     # data_with_sentiment.to_csv("./data/x_mentions_y_with_sentiment.csv", index=False)
     # uncomment this if my code with ./data does not work
-    weighted.to_csv("model/data/x_mentions_y.csv", index=False)
-    data_with_sentiment.to_csv("model/data/x_mentions_y_with_sentiment_and_line.csv", index=False)
+    weighted.to_csv("./data/x_mentions_y.csv", index=False)
+    data_with_sentiment.to_csv("./data/x_mentions_y_with_sentiment_and_line.csv", index=False)
 
     return
 
