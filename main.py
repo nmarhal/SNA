@@ -1,4 +1,4 @@
-from algorithms.character_analysis import analyze_each_episode, analyze_each_book, analyze_full_script
+from algorithms.character_analysis import *
 from algorithms.graph_algorithms import *
 from algorithms.network_statistics import NetworkStatisticsAnalyzer
 from model.read_data import *
@@ -119,10 +119,14 @@ def partition_graph():
 def main():
     # compute_network_statistics()
     # partition_graph()
-    analyze_full_script()
-    analyze_each_book()
-    analyze_each_episode()
+    # analyze_full_script()
+    # analyze_each_book()
+    # analyze_each_episode()
     # visualize_graphs()
+    analyze_character_ego_network_per_book("zuko")
+    visualize_character_ego_networks_per_book("zuko", min_weight=5, save=True)
+    #visualize_character_ego_networks_per_book("katara", min_weight=2)
+
     return
 
 
