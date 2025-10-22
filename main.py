@@ -117,9 +117,19 @@ def partition_graph():
     visualize_partition(graph, labels=g_labels, min_comm_size=4, show_labels=True)
 
 def analyze_ego_networks():
-    egos = ["aang", "zuko", "katara", "sokka", "toph", "appa", "momo"]
+    egos = [
+        "aang"
+        # "zuko",
+        # "katara",
+        # "sokka",
+        # "toph",
+        # "jet",
+        # "zhao"
+        # "appa",
+        # "momo"
+    ]
     for ego in egos:
-        min_weight = 5
+        min_weight = 10
         analyze_character_ego_network_per_book(ego)
         visualize_character_ego_networks_per_book(ego, min_weight=min_weight, save=True)
 
