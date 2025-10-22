@@ -209,6 +209,8 @@ def visualize_ego_network(ego_graph: nx.DiGraph, ego_character: str, book_name: 
             node_colors.append('#3498DB')
             # Size proportional to interaction strength with ego
             interaction = interaction_weights.get(node, 0)
+            if max_interaction == 0:
+                max_interaction = 1
             size = 500 + (interaction / max_interaction) * 2000
             node_sizes.append(size)
 
