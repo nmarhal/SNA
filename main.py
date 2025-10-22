@@ -1,4 +1,4 @@
-from algorithms.character_analysis import *
+from algorithms.egocentric_networks import *
 from algorithms.graph_algorithms import *
 from algorithms.network_statistics import NetworkStatisticsAnalyzer
 from model.read_data import *
@@ -116,6 +116,13 @@ def partition_graph():
     graph = build_undirected_weighted(data)
     visualize_partition(graph, labels=g_labels, min_comm_size=4, show_labels=True)
 
+def analyze_ego_networks():
+    egos = ["aang", "zuko", "katara", "sokka", "toph", "appa", "momo"]
+    for ego in egos:
+        min_weight = 5
+        analyze_character_ego_network_per_book(ego)
+        visualize_character_ego_networks_per_book(ego, min_weight=min_weight, save=True)
+
 def main():
     # compute_network_statistics()
     # partition_graph()
@@ -123,12 +130,10 @@ def main():
     # analyze_each_book()
     # analyze_each_episode()
     # visualize_graphs()
-    analyze_character_ego_network_per_book("zuko")
-    visualize_character_ego_networks_per_book("zuko", min_weight=5, save=True)
+    analyze_ego_networks()
     #visualize_character_ego_networks_per_book("katara", min_weight=2)
 
     return
-
 
 if __name__ == "__main__":
     main()
