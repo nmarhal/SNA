@@ -140,12 +140,15 @@ def main():
     # analyze_full_script()
     # analyze_each_book()
     # analyze_each_episode()
-    visualize_graphs()
+    # visualize_graphs()
     # analyze_ego_networks()
     # analyze_clustering_full_script()
     # analyze_clustering_per_book()
     # analyze_clustering_per_episode()
-    #visualize_character_ego_networks_per_book("katara", min_weight=2)
+    # visualize_character_ego_networks_per_book("katara", min_weight=2)
+    analyze_full_script_centralities()
+    analyze_each_book_centralities()
+    analyze_each_episode_centralities()
 
     return
 

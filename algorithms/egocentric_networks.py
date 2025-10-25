@@ -306,8 +306,9 @@ def visualize_character_ego_networks_per_book(character_name: str, min_weight: i
         save_path = None
         if save:
             import os
-            os.makedirs("visualizations", exist_ok=True)
-            save_path = f"visualizations/{character_lower}_ego_book_{book_number}.png"
+            saving_path = "visualizations/images/ego"
+            os.makedirs(saving_path, exist_ok=True)
+            save_path = f"{saving_path}/{character_lower}_ego_book_{book_number}.png"
 
         # Visualize
         visualize_ego_network(ego_graph, character_lower, book_name,
