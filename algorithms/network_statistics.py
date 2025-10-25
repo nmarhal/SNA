@@ -70,6 +70,12 @@ class NetworkStatisticsAnalyzer:
     def get_clustering_coefficient(self):
         return nx.clustering(self.graph)
 
+    def get_average_clustering(self):
+        return nx.average_clustering(self.graph)
+
+    def get_transitivity(self):
+        return nx.transitivity(self.graph)
+
     def get_diameters_of_strongly_connected_components(self):
         strongly_connected_components = nx.strongly_connected_components(self.graph)
         component_to_diameter = {}

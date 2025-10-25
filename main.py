@@ -1,3 +1,4 @@
+from algorithms.character_analysis import *
 from algorithms.egocentric_networks import *
 from algorithms.graph_algorithms import *
 from algorithms.network_statistics import NetworkStatisticsAnalyzer
@@ -82,8 +83,8 @@ def visualize_graphs():
                           show_labels=show_labels,
                           label_top_k=label_top_k,
                           directed=directed)
-    analyze_hits(data, "x_mentions_y")
-    analyze_pagerank(data, " x_mentions_y")
+    # analyze_hits(data, "x_mentions_y")
+    # analyze_pagerank(data, " x_mentions_y")
 
 def run_cliques_homophily_bridges_analysis():
     data = get_x_mentions_y()
@@ -139,8 +140,11 @@ def main():
     # analyze_full_script()
     # analyze_each_book()
     # analyze_each_episode()
-    # visualize_graphs()
-    analyze_ego_networks()
+    visualize_graphs()
+    # analyze_ego_networks()
+    # analyze_clustering_full_script()
+    # analyze_clustering_per_book()
+    # analyze_clustering_per_episode()
     #visualize_character_ego_networks_per_book("katara", min_weight=2)
 
     return
