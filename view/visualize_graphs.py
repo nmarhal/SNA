@@ -304,11 +304,17 @@ def visualize_partition(
     seed: int = 42,
     inter_scale: float = 5.0,
     intra_scale: float = 1.0,
+    show_self_loops: bool = False,    # NEW: draw self-edges (u==v)?
 ):
     """
     Plot a community-aware layout:
       - communities placed via spring layout on the community meta-graph,
       - nodes placed via local spring within each community “blob”.
+
+    Parameters
+    ----------
+    show_self_loops : bool
+        If False, self-edges (u==v) are not drawn.
     """
     # filter to communities meeting size threshold
     counts = Counter(c for n, c in labels.items() if c is not None)
@@ -334,16 +340,21 @@ def visualize_partition(
         for cid in sorted(keep, key=lambda c: (-counts[c], str(c)))
     ]
 
+    # choose edges (optionally drop self-loops)
+    edges_to_draw = list(H.edges())
+    if not show_self_loops:
+        edges_to_draw = [(u, v) for (u, v) in edges_to_draw if u != v]
+
     # draw
     fig, ax = plt.subplots(figsize=(9, 7))
     directed = isinstance(H, nx.DiGraph)
     if directed:
         nx.draw_networkx_edges(
-            H, pos, ax=ax, width=edge_width, alpha=0.6,
+            H, pos, ax=ax, edgelist=edges_to_draw, width=edge_width, alpha=0.6,
             arrows=True, arrowstyle="-|>", arrowsize=10, connectionstyle="arc3,rad=0.04"
         )
     else:
-        nx.draw_networkx_edges(H, pos, ax=ax, width=edge_width, alpha=0.6)
+        nx.draw_networkx_edges(H, pos, ax=ax, edgelist=edges_to_draw, width=edge_width, alpha=0.6)
 
     nx.draw_networkx_nodes(H, pos, ax=ax, node_color=node_colors, node_size=node_size)
     ax.axis("off")
@@ -357,6 +368,5 @@ def visualize_partition(
               fontsize=9, bbox_to_anchor=(0.5, -0.06))
 
     plt.tight_layout()
-    plt.show()
     return fig, ax
 

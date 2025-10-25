@@ -6,3 +6,4 @@ vaderSentiment
 python-louvain
 igraph
 leidenalg
+scikit-learn

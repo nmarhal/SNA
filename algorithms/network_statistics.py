@@ -3,8 +3,22 @@ from collections import Counter
 import networkx as nx
 import pandas as pd
 
-from algorithms.graph_algorithms import build_graph
 from model.entities.centrality_scores import CentralityScores
+
+def build_graph(data: pd.DataFrame, use_weights: bool = False) -> nx.DiGraph:
+    """
+    Build a graph from a DataFrame with columns ["x", "y"] or ["x", "y", "weight"].
+    If use_weights=True, weights are added to edges.
+    """
+    G = nx.DiGraph()
+
+    if use_weights and "weight" in data.columns:
+        for _, row in data.iterrows():
+            G.add_edge(row["x"], row["y"], weight=row["weight"])
+    else:
+        edges = list(zip(data["x"], data["y"]))
+        G.add_edges_from(edges)
+    return G
 
 class NetworkStatisticsAnalyzer:
     def __init__(self, data: pd.DataFrame):

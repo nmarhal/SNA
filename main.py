@@ -5,6 +5,8 @@ from algorithms.network_statistics import NetworkStatisticsAnalyzer
 from model.read_data import *
 from view.visualize_graphs import *
 from view.visualize_sentiment import *
+from view.partition_histograms import *
+from matplotlib.pyplot import savefig
 
 def compute_network_statistics():
     data = get_x_mentions_y()
@@ -113,9 +115,18 @@ def visualize_sentiment():
 
 def partition_graph():
     data = get_x_mentions_y()
-    g_communities, g_labels, l_communities, l_labels, le_communities, le_labels = analyse_partitioning(data)
+    communities, labels, ari_nmi_results, coefficients_largest_communities = analyse_partitioning(data)
+    print("Adjusted Rand Index and Normalized Mutual Information between partitioning algorithms")
+    print(ari_nmi_results)
+    print("clustering coefficients of largest community per partition algorithm")
+    print(coefficients_largest_communities)
     graph = build_undirected_weighted(data)
-    visualize_partition(graph, labels=g_labels, min_comm_size=4, show_labels=True)
+    for alg_name, label in labels.items():
+        fig, _ = visualize_partition(graph, labels=label, min_comm_size=4, show_labels=True)
+        fig.savefig(f"results/partitioning/graph_{alg_name}_tuned.png")
+    for alg_name, community in communities.items():
+        fig, ax = plot_community_size_hist(community)
+        fig.savefig(f"results/partitioning/{alg_name}_tuned")
 
 def analyze_ego_networks():
     egos = [
@@ -136,7 +147,7 @@ def analyze_ego_networks():
 
 def main():
     # compute_network_statistics()
-    # partition_graph()
+    partition_graph()
     # analyze_full_script()
     # analyze_each_book()
     # analyze_each_episode()
@@ -146,9 +157,9 @@ def main():
     # analyze_clustering_per_book()
     # analyze_clustering_per_episode()
     # visualize_character_ego_networks_per_book("katara", min_weight=2)
-    analyze_full_script_centralities()
-    analyze_each_book_centralities()
-    analyze_each_episode_centralities()
+    # analyze_full_script_centralities()
+    # analyze_each_book_centralities()
+    # analyze_each_episode_centralities()
 
     return
 

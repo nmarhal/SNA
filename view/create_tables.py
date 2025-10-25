@@ -19,7 +19,6 @@ def save_clustering_coefficient_to_csv(
 
     filename = _fix_heading_characters(heading)
     filepath = os.path.join(clustering_tables_dir, filename)
-
     with open(filepath, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(['name', 'coefficient'])

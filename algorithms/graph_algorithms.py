@@ -1,6 +1,9 @@
 import random
 import pandas as pd
 import networkx as nx
+from itertools import combinations
+import numpy as np
+from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score
 from networkx.algorithms import clique, assortativity
 from networkx.algorithms.community import girvan_newman
 from networkx.algorithms.community.quality import modularity
@@ -9,25 +12,10 @@ import igraph as ig
 import leidenalg as la
 import os
 
+from algorithms.network_statistics import NetworkStatisticsAnalyzer, build_graph
 
 # Base path to the data folder (relative to algorithms/)
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "model", "data")
-
-
-def build_graph(data: pd.DataFrame, use_weights: bool = False) -> nx.DiGraph:
-    """
-    Build a graph from a DataFrame with columns ["x", "y"] or ["x", "y", "weight"].
-    If use_weights=True, weights are added to edges.
-    """
-    G = nx.DiGraph()
-
-    if use_weights and "weight" in data.columns:
-        for _, row in data.iterrows():
-            G.add_edge(row["x"], row["y"], weight=row["weight"])
-    else:
-        edges = list(zip(data["x"], data["y"]))
-        G.add_edges_from(edges)
-    return G
 
 def build_graph_with_attributes(data: pd.DataFrame, character_data: pd.DataFrame) -> nx.DiGraph:
     directed_graph = nx.DiGraph()
@@ -162,7 +150,15 @@ def run_bridges(graph: nx.DiGraph, graph_und: nx.Graph):
     weak_bridges = list(nx.bridges(graph_und))
     return weak_articulation, strong_articulation, weak_bridges
 
-def run_partition_girvan(graph: nx.Graph, k: int | None = None):
+
+def _mv_edge_weighted(weight_attr):
+    """Return a most_valuable_edge function that uses weighted edge betweenness."""
+    def _inner(G):
+        eb = nx.edge_betweenness_centrality(G, weight=weight_attr)
+        return max(eb, key=eb.get)
+    return _inner
+
+def run_partition_girvan(graph: nx.Graph, k: int | None = None, target_n: int | None = None):
     """
         Girvan–Newman partition algorithm.
         DG : nx.DiGraph
@@ -176,6 +172,7 @@ def run_partition_girvan(graph: nx.Graph, k: int | None = None):
         labels : dict
             Mapping node -> community_id
         """
+    #comp_gen = girvan_newman(graph, most_valuable_edge=_mv_edge_weighted("weight"))
     comp_gen = girvan_newman(graph)
     best = None
     best_Q = float("-inf")
@@ -190,6 +187,19 @@ def run_partition_girvan(graph: nx.Graph, k: int | None = None):
         communities = [set(c) for c in part]
         labels = {n: idx for idx, c in enumerate(communities) for n in c}
         return communities, labels
+
+    # 2) stop when hitting target_n communities
+    if target_n is not None:
+        for part in comp_gen:
+            communities = [set(c) for c in part]
+            if len(communities) >= target_n:
+                labels = {n: idx for idx, c in enumerate(communities) for n in c}
+                return communities, labels
+        # return last if never hit
+        communities = [set(c) for c in part]
+        labels = {n: idx for idx, c in enumerate(communities) for n in c}
+        return communities, labels
+
     else:
         # scan and pick max modularity level
         for part in comp_gen:
@@ -331,6 +341,62 @@ def analyze_bridges(data: pd.DataFrame, reciprocal: bool = True):
 def analyse_partitioning(data: pd.DataFrame):
     graph = build_undirected_weighted(data)
     g_communities, g_labels = run_partition_girvan(graph)
-    l_communities, l_labels = run_partition_louvain(graph)
-    le_communities, le_labels = run_partition_louvain(graph)
-    return g_communities, g_labels, l_communities, l_labels, le_communities, le_labels
+    l_communities, l_labels = run_partition_louvain(graph, resolution=5)
+    le_communities, le_labels = run_partition_leiden(graph, resolution=10)
+    communities = {
+        "girvan": g_communities,
+        "louvain": l_communities,
+        "leiden": le_communities
+    }
+    labels = {
+        "girvan": g_labels,
+        "louvain": l_labels,
+        "leiden": le_labels
+    }
+    nodes = list(graph.nodes())  # keep graph’s native order (or sorted(graph.nodes()))
+
+    def to_array(label_dict):
+        # if any node is missing, raise a clear error
+        missing = [n for n in nodes if n not in label_dict]
+        if missing:
+            raise KeyError(f"Labeling missing {len(missing)} nodes, e.g. {missing[:5]}")
+        return np.asarray([label_dict[n] for n in nodes])
+
+    labels_arr = {name: to_array(ldict) for name, ldict in labels.items()}
+
+    ari_nmi_results = {}
+    for a, b in combinations(labels_arr.keys(), 2):
+        la, lb = labels_arr[a], labels_arr[b]
+        ari = adjusted_rand_score(la, lb)
+        nmi = normalized_mutual_info_score(la, lb)
+        ari_nmi_results[f"{a}__{b}"] = {"ari": ari, "nmi": nmi}
+
+    def subset_edges_by_community(
+            df: pd.DataFrame,
+            l: dict,  # node -> community_id
+            community_id,
+            u_col: str = "x",
+            v_col: str = "y"
+    ) -> pd.DataFrame:
+        """Subset to a single community by `community_id` using your labels mapping."""
+        nods = {n for n, cid in l.items() if cid == community_id}
+        mask = df[u_col].isin(nods) & df[v_col].isin(nods)
+        return df.loc[mask].copy()
+
+
+    largest_cid = max(range(len(g_communities)), key=lambda i: len(g_communities[i]))
+    g_df = subset_edges_by_community(data, g_labels, largest_cid)
+    largest_cid = max(range(len(l_communities)), key=lambda i: len(l_communities[i]))
+    l_df = subset_edges_by_community(data, l_labels, largest_cid)
+    largest_cid = max(range(len(le_communities)), key=lambda i: len(le_communities[i]))
+    le_df = subset_edges_by_community(data, le_labels, largest_cid)
+
+    analyzer = NetworkStatisticsAnalyzer(g_df)
+    g_clust = analyzer.get_clustering_coefficient()
+    analyzer = NetworkStatisticsAnalyzer(l_df)
+    l_clust = analyzer.get_clustering_coefficient()
+    analyzer = NetworkStatisticsAnalyzer(le_df)
+    le_clust = analyzer.get_clustering_coefficient()
+
+    coefficients_largest_communities = {"girman": g_clust, "louvain": l_clust, "leiden": le_clust}
+    return communities, labels, ari_nmi_results, coefficients_largest_communities
