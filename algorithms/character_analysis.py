@@ -46,21 +46,18 @@ def analyze_full_script_centralities():
 
 def analyze_each_book_centralities():
     all_books = get_x_mentions_y_per_book()
-    plotter = CentralityProgressionPlotter(centrality_name="in-degree", section_type="book")
+    in_degree_plotter = CentralityProgressionPlotter(centrality_name="in-degree", section_type="book")
+    eigenvector_plotter = CentralityProgressionPlotter(centrality_name="eigenvector", section_type="book")
+    betweenness_plotter = CentralityProgressionPlotter(centrality_name="betweenness", section_type="book")
     for book_number, book in enumerate(all_books, start=1):
         analyzer = NetworkStatisticsAnalyzer(book)
         centralities = analyzer.get_centrality_scores()
-        heading = _get_heading(section_type="book", section_number=book_number)
-
-        in_degree = _get_top_centrality(centralities.in_degree, take_first=10)
-        eigenvector = _get_top_centrality(centralities.eigenvector, take_first=10)
-        betweenness = _get_top_centrality(centralities.betweenness, take_first=10)
-        plotter.add_data_point(in_degree)
-
-        save_centrality_to_csv(in_degree, "in-degree", heading)
-        save_centrality_to_csv(eigenvector, "eigenvector", heading)
-        save_centrality_to_csv(betweenness, "betweenness", heading)
-    # plotter.draw(character_filter=["zhao", "zuko", "ozai"])
+        in_degree_plotter.add_data_point(centralities.in_degree)
+        eigenvector_plotter.add_data_point(centralities.eigenvector)
+        betweenness_plotter.add_data_point(centralities.betweenness)
+    in_degree_plotter.draw()
+    eigenvector_plotter.draw()
+    betweenness_plotter.draw()
 
 def analyze_each_episode_centralities():
     all_episodes = get_x_mentions_y_per_episode()

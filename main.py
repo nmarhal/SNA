@@ -147,7 +147,7 @@ def analyze_ego_networks():
 
 def main():
     # compute_network_statistics()
-    partition_graph()
+    # partition_graph()
     # analyze_full_script()
     # analyze_each_book()
     # analyze_each_episode()
@@ -158,7 +158,7 @@ def main():
     # analyze_clustering_per_episode()
     # visualize_character_ego_networks_per_book("katara", min_weight=2)
     # analyze_full_script_centralities()
-    # analyze_each_book_centralities()
+    analyze_each_book_centralities()
     # analyze_each_episode_centralities()
 
     return
