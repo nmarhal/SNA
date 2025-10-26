@@ -360,7 +360,7 @@ def visualize_ego_network(ego_graph: nx.DiGraph, ego_character: str, book_name: 
 
     # Draw labels
     labels = nx.draw_networkx_labels(filtered_graph, pos,
-                                     font_size=12,
+                                     font_size=30,
                                      font_weight='bold',
                                      font_color='black',
                                      ax=ax)
@@ -388,14 +388,14 @@ def visualize_ego_network(ego_graph: nx.DiGraph, ego_character: str, book_name: 
             my += dy * offset
 
         ax.text(mx, my, f"{weight}",
-                fontsize=15, fontweight='bold', color='black',
+                fontsize=24, fontweight='bold', color='black',
                 ha='center', va='center',
                 path_effects=[path_effects.withStroke(linewidth=2, foreground='white')])
 
     # Title with degree information
     degree_str = "1-Degree" if degree == 1.0 else "1.5-Degree"
     title = f"{book_name}\n{ego_character.capitalize()}'s {degree_str} Ego Network"
-    ax.set_title(title, fontsize=18, fontweight='bold', pad=20)
+    ax.set_title(title, fontsize=30, fontweight='bold', pad=20)
     ax.axis('off')
     ax.set_xlim(-1.5, 1.5)
     ax.set_ylim(-1.5, 1.5)
