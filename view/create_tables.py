@@ -21,7 +21,7 @@ def save_clustering_coefficient_to_csv(
         writer = csv.writer(csvfile)
         writer.writerow(['name', 'coefficient'])
         for character, coefficient in sorted_data:
-            writer.writerow([character, coefficient])
+            writer.writerow([character, f"{coefficient:.3f}"])
 
 def save_centrality_to_csv(
     centrality_dict: dict,

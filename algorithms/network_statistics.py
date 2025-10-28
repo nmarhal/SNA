@@ -1,4 +1,4 @@
-from collections import Counter
+from collections import Counter, defaultdict
 
 import networkx as nx
 import pandas as pd
@@ -46,6 +46,16 @@ class NetworkStatisticsAnalyzer:
         out_degree_for_each_node = [self.graph.out_degree(node) for node in self.graph.nodes()]
         counts = Counter(out_degree_for_each_node)
         return self._get_degree_distribution(counts)
+
+    def get_weakly_connected_components_size_counts(self) -> dict[int, int]:
+        components = self.get_weakly_connected_components()
+        size_counts = Counter([len(component) for component in components])
+        return dict(size_counts)
+
+    def get_strongly_connected_components_size_counts(self) -> dict[int, int]:
+        components = self.get_strongly_connected_components()
+        size_counts = Counter([len(component) for component in components])
+        return dict(size_counts)
 
     def get_centrality_scores(self) -> CentralityScores:
         try:

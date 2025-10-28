@@ -3,12 +3,14 @@ from algorithms.egocentric_networks import *
 from algorithms.graph_algorithms import *
 from algorithms.network_statistics import NetworkStatisticsAnalyzer
 from model.read_data import *
+from view.degree_distribution import plot_degree_distribution
 from view.visualize_graphs import *
 from view.visualize_sentiment import *
 from view.partition_histograms import *
-from matplotlib.pyplot import savefig
+import os
 
 def compute_network_statistics():
+    os.makedirs("results/degree", exist_ok=True)
     data = get_x_mentions_y()
     analyzer = NetworkStatisticsAnalyzer(data)
     edges = analyzer.get_number_of_edges()
@@ -18,15 +20,16 @@ def compute_network_statistics():
     weakly_connected_components_count = analyzer.get_weakly_connected_components_count()
     strongly_connected_components_count = analyzer.get_strongly_connected_components_count()
 
-    # todo bar chart - key=number of in-degrees, value=proportion of vertices with this degree
     in_degree_distribution = analyzer.get_in_degree_distribution()
-    # todo bar chart - key=number of out-degrees, value=proportion of vertices with this degree
     out_degree_distribution = analyzer.get_out_degree_distribution()
-    centrality_scores = analyzer.get_centrality_scores()
-    # todo write for each node in the graph (key=character, value=coefficient)
-    clustering_coefficient = analyzer.get_clustering_coefficient()
-    weakly_connected_components = analyzer.get_weakly_connected_components()
-    strongly_connected_components = analyzer.get_strongly_connected_components()
+    weakly_connected_components_size_counts = analyzer.get_weakly_connected_components_size_counts()
+    strongly_connected_components_size_counts = analyzer.get_strongly_connected_components_size_counts()
+    
+    in_degree, _ = plot_degree_distribution(in_degree_distribution, title="In-Degree Distribution", xlabel="In-Degree")
+    out_degree, _ = plot_degree_distribution(out_degree_distribution, title="Out-Degree Distribution", xlabel="Out-Degree")
+    in_degree.savefig("results/degree/in_degree_distribution.png")
+    out_degree.savefig("results/degree/out_degree_distribution.png")
+    
     print(
         f"""
         === Network Statistics ===
@@ -36,6 +39,8 @@ def compute_network_statistics():
         density: {density}
         number of weakly-connected components: {weakly_connected_components_count}
         number of strongly-connected components: {strongly_connected_components_count}
+        weakly connected components size distribution: {dict(sorted(weakly_connected_components_size_counts.items()))}
+        strongly connected components size distribution: {dict(sorted(strongly_connected_components_size_counts.items()))}
         """
     )
 
@@ -49,36 +54,9 @@ def visualize_graphs():
     label_top_k = 20
     directed = True
 
-    # Visualize and perform analysis on mentions data
     data = get_x_mentions_y()
-    analyzer = NetworkStatisticsAnalyzer(data)
-    betweenness_centrality_label_data = LabelData(
-        label_name="Betweenness Centrality",
-        character_name_to_metric=analyzer.get_centrality_scores().betweenness
-    )
-    in_degree_centrality_label_data = LabelData(
-        label_name="In-Degree Centrality",
-        character_name_to_metric=analyzer.get_centrality_scores().in_degree
-    )
-    out_degree_centrality_label_data = LabelData(
-        label_name="Out-Degree Centrality",
-        character_name_to_metric=analyzer.get_centrality_scores().out_degree
-    )
-    eigenvector_centrality_label_data = LabelData(
-        label_name="Eigenvector Centrality",
-        character_name_to_metric=analyzer.get_centrality_scores().eigenvector
-    )
-    closeness_centrality_label_data = LabelData(
-        label_name="Closeness Centrality",
-        character_name_to_metric=analyzer.get_centrality_scores().closeness
-    )
-    clustering_coefficient_label_data = LabelData(
-        label_name="Clustering Coefficient",
-        character_name_to_metric=analyzer.get_clustering_coefficient()
-    )
     visualize_all_layouts(data,
                           characters,
-                          # label_data=clustering_coefficient_label_data,
                           color_by=color_by,
                           min_weight=min_weight,
                           min_degree=min_degree,
@@ -146,20 +124,20 @@ def analyze_ego_networks():
         visualize_character_ego_networks_per_book(ego, min_weight=min_weight, save=True)
 
 def main():
-    # compute_network_statistics()
+    compute_network_statistics()
     # partition_graph()
     # analyze_full_script()
     # analyze_each_book()
     # analyze_each_episode()
     # visualize_graphs()
     # analyze_ego_networks()
-    # analyze_clustering_full_script()
-    # analyze_clustering_per_book()
-    # analyze_clustering_per_episode()
+    analyze_clustering_full_script()
+    analyze_clustering_per_book()
+    analyze_clustering_per_episode()
     # visualize_character_ego_networks_per_book("katara", min_weight=2)
-    # analyze_full_script_centralities()
+    analyze_full_script_centralities()
     analyze_each_book_centralities()
-    # analyze_each_episode_centralities()
+    analyze_each_episode_centralities()
 
     return
 
