@@ -1,5 +1,6 @@
 from algorithms.network_statistics import NetworkStatisticsAnalyzer
 from model.book_names import BOOK_NAMES
+from model.entities.centrality_scores import CentralityScores
 from model.episode_names import EPISODE_NAMES
 from model.read_data import *
 
@@ -30,6 +31,16 @@ def _get_top_centrality(centrality_dict: dict, take_first: int = None):
         return dict(sorted_items[:take_first])
     return centrality_dict
 
+def _save_centralities_to_csv_for_section(centralities: CentralityScores, section_type: str, section_number: int):
+    heading = _get_heading(section_type=section_type, section_number=section_number)
+    in_degree = _get_top_centrality(centralities.in_degree, take_first=10)
+    eigenvector = _get_top_centrality(centralities.eigenvector, take_first=10)
+    betweenness = _get_top_centrality(centralities.betweenness, take_first=10)
+
+    save_centrality_to_csv(in_degree, "in-degree", heading)
+    save_centrality_to_csv(eigenvector, "eigenvector", heading)
+    save_centrality_to_csv(betweenness, "betweenness", heading)
+
 def analyze_full_script_centralities():
     full_script_data = get_x_mentions_y()
     analyzer = NetworkStatisticsAnalyzer(full_script_data)
@@ -52,6 +63,9 @@ def analyze_each_book_centralities():
     for book_number, book in enumerate(all_books, start=1):
         analyzer = NetworkStatisticsAnalyzer(book)
         centralities = analyzer.get_centrality_scores()
+
+        _save_centralities_to_csv_for_section(centralities, section_type="book", section_number=book_number)
+
         in_degree_plotter.add_data_point(centralities.in_degree)
         eigenvector_plotter.add_data_point(centralities.eigenvector)
         betweenness_plotter.add_data_point(centralities.betweenness)
@@ -67,12 +81,13 @@ def analyze_each_episode_centralities():
     for episode_number, episode in enumerate(all_episodes, start=1):
         analyzer = NetworkStatisticsAnalyzer(episode)
         centralities = analyzer.get_centrality_scores()
+
+        _save_centralities_to_csv_for_section(centralities, section_type="episode", section_number=episode_number)
+
         in_degree_plotter.add_data_point(centralities.in_degree)
         eigenvector_plotter.add_data_point(centralities.eigenvector)
         betweenness_plotter.add_data_point(centralities.betweenness)
-    # characters = ["zuko", "zhao", "ozai", "aang"]
     characters = ["zuko", "aang"]
-    characters = ["azula"]
     in_degree_plotter.draw(key_filter=characters, trend_lines=characters)
     eigenvector_plotter.draw(key_filter=characters, trend_lines=characters)
     betweenness_plotter.draw(key_filter=characters, trend_lines=characters)
