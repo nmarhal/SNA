@@ -63,8 +63,8 @@ def visualize_graphs():
                           show_labels=show_labels,
                           label_top_k=label_top_k,
                           directed=directed)
-    # analyze_hits(data, "x_mentions_y")
-    # analyze_pagerank(data, " x_mentions_y")
+    analyze_hits(data, "x_mentions_y")
+    analyze_pagerank(data, " x_mentions_y")
 
 def run_cliques_homophily_bridges_analysis():
     data = get_x_mentions_y()
@@ -109,32 +109,25 @@ def partition_graph():
 def analyze_ego_networks():
     egos = [
         "aang"
-        # "zuko",
-        # "katara",
-        # "sokka",
-        # "toph",
-        # "jet",
-        # "zhao"
-        # "appa",
-        # "momo"
+        "zuko",
+        "katara",
+        "sokka",
     ]
     for ego in egos:
         min_weight = 10
-        analyze_character_ego_network_per_book(ego)
-        visualize_character_ego_networks_per_book(ego, min_weight=min_weight, save=True)
+        analyze_character_ego_network_per_book(ego, degree=1.0)
+        analyze_character_ego_network_per_book(ego, degree=1.5)
+        visualize_character_ego_networks_per_book(ego, min_weight=min_weight, degree=1.0, save=True)
+        visualize_character_ego_networks_per_book(ego, min_weight=min_weight, degree=1.5, save=True)
 
 def main():
     compute_network_statistics()
-    # partition_graph()
-    # analyze_full_script()
-    # analyze_each_book()
-    # analyze_each_episode()
+    partition_graph()
     # visualize_graphs()
-    # analyze_ego_networks()
+    analyze_ego_networks()
     analyze_clustering_full_script()
     analyze_clustering_per_book()
     analyze_clustering_per_episode()
-    # visualize_character_ego_networks_per_book("katara", min_weight=2)
     analyze_full_script_centralities()
     analyze_each_book_centralities()
     analyze_each_episode_centralities()

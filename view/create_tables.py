@@ -1,7 +1,7 @@
 import csv
 import os
 
-tables_dir = "visualizations/tables"
+tables_dir = "results/tables"
 
 def _fix_heading_characters(heading):
     return heading.replace(":", "").replace(" ", "_").replace("/", "_") + ".csv"
