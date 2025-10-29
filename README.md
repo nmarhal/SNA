@@ -1,22 +1,26 @@
-# Edge ideas
-### directed
-- x speaks before y
-  - when x has a line before y, breaks when character is null (description text)
-  - gives a rough model of x speaks to y, but this is not perfect
-- x mentions y
-  - when x mentions y in their line
-### undirected
-- x and y have lines in the same episode
-- x and y have lines in the same book
+# Avatar: The Last Airbender - Social Network Analysis
 
-# Cleanup
-made a list of characters based on the character names in the first column of the script and based on list of aliases I 
-found online and from chatGPT. I removed any character that does not have 
-a page on https://avatar.fandom.com. then used this website to fill in 
-the gender, their bending type and their origin. I then used these "approved" characters
-to clean up my other datasets. The functions used to compute x mentions y and x speaks to y can be seen in
-create_datasets.py. 
+## Installation
 
-# visualization
-I made visualize_graphs.py to get some first visuals on this data. You can see
-how to use the function in main.py
+Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+Run the analysis:
+```bash
+python main.py
+```
+
+## Output
+
+Figures and tables are saved in the `results/` directory:
+- Centralities
+- Clustering
+- In/Out-degree distribution
+- Ego networks
+- Network partitioning
+
+Some additional output such as the number of edges, vertices, components etc. is shown in the console.
