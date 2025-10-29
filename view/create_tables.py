@@ -1,7 +1,7 @@
 import csv
 import os
 
-tables_dir = "results/tables"
+results_dir = "results"
 
 def _fix_heading_characters(heading):
     return heading.replace(":", "").replace(" ", "_").replace("/", "_") + ".csv"
@@ -10,7 +10,7 @@ def save_clustering_coefficient_to_csv(
     clustering_coefficient: dict,
     heading: str
 ):
-    clustering_tables_dir = os.path.join(tables_dir, "clustering")
+    clustering_tables_dir = os.path.join(results_dir, "clustering/tables")
     os.makedirs(clustering_tables_dir, exist_ok=True)
 
     sorted_data = sorted(clustering_coefficient.items(), key=lambda x: x[1], reverse=True)
@@ -28,7 +28,7 @@ def save_centrality_to_csv(
     centrality_name: str,
     heading: str
 ):
-    centrality_dir = os.path.join(f"{tables_dir}/centralities", centrality_name)
+    centrality_dir = os.path.join(f"{results_dir}/centralities/tables", centrality_name)
     os.makedirs(centrality_dir, exist_ok=True)
     
     sorted_data = sorted(centrality_dict.items(), key=lambda x: x[1], reverse=True)

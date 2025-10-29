@@ -110,6 +110,7 @@ def analyze_clustering_per_book():
         analyzer = NetworkStatisticsAnalyzer(book)
         heading = _get_heading(section_type="book", section_number=book_number)
         clustering_coefficient = analyzer.get_clustering_coefficient()
+        save_clustering_coefficient_to_csv(clustering_coefficient, heading)
         average_clustering = analyzer.get_average_clustering()
         transitivity = analyzer.get_transitivity()
         clustering_plotter.add_data_point_with_kwargs(average_clustering=average_clustering, transitivity=transitivity)
@@ -124,12 +125,40 @@ def analyze_clustering_per_episode():
         analyzer = NetworkStatisticsAnalyzer(episode)
         heading = _get_heading(section_type="episode", section_number=episode_number)
         average_clustering = analyzer.get_average_clustering()
+        clustering_coefficient = analyzer.get_clustering_coefficient()
+        save_clustering_coefficient_to_csv(clustering_coefficient, heading)
         transitivity = analyzer.get_transitivity()
         clustering_plotter.add_data_point_with_kwargs(average_clustering=average_clustering, transitivity=transitivity)
         episode_to_average_clustering[episode_number] = average_clustering
         episode_to_transitivity[episode_number] = transitivity
     clustering_plotter.draw(trend_lines=["average_clustering", "transitivity"])
-    sorted_episodes = sorted(episode_to_average_clustering.items(), key=lambda x: x[1], reverse=True)
-    print("sorted episodes by average clustering: ", sorted_episodes)
-    sorted_episodes = sorted(episode_to_transitivity.items(), key=lambda x: x[1], reverse=True)
-    print("sorted episodes by transitivity: ", sorted_episodes)
+    
+    max_avg_clustering = max(episode_to_average_clustering.values())
+    min_avg_clustering = min(episode_to_average_clustering.values())
+    max_transitivity = max(episode_to_transitivity.values())
+    min_transitivity = min(episode_to_transitivity.values())
+    
+    highest_avg_clustering_episodes = [(ep, val) for ep, val in episode_to_average_clustering.items() if val == max_avg_clustering]
+    lowest_avg_clustering_episodes = [(ep, val) for ep, val in episode_to_average_clustering.items() if val == min_avg_clustering]
+    highest_transitivity_episodes = [(ep, val) for ep, val in episode_to_transitivity.items() if val == max_transitivity]
+    lowest_transitivity_episodes = [(ep, val) for ep, val in episode_to_transitivity.items() if val == min_transitivity]
+    
+    print("\nHighest Average Clustering:")
+    for episode_number, value in highest_avg_clustering_episodes:
+        episode_name = EPISODE_NAMES[episode_number]
+        print(f"  Episode {episode_number}: {episode_name} - {value:.3f}")
+    
+    print("\nLowest Average Clustering:")
+    for episode_number, value in lowest_avg_clustering_episodes:
+        episode_name = EPISODE_NAMES[episode_number]
+        print(f"  Episode {episode_number}: {episode_name} - {value:.3f}")
+    
+    print("\nHighest Transitivity:")
+    for episode_number, value in highest_transitivity_episodes:
+        episode_name = EPISODE_NAMES[episode_number]
+        print(f"  Episode {episode_number}: {episode_name} - {value:.3f}")
+    
+    print("\nLowest Transitivity:")
+    for episode_number, value in lowest_transitivity_episodes:
+        episode_name = EPISODE_NAMES[episode_number]
+        print(f"  Episode {episode_number}: {episode_name} - {value:.3f}")

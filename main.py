@@ -99,6 +99,7 @@ def partition_graph():
     print("clustering coefficients of largest community per partition algorithm")
     print(coefficients_largest_communities)
     graph = build_undirected_weighted(data)
+    os.makedirs("results/partitioning", exist_ok=True)
     for alg_name, label in labels.items():
         fig, _ = visualize_partition(graph, labels=label, min_comm_size=4, show_labels=True)
         fig.savefig(f"results/partitioning/graph_{alg_name}_tuned.png")
