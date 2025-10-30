@@ -107,9 +107,10 @@ def partition_graph():
         fig, ax = plot_community_size_hist(community)
         fig.savefig(f"results/partitioning/{alg_name}_tuned")
 
+
 def analyze_ego_networks():
     egos = [
-        "aang"
+        "aang",
         "zuko",
         "katara",
         "sokka",
@@ -121,10 +122,81 @@ def analyze_ego_networks():
         visualize_character_ego_networks_per_book(ego, min_weight=min_weight, degree=1.0, save=True)
         visualize_character_ego_networks_per_book(ego, min_weight=min_weight, degree=1.5, save=True)
 
+
+def analyze_hits_per_book():
+    """Run HITS analysis per book and save results."""
+    results_dir = "results/hits"
+    os.makedirs(results_dir, exist_ok=True)
+
+    # Analyze full dataset
+    data_all = get_x_mentions_y()
+    G = build_graph(data_all)
+    hubs, authorities = run_hits(G)
+
+    df = pd.DataFrame({
+        "character": list(hubs.keys()),
+        "hub_score": list(hubs.values()),
+        "authority_score": [authorities[n] for n in hubs.keys()]
+    })
+    df.sort_values(by="authority_score", ascending=False, inplace=True)
+    df.to_csv(os.path.join(results_dir, "hits_all_books.csv"), index=False)
+
+    # Analyze per book
+    data_per_book = get_x_mentions_y_per_book()
+    for book_num, data_book in enumerate(data_per_book, start=1):
+        G = build_graph(data_book)
+        hubs, authorities = run_hits(G)
+
+        df = pd.DataFrame({
+            "character": list(hubs.keys()),
+            "hub_score": list(hubs.values()),
+            "authority_score": [authorities[n] for n in hubs.keys()]
+        })
+        df.sort_values(by="authority_score", ascending=False, inplace=True)
+        df.to_csv(os.path.join(results_dir, f"hits_book_{book_num}.csv"), index=False)
+
+    print("HITS analysis completed for all books")
+
+
+def analyze_pagerank_per_book():
+    """Run PageRank analysis per book and save results."""
+    results_dir = "results/pagerank"
+    os.makedirs(results_dir, exist_ok=True)
+
+    # Analyze full dataset
+    data_all = get_x_mentions_y()
+    G = build_graph(data_all)
+    pr_scores = run_pagerank(G)
+
+    df = pd.DataFrame({
+        "character": list(pr_scores.keys()),
+        "pagerank_score": list(pr_scores.values())
+    })
+    df.sort_values(by="pagerank_score", ascending=False, inplace=True)
+    df.to_csv(os.path.join(results_dir, "pagerank_all_books.csv"), index=False)
+
+    # Analyze per book
+    data_per_book = get_x_mentions_y_per_book()
+    for book_num, data_book in enumerate(data_per_book, start=1):
+        G = build_graph(data_book)
+        pr_scores = run_pagerank(G)
+
+        df = pd.DataFrame({
+            "character": list(pr_scores.keys()),
+            "pagerank_score": list(pr_scores.values())
+        })
+        df.sort_values(by="pagerank_score", ascending=False, inplace=True)
+        df.to_csv(os.path.join(results_dir, f"pagerank_book_{book_num}.csv"), index=False)
+
+    print("PageRank analysis completed for all books")
+
+
 def main():
     compute_network_statistics()
     partition_graph()
     # visualize_graphs()
+    analyze_hits_per_book()
+    analyze_pagerank_per_book()
     analyze_ego_networks()
     analyze_clustering_full_script()
     analyze_clustering_per_book()
