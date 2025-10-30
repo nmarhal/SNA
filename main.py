@@ -71,19 +71,32 @@ def run_cliques_homophily_bridges_analysis():
     character_data = get_characters()
     # cliques:
     n_biggest, all_cliques = analyze_cliques(data, "x_mentions_y")
+    print("""
+    ======================================================================
+    Homophily, Cliques and Bridges
+    ======================================================================
+    """)
+    print("Size of biggest cliques:")
     print(n_biggest)
+    print("Biggest cliques:")
     for x in all_cliques:
         if len(x) == n_biggest:
             print(x)
     # homophily:
     results_gender, results_bending, results_origin = analyze_homophily(data, character_data, "x_mentions_y")
+    print("Homophily Gender:")
     print(results_gender)
+    print("Homophily bending:")
     print(results_bending)
+    print("Homophily Origin:")
     print(results_origin)
     # bridges:
     weak_articulation, strong_articulation, weak_bridges = analyze_bridges(data, reciprocal=True)
+    print("Weak articulation points:")
     print(sorted(weak_articulation))
+    print("Strong articulation points:")
     print(sorted(strong_articulation))
+    print("Weak briges:")
     print(weak_bridges)
 
 def visualize_sentiment():
@@ -194,6 +207,7 @@ def analyze_pagerank_per_book():
 def main():
     compute_network_statistics()
     partition_graph()
+    run_cliques_homophily_bridges_analysis()
     # visualize_graphs()
     analyze_hits_per_book()
     analyze_pagerank_per_book()
